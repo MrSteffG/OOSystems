@@ -34,8 +34,10 @@ public void logon(String userName, String pass) throws FileNotFoundException{
 		
 
 	 
-	 public void GetVehicle() {
+	 public void GetVehicle(String regNo, String model, String make, int weight, String jobState) throws FileNotFoundException {
+		 Scanner sc = new Scanner(new FileReader("M:\\data\\vehicles"));
 		 
+		 sc.close();
 	 }
 	 
 	 public void GetDriver() {
