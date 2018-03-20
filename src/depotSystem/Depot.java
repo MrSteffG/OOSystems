@@ -1,5 +1,6 @@
 package depotSystem;
 
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.LinkedList;
@@ -27,15 +28,23 @@ public void logon(String userName, String pass) throws FileNotFoundException{
 		list.add(next);
 		if(next.equals(userName)){break;}
 		
-		boolean passOkay=(Driver.checkPassword(pass));
-		
-	
-		
-}
+		boolean passOkay=(Driver.checkPassword(pass));}
+	sc.close();
 	}
-}
-		
-			
 		
 
+	 
+	 public void GetVehicle() {
+		 
+	 }
+	 
+	 public void GetDriver() {
+		 
+	 }
+		
+	 public void SetupWorkSchedule() {
+		 
+	 }
+	
+}
 
