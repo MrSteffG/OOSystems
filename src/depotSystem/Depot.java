@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class Depot {
-	private String ID;
+	private int ID;
 	private String name;
 	
 	@SuppressWarnings("rawtypes")
@@ -17,7 +17,7 @@ public class Depot {
 	
 	
 	
-	public Depot(String ID, String name){
+	public Depot(int ID, String name){
 		this.ID= ID;
 		this.name= name;
 	}
