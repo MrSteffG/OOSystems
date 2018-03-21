@@ -43,7 +43,6 @@ public void logon(String userName, String pass) throws FileNotFoundException{
 	 }
 	 
 	 public void GetDriver() {
-		 
 	 }
 		
 	 public void SetupWorkSchedule() {
