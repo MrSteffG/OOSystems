@@ -5,34 +5,47 @@ import java.io.FileReader;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+
 public class Driver {
  private String userName;
- private  String password;
+ private String password;
+ private String jobState;
 
 
  public Driver(String userName, String password, String jobState){
 	 this.userName= userName;
 	 this.password= password;  
+	 this.jobState=jobState;
  };
  
  public static boolean checkPassword(String username, String pass) throws FileNotFoundException{
 boolean passOkay = false;
-		@SuppressWarnings("rawtypes")
-		LinkedList list= new LinkedList();
- 
+boolean userOkay = false;
+/*		@SuppressWarnings("rawtypes")
+		LinkedList list= new LinkedList(); */
 	 Scanner sc = new Scanner(new FileReader("M:\\data\\drivers"));
-		String next;
-	 while (sc.hasNextLine()){
-			next = sc.nextLine();
-			list.add(next);
-			if(next.equals(username)){
-				if (sc.next().split(" ").equals(pass)){ return passOkay=true;}
-				else return passOkay=false;}
-			return passOkay;
+Driver[] D= new Driver[100];	
+			int i=0;	
+			while(sc.hasNext()){
+				String[] data= sc.nextLine().split(" ");
+				D[i]= new Driver(data[0],(data[1]),(data[2]));
+				i++;
 			}
-		sc.close();
-		return passOkay;
+			
+			for (i=0; i<D.length; i++){
+				if (D[i].userName.equals(username)){
+					userOkay=true;
+					if (userOkay=true){
+						if (D[i].password.equals(pass)){passOkay=true;};
+						
+					}
+					}
+				}
+			sc.close();	
+			if( passOkay && userOkay==true) {return true;}
+			else return false;
 		
+			
  }
  
  public String getUser(){
