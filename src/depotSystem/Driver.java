@@ -38,7 +38,7 @@ Driver[] D= new Driver[100];
 			
 			for (i=0; i<D.length; i++){
 				if (D[i].getUser().equals(username)){ 
-					userOkay=true;;
+					userOkay=true;
 					if (userOkay=true){
 						if (D[i].password.equals(pass)){passOkay=true;};
 						
