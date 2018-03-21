@@ -1,12 +1,15 @@
 package depotClasses;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import depotSystem.Depot;
 
 public class Entry {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		Scanner sc = new Scanner(System.in);
-		String menuNav=sc.nextLine();
-		do {
+		
+		/*do {
 			System.out.println("Pelase select a Depot");	
 			
 			System.out.printf("\n1- [L]iverpool");
@@ -14,10 +17,18 @@ public class Entry {
 			System.out.printf("\n3- [B]ristol");
 			System.out.printf("\nQ- Quit");
 			System.out.printf("\nPick:");
-		
+			*/
+		String pass=" ";
+		String user=" ";
+		 user=sc.nextLine();
+		pass=sc.nextLine();
+			
+	
+			
+			Depot.logon(user,pass);
 			
 			
-			switch (menuNav.toUpperCase()) {	
+			/*switch (menuNav.toUpperCase()) {	
 				case "1":
 				case "L":	
 					{}
@@ -37,9 +48,11 @@ public class Entry {
 					break;
 					
 					
-			}
+		}
 			
-			}while(!"Q".equals(menuNav));
+		}while(!"Q".equals(menuNav));
+		 
+		 */
 		sc.close();
 	
 

@@ -22,12 +22,12 @@ protected  String jobState;
 
  };
  
- public static boolean checkPassword(String username, String pass) throws FileNotFoundException{
+public static boolean checkPassword(String username, String pass) throws FileNotFoundException{
 boolean passOkay = false;
 boolean userOkay = false;
 /*		@SuppressWarnings("rawtypes")
 		LinkedList list= new LinkedList(); */
-	 Scanner sc = new Scanner(new FileReader("M:\\data\\drivers"));
+	 Scanner sc = new Scanner(new FileReader("users.txt"));
 Driver[] D= new Driver[100];	
 			int i=0;	
 			while(sc.hasNext()){
@@ -37,7 +37,7 @@ Driver[] D= new Driver[100];
 			}
 			
 			for (i=0; i<D.length; i++){
-				if (D[i].userName.equals(username)){
+				if (D[i].getUser().equals(username)){
 					userOkay=true;
 					if (userOkay=true){
 						if (D[i].password.equals(pass)){passOkay=true;};

@@ -22,7 +22,7 @@ public class Depot {
 		this.name= name;
 	}
 	
-public void logon(String userName, String pass) throws FileNotFoundException{
+public static void logon(String userName, String pass) throws FileNotFoundException{
 	boolean check=Driver.checkPassword(userName,pass);
 	if (check=true){System.out.print("sound");}
 	else{System.out.println("ratbag");}
