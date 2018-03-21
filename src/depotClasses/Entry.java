@@ -14,8 +14,7 @@ public class Entry {
 			System.out.printf("\n3- [B]ristol");
 			System.out.printf("\nQ- Quit");
 			System.out.printf("\nPick:");
-			//spacing (both in code and programme) for readability.
-			
+		
 			
 			
 			switch (menuNav.toUpperCase()) {	
@@ -36,6 +35,8 @@ public class Entry {
 					break;
 				default: System.out.println("not recognised, please try again");
 					break;
+					
+					
 			}
 			
 			}while(!"Q".equals(menuNav));

@@ -23,15 +23,9 @@ public class Depot {
 	}
 	
 public void logon(String userName, String pass) throws FileNotFoundException{
-	Scanner sc = new Scanner(new FileReader("M:\\data\\drivers"));
-	String next;
-	while (sc.hasNextLine()){
-		next = sc.nextLine();
-		list.add(next);
-		if(next.equals(userName)){break;}
-		
-		boolean passOkay=(Driver.checkPassword(pass));}
-	sc.close();
+	boolean check=Driver.checkPassword(userName,pass);
+	if (check=true){System.out.print("sound");}
+	else{System.out.println("ratbag");}
 	}
 		
 
