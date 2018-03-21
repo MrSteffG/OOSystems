@@ -2,23 +2,23 @@ package depotSystem;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 
 public class Driver {
- private String userName;
- private String password;
- private String jobState;
- private int ID;
+protected String userName;
+protected  String password;
+protected int ID;
+protected  String jobState;
 
 
 
- public Driver(String userName, String password, int ID, String jobState){
+
+ public Driver(String userName, String password, int i, String jobState){
 	 this.userName= userName;
 	 this.password= password;  
 	 this.jobState=jobState;
-	 this.ID= ID;
+	 this.ID= i;
 
  };
  
