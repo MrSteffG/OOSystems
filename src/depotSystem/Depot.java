@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class Depot {
-	private String depotName;
+	private static String depotName;
 	private Driver[] driver;
 	private Vehicle[] vehicle;
 	
@@ -36,11 +36,15 @@ public static void logon(String userName, String pass) throws FileNotFoundExcept
 	 }
 	 
 	 public void GetDriver() {
+		 
 	 }
 		
 	 public void SetupWorkSchedule() {
 		 
 	 }
-	
+	public static String getDepotName(){ 
+		return depotName;
+		
+	}
 }
 

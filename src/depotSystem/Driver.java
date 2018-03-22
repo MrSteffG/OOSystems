@@ -8,17 +8,15 @@ import java.util.Scanner;
 public class Driver {
 protected String userName;
 protected  String password;
-protected int ID;
-protected  String jobState;
 
 
 
 
- public Driver(String userName, String password, int i, String jobState){
+
+ public Driver(String userName, String password){
 	 this.userName= userName;
 	 this.password= password;  
-	 this.jobState=jobState;
-	 this.ID= i;
+
 
  };
  
@@ -32,7 +30,7 @@ Driver[] D= new Driver[100];
 			int i=0;	
 			while(sc.hasNext()){
 				String[] data= sc.nextLine().split(" ");
-				D[i]= new Driver(data[0],(data[1]),Integer.parseInt(data[2]), (data[3]));
+				D[i]= new Driver(data[0],(data[1]));
 				i++;
 			}
 			

@@ -1,6 +1,6 @@
 package depotSystem;
 
-public abstract class Vehicle{
+public class Vehicle{
 	private String regNo;
 	private String model;
 	private String make;
@@ -8,12 +8,11 @@ public abstract class Vehicle{
 	private String jobState;
 	
 
-	public Vehicle(String regNo, String model, String make, int weight, String jobState){
+	public Vehicle(String regNo, String model, String make){
 		this.regNo= regNo;
 		this.model= model;
 		this.make= make;
-		this.weight= weight;
-		this.jobState=jobState;
+	
 			
 	};
 	
