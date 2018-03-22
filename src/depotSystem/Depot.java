@@ -9,18 +9,15 @@ import java.util.Scanner;
 
 
 public class Depot {
-	private int ID;
+	private String depotName;
+	private Driver[] driver;
+	private Vehicle[] vehicle;
 	
 	
-	
-	
-	//@SuppressWarnings("rawtypes")
-	//LinkedList list= new LinkedList();
-	
-	
-	
-	public Depot(int ID){
-		this.ID= ID;
+	public Depot(String depotName, Driver[] driver, Vehicle[] vehicle){
+		this.depotName= depotName;
+		this.driver= driver;
+		this.vehicle= vehicle;
 
 	}
 	
@@ -33,7 +30,7 @@ public static void logon(String userName, String pass) throws FileNotFoundExcept
 
 	 
 	 public void GetVehicle(String regNo, String model, String make, int weight, String jobState) throws FileNotFoundException {
-		 Scanner sc = new Scanner(new FileReader("M:\\data\\vehicles"));
+		 Scanner sc = new Scanner(new FileReader(""));
 		 
 		 sc.close();
 	 }
