@@ -20,7 +20,7 @@ public class Entry {
 			*/
 		String pass=" ";
 		String user=" ";
-		 user=sc.nextLine();
+		user=sc.nextLine();
 		pass=sc.nextLine();
 			
 	

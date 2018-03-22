@@ -10,16 +10,18 @@ import java.util.Scanner;
 
 public class Depot {
 	private int ID;
-	private String name;
-	
-	@SuppressWarnings("rawtypes")
-	LinkedList list= new LinkedList();
 	
 	
 	
-	public Depot(int ID, String name){
+	
+	//@SuppressWarnings("rawtypes")
+	//LinkedList list= new LinkedList();
+	
+	
+	
+	public Depot(int ID){
 		this.ID= ID;
-		this.name= name;
+
 	}
 	
 public static void logon(String userName, String pass) throws FileNotFoundException{

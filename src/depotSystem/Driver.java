@@ -27,7 +27,7 @@ boolean passOkay = false;
 boolean userOkay = false;
 /*		@SuppressWarnings("rawtypes")
 		LinkedList list= new LinkedList(); */
-	 Scanner sc = new Scanner(new FileReader("users.txt"));
+Scanner sc = new Scanner(new FileReader("users.txt"));
 Driver[] D= new Driver[100];	
 			int i=0;	
 			while(sc.hasNext()){
