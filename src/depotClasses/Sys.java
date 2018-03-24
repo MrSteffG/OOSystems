@@ -9,6 +9,7 @@ import depotSystem.Driver;
 import depotSystem.Vehicle;
 
 public class Sys {
+	private static Depot[] arrayDepots;
 
 	
 	public static void run() throws FileNotFoundException{
@@ -49,8 +50,21 @@ public class Sys {
 	
 		}
 
-	public static Depot getDepot(String depotChoice) throws FileNotFoundException{
-		Scanner driveSc = new Scanner(new FileReader(depotChoice + "Drivers.txt"));
+	public static Depot getDepot(String depotChoice) {
+		for (Depot currentDepot : arrayDepots) {
+            if (currentDepot.getDepotName() == depotChoice) {
+                return currentDepot;
+            }
+ }
+        return null;
+}
+		
+		
+		
+		
+		
+		
+		/*Scanner driveSc = new Scanner(new FileReader(depotChoice + "Drivers.txt"));
 		Scanner tankSc = new Scanner(new FileReader(depotChoice + "Tankers.txt"));
 		Scanner truckSc=new Scanner(new FileReader(depotChoice+ "Trucks.txt"));
 		Driver[] D= new Driver[100];	
@@ -75,10 +89,10 @@ public class Sys {
 		}
 		System.out.println(Depot.getDepotName());
 		return new Depot(depotChoice,D,V);
-		
+		*/
 		
 
-	}
-	}
+}
+	
 
 

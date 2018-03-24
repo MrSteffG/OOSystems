@@ -15,6 +15,10 @@ public class Vehicle{
 	
 			
 	};
+	public String getRegNo(){
+		return regNo;
+	
+	}
 	
 	
 }
