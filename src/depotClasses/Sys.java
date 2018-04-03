@@ -1,18 +1,11 @@
 package depotClasses;
 
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import depotSystem.Depot;
-import depotSystem.Driver;
-import depotSystem.Vehicle;
 
 public class Sys {
-private static String depotName;
-private static Depot liverpool;
-private static Depot manchester;
-private static Depot birmingham;
 private static Depot[] depotArray;
 	
 
@@ -32,16 +25,19 @@ private static Depot[] depotArray;
 		case "1":
 		case "L": {
 			getDepot("liverpool");
+			Depot.logon();
 		}
 			break;
 		case "2":
 		case "M": {
 			getDepot("manchester");
+			Depot.logon();
 		}
 			break;
 		case "3":
 		case "B": {
 			getDepot("birmingham");
+			Depot.logon();
 		}
 			break;
 		case "Q": {
@@ -67,9 +63,9 @@ private static Depot[] depotArray;
 	                return currentDepot;
 	            }
 	        }
+		 System.out.println("null boys");
 
 	        return null;
-
 	}
 }
 

@@ -14,7 +14,7 @@ public class Depot {
 
 	}
 
-	public boolean logon() {
+	public static void logon() {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Please enter your Username : ");
@@ -23,10 +23,12 @@ public class Depot {
 		System.out.println("Please enter your PIN : ");
 		String password = sc.next();
 
-		Driver.checkPassword(user, password);
+		boolean success=Driver.checkPassword(user, password);
 		sc.close();
+		
+		if (success==true){System.out.println("logon Success");}
+		else{System.out.println("no");}
 
-		return false;
 	}
 
 	public Vehicle GetVehicle(String regNo) {
