@@ -4,25 +4,16 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Depot {
-	private String depotName;
+	private static String depotName;
 	private Driver[] arrayDriver;
 	private Vehicle[] arrayVehicle;
 	
 	
-public Depot(String depotName, Driver[] driver, Vehicle[] vehicle){
-		depotName="liverpool";
-		this.depotName=depotName;
-		arrayDriver= new Driver[2];
-		
-		arrayDriver[0]= new Driver("Steve", "donkeys");
-		arrayDriver[1]= new Driver ("Pete", "cows1");
-		arrayDriver[2]= new Driver("Dan","mongoose2");
-		
-		arrayVehicle= new Vehicle[3];
-		arrayVehicle[0]=new Vehicle ("CS1457", "DAYCAB", "WHALEBODY");
-		arrayVehicle[1]=new Vehicle("CS1458", "VOLVO", "FM7290");
-		arrayVehicle[2]=new Vehicle("CS1451", "Mercedes-Benz", "Actros");
-		arrayVehicle[3]=new Vehicle("CS1452", "Iveco", "PowerStar420E5");
+public Depot(String depotName, Driver[] arrayDriver, Vehicle[] arrayVehicle){
+	this.depotName=depotName;
+	this.arrayDriver=arrayDriver;
+	this.arrayVehicle=arrayVehicle;
+	
 	}
 	
 public boolean logon() {
@@ -67,9 +58,8 @@ public Driver GetDriver(String userName) {
 public void SetupWorkSchedule() {
 		 
 	 }
-public String getDepotName(){ 
+public static String getDepotName(){ 
 		return depotName;
-		
 	}
 }
 
