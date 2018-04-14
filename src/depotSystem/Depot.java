@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Depot {
 	private String depotName;
-	private Driver[] arrayDriver;
+	private static Driver[] arrayDriver;
 	private Vehicle[] arrayVehicle;
 	
 	public Depot(String depotName, Driver[] arrayDriver, Vehicle[] arrayVehicle) {
@@ -23,11 +23,23 @@ public class Depot {
 		System.out.println("Please enter your PIN : ");
 		String password = sc.next();
 
+		for (Driver currentDriver : arrayDriver){
+			if (currentDriver.getUser()== user){
+				 Driver userSelect= currentDriver;	
+			}
+			else System.out.println("no user found");
+		}
+		
+		
 		boolean success=Driver.checkPassword(user, password);
 		sc.close();
 		
-		if (success==true){System.out.println("logon Success");}
+		
+		if (success==true){System.out.println("logon Success");
+		driverMenu();}
 		else{System.out.println("no");}
+		
+		
 
 	}
 
@@ -57,6 +69,50 @@ public class Depot {
 		return depotName;
 	}
 
+	public static void driverMenu(){
+		
+	}	
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static Depot buildLiv() {
 	
 		Vehicle[] liverpoolVehicle = new Vehicle[4];

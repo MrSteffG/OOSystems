@@ -2,7 +2,7 @@ package depotSystem;
 
 
 public class Driver {
-protected String userName;
+protected  String userName;
 protected static  String password;
 
 
