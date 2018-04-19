@@ -20,5 +20,9 @@ public class Vehicle{
 	
 	}
 	
+	public boolean isAvailble() {
+				return false;
+	}
+	
 	
 }
