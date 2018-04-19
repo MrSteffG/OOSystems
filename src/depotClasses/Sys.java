@@ -4,9 +4,69 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import depotSystem.Depot;
+import depotSystem.Driver;
+import depotSystem.Vehicle;
 
 public class Sys {
 private static Depot[] depotArray;
+private static Depot selectedDepot;
+private boolean userAuthenticate;
+
+public static Depot buildLiv() {
+	
+	Vehicle[] liverpoolVehicle = new Vehicle[4];
+	Driver[] liverpoolDriver = new Driver[3];
+
+	String name = "liverpool";
+	liverpoolDriver[0] = new Driver(" ", " ");
+	liverpoolDriver[1] = new Driver("Pete", "cows1");
+	liverpoolDriver[2] = new Driver("Dan", "mongoose2");
+
+	liverpoolVehicle[0] = new Vehicle("CS1457", "DAYCAB", "WHALEBODY");
+	liverpoolVehicle[1] = new Vehicle("CS1458", "VOLVO", "FM7290");
+	liverpoolVehicle[2] = new Vehicle("CS1451", "Merce;des-Benz", "Actros");
+	liverpoolVehicle[3] = new Vehicle("CS1452", "Iveco", "PowerStar420E5");
+	Depot liverpool = new Depot(name, liverpoolDriver, liverpoolVehicle);
+	return liverpool;
+}
+
+public static Depot buildMan() {
+	
+	Vehicle[] manchesterVehicle = new Vehicle[4];
+	Driver[] manchesterDriver = new Driver[4];
+	String name = "manchester";
+	manchesterDriver[0] = new Driver("Jeremy", "ilovesting");
+	manchesterDriver[1] = new Driver("sally", "trucks4life");
+	manchesterDriver[2] = new Driver("ruairi", "iloveanime");
+	manchesterDriver[3] = new Driver("mark", "not93");
+
+	manchesterVehicle[0] = new Vehicle("CS1459", "Tankerman", "Tankomatic5000");
+	manchesterVehicle[1] = new Vehicle("CS1460", "Tankerman", "Tankotron4");
+	manchesterVehicle[2] = new Vehicle("CS1453", "Tata", "Prima");
+	manchesterVehicle[3] = new Vehicle("CS1454", "Foton", "Auman");
+	Depot manchester = new Depot(name, manchesterDriver, manchesterVehicle);
+	return manchester;
+}
+
+public static Depot buildBirm() {
+	Vehicle[] birminghamVehicle = new Vehicle[4];
+	Driver[] birminghamDriver = new Driver[4];
+	String name = "birmingham";
+	birminghamDriver[0] = new Driver("milo", "madeitwith");
+	birminghamDriver[1] = new Driver("rao", "morrocco123");
+	birminghamDriver[2] = new Driver("Hilary", "emailpass");
+	birminghamDriver[3] = new Driver("thedon", "nogunlaw");
+
+	birminghamVehicle[0] = new Vehicle("CS1461", "Tankerman", "Wetdrive");
+	birminghamVehicle[1] = new Vehicle("CS1576", "Tankerman", "moistroller");
+	birminghamVehicle[2] = new Vehicle("CS1455", "Hyundai", "Xcient");
+	birminghamVehicle[3] = new Vehicle("CS1456", "Volvo", "VN780");
+	Depot birmingham = new Depot(name, birminghamDriver, birminghamVehicle);
+	return birmingham;
+
+}
+
+
 	
 
 	
@@ -25,19 +85,21 @@ private static Depot[] depotArray;
 		case "1":
 		case "L": {
 			getDepot("liverpool");
-			Depot.logon();
+			selectedDepot.logOn();
+			System.out.println("we get here");
 		}
 			break;
 		case "2":
 		case "M": {
 			getDepot("manchester");
-			Depot.logon();
+			selectedDepot.logOn();
+			
 		}
 			break;
 		case "3":
 		case "B": {
 			getDepot("birmingham");
-			Depot.logon();
+			selectedDepot.logOn();
 		}
 			break;
 		case "Q": {
@@ -60,8 +122,9 @@ private static Depot[] depotArray;
 		 for (Depot currentDepot : depotArray) {
 	            if (currentDepot.getDepotName() == depotChoice) {
 	            	System.out.println(currentDepot.getDepotName());
-	            	Depot liveDepot=currentDepot;
+	            	selectedDepot=currentDepot;
 	                return currentDepot;
+	                
 	            }
 	        }
 	        return null;

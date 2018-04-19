@@ -4,8 +4,11 @@ import java.util.Scanner;
 
 public class Depot {
 	private String depotName;
-	private static Driver[] arrayDriver;
+	private Driver[] arrayDriver;
 	private Vehicle[] arrayVehicle;
+	private Driver selected;
+	
+
 	
 	public Depot(String depotName, Driver[] arrayDriver, Vehicle[] arrayVehicle) {
 		this.depotName=depotName;
@@ -14,20 +17,31 @@ public class Depot {
 
 	}
 
-	public static void logon() {
+	public void logOn() {
 		Scanner sc = new Scanner(System.in);
-
 		System.out.println("Please enter your Username : ");
 		String user = sc.next();
-
-		System.out.println("Please enter your PIN : ");
+		
+		System.out.println("Please enter your Password : ");
 		String password = sc.next();
-
-		for (Driver currentDriver : arrayDriver){
-			if (currentDriver.getUser()== user){
-				 Driver userSelect= currentDriver;	
+		
+		
+		selected=getDriver(user);
+		
+		if (selected.checkPassword(password)){
+			System.out.println("worked");
+			sc.close();
 			}
-			else System.out.println("no user found");
+		else 
+			System.out.print("still no worky");
+		sc.close();
+			
+	
+		
+	
+	
+	}
+	/*		else System.out.println("no user found");
 		}
 		
 		
@@ -39,11 +53,11 @@ public class Depot {
 		driverMenu();}
 		else{System.out.println("no");}
 		
-		
+		*/
 
-	}
+	
 
-	public Vehicle GetVehicle(String regNo) {
+	public Vehicle getVehicle(String regNo) {
 		for (Vehicle currentVehicle : arrayVehicle) {
 			if (currentVehicle.getRegNo() == regNo) {
 				return currentVehicle;
@@ -52,9 +66,9 @@ public class Depot {
 		return null;
 	}
 
-	public Driver GetDriver(String userName) {
+	public Driver getDriver(String userName) {
 		for (Driver currentDriver : arrayDriver) {
-			if (currentDriver.getUser() == userName) {
+			if (currentDriver.getUser().equals(userName)) {
 				return currentDriver;
 			}
 		}

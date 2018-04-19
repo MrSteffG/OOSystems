@@ -13,7 +13,7 @@ protected static  String password;
 
  };
  
-public static boolean checkPassword(String userName,String pass){
+public boolean checkPassword(String pass){
 	if (pass==password){
 		return true;
 	}
