@@ -8,9 +8,9 @@ import depotSystem.Driver;
 import depotSystem.Vehicle;
 
 public class Sys {
-private static Depot[] depotArray;
-private static Depot selectedDepot;
-private boolean userAuthenticate;
+private  Depot[] depotArray;
+private  Depot selectedDepot;
+private String depotChoice;
 
 public static Depot buildLiv() {
 	
@@ -18,7 +18,7 @@ public static Depot buildLiv() {
 	Driver[] liverpoolDriver = new Driver[3];
 
 	String name = "liverpool";
-	liverpoolDriver[0] = new Driver(" ", " ");
+	liverpoolDriver[0] = new Driver("Steve", "donkeys");
 	liverpoolDriver[1] = new Driver("Pete", "cows1");
 	liverpoolDriver[2] = new Driver("Dan", "mongoose2");
 
@@ -70,7 +70,7 @@ public static Depot buildBirm() {
 	
 
 	
-	public static void run() throws FileNotFoundException {
+	public void run() throws FileNotFoundException {
 
 		System.out.println("Pelase select a Depot");
 		System.out.printf("\n1- [L]iverpool");
@@ -84,21 +84,22 @@ public static Depot buildBirm() {
 		switch (menuNav.toUpperCase()) {
 		case "1":
 		case "L": {
-			getDepot("liverpool");
+			depotChoice="liverpool";
+			getDepot();
 			selectedDepot.logOn();
-			System.out.println("we get here");
+			System.out.printf("\nwe get here");
 		}
 			break;
 		case "2":
 		case "M": {
-			getDepot("manchester");
+			depotChoice="manchester";
 			selectedDepot.logOn();
 			
 		}
 			break;
 		case "3":
 		case "B": {
-			getDepot("birmingham");
+			depotChoice="birmingham";
 			selectedDepot.logOn();
 		}
 			break;
@@ -113,7 +114,7 @@ public static Depot buildBirm() {
 		}
 	}
 
-	private static Depot getDepot(String depotChoice) {
+	private Depot getDepot() {
 		depotArray= new Depot[3];
 		depotArray[0]=Depot.buildLiv();
 		depotArray[1]= Depot.buildMan();
@@ -133,9 +134,7 @@ public static Depot buildBirm() {
 
 
 public void driverMenu(){
-	
-	
-	
+
 	System.out.printf("\n1- View Work Schedule");
 	System.out.printf("\nQ- Quit");
 	System.out.printf("\nPick:");
@@ -168,6 +167,8 @@ public void driverMenu(){
 public void managerMenu(){
 
 	System.out.printf("\n1- View Work Schedule");
+	System.out.printf("\n 2- Create work Schedules");
+	System.out.printf("\n 2- Reassign Vehicle");
 	System.out.printf("\nQ- Quit");
 	System.out.printf("\nPick:");
 	Scanner sc = new Scanner(System.in);

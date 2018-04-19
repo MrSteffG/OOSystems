@@ -2,8 +2,8 @@ package depotSystem;
 
 
 public class Driver {
-protected  String userName;
-protected static  String password;
+protected String userName;
+protected String password;
 
 
  public Driver(String userName, String password){
@@ -14,7 +14,7 @@ protected static  String password;
  };
  
 public boolean checkPassword(String pass){
-	if (pass==password){
+	if (pass.equals(password)){
 		return true;
 	}
 	else return false;

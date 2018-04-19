@@ -33,29 +33,10 @@ public class Depot {
 			sc.close();
 			}
 		else 
-			System.out.print("still no worky");
+			System.out.print("Not recognised please try again");
 		sc.close();
-			
-	
-		
-	
-	
 	}
-	/*		else System.out.println("no user found");
-		}
-		
-		
-		boolean success=Driver.checkPassword(user, password);
-		sc.close();
-		
-		
-		if (success==true){System.out.println("logon Success");
-		driverMenu();}
-		else{System.out.println("no");}
-		
-		*/
 
-	
 
 	public Vehicle getVehicle(String regNo) {
 		for (Vehicle currentVehicle : arrayVehicle) {
@@ -66,7 +47,7 @@ public class Depot {
 		return null;
 	}
 
-	public Driver getDriver(String userName) {
+	public Driver getDriver(String userName) {//this bit works
 		for (Driver currentDriver : arrayDriver) {
 			if (currentDriver.getUser().equals(userName)) {
 				return currentDriver;
