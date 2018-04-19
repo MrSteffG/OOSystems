@@ -1,76 +1,71 @@
 package depotClasses;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
-
 import depotSystem.Depot;
 import depotSystem.Driver;
+import depotSystem.Manager;
 import depotSystem.Vehicle;
 
 public class Sys {
-private  Depot[] depotArray;
-private  Depot selectedDepot;
-private String depotChoice;
+	private Depot[] depotArray;
+	private Depot selectedDepot;
+	private String depotChoice;
 
-public static Depot buildLiv() {
-	
-	Vehicle[] liverpoolVehicle = new Vehicle[4];
-	Driver[] liverpoolDriver = new Driver[3];
+	public static Depot buildLiv() {
 
-	String name = "liverpool";
-	liverpoolDriver[0] = new Driver("Steve", "donkeys");
-	liverpoolDriver[1] = new Driver("Pete", "cows1");
-	liverpoolDriver[2] = new Driver("Dan", "mongoose2");
+		Vehicle[] liverpoolVehicle = new Vehicle[4];
+		Driver[] liverpoolDriver = new Driver[3];
 
-	liverpoolVehicle[0] = new Vehicle("CS1457", "DAYCAB", "WHALEBODY");
-	liverpoolVehicle[1] = new Vehicle("CS1458", "VOLVO", "FM7290");
-	liverpoolVehicle[2] = new Vehicle("CS1451", "Merce;des-Benz", "Actros");
-	liverpoolVehicle[3] = new Vehicle("CS1452", "Iveco", "PowerStar420E5");
-	Depot liverpool = new Depot(name, liverpoolDriver, liverpoolVehicle);
-	return liverpool;
-}
+		String name = "liverpool";
+		liverpoolDriver[0] = new Manager("Steve", "donkeys");
+		liverpoolDriver[1] = new Driver("Pete", "cows1");
+		liverpoolDriver[2] = new Driver("Dan", "mongoose2");
 
-public static Depot buildMan() {
-	
-	Vehicle[] manchesterVehicle = new Vehicle[4];
-	Driver[] manchesterDriver = new Driver[4];
-	String name = "manchester";
-	manchesterDriver[0] = new Driver("Jeremy", "ilovesting");
-	manchesterDriver[1] = new Driver("sally", "trucks4life");
-	manchesterDriver[2] = new Driver("ruairi", "iloveanime");
-	manchesterDriver[3] = new Driver("mark", "not93");
+		liverpoolVehicle[0] = new Vehicle("CS1457", "DAYCAB", "WHALEBODY");
+		liverpoolVehicle[1] = new Vehicle("CS1458", "VOLVO", "FM7290");
+		liverpoolVehicle[2] = new Vehicle("CS1451", "Merce;des-Benz", "Actros");
+		liverpoolVehicle[3] = new Vehicle("CS1452", "Iveco", "PowerStar420E5");
+		Depot liverpool = new Depot(name, liverpoolDriver, liverpoolVehicle);
+		return liverpool;
+	}
 
-	manchesterVehicle[0] = new Vehicle("CS1459", "Tankerman", "Tankomatic5000");
-	manchesterVehicle[1] = new Vehicle("CS1460", "Tankerman", "Tankotron4");
-	manchesterVehicle[2] = new Vehicle("CS1453", "Tata", "Prima");
-	manchesterVehicle[3] = new Vehicle("CS1454", "Foton", "Auman");
-	Depot manchester = new Depot(name, manchesterDriver, manchesterVehicle);
-	return manchester;
-}
+	public static Depot buildMan() {
 
-public static Depot buildBirm() {
-	Vehicle[] birminghamVehicle = new Vehicle[4];
-	Driver[] birminghamDriver = new Driver[4];
-	String name = "birmingham";
-	birminghamDriver[0] = new Driver("milo", "madeitwith");
-	birminghamDriver[1] = new Driver("rao", "morrocco123");
-	birminghamDriver[2] = new Driver("Hilary", "emailpass");
-	birminghamDriver[3] = new Driver("thedon", "nogunlaw");
+		Vehicle[] manchesterVehicle = new Vehicle[4];
+		Driver[] manchesterDriver = new Driver[4];
+		String name = "manchester";
+		manchesterDriver[0] = new Driver("Jeremy", "ilovesting");
+		manchesterDriver[1] = new Driver("sally", "trucks4life");
+		manchesterDriver[2] = new Driver("ruairi", "iloveanime");
+		manchesterDriver[3] = new Driver("mark", "not93");
 
-	birminghamVehicle[0] = new Vehicle("CS1461", "Tankerman", "Wetdrive");
-	birminghamVehicle[1] = new Vehicle("CS1576", "Tankerman", "moistroller");
-	birminghamVehicle[2] = new Vehicle("CS1455", "Hyundai", "Xcient");
-	birminghamVehicle[3] = new Vehicle("CS1456", "Volvo", "VN780");
-	Depot birmingham = new Depot(name, birminghamDriver, birminghamVehicle);
-	return birmingham;
+		manchesterVehicle[0] = new Vehicle("CS1459", "Tankerman", "Tankomatic5000");
+		manchesterVehicle[1] = new Vehicle("CS1460", "Tankerman", "Tankotron4");
+		manchesterVehicle[2] = new Vehicle("CS1453", "Tata", "Prima");
+		manchesterVehicle[3] = new Vehicle("CS1454", "Foton", "Auman");
+		Depot manchester = new Depot(name, manchesterDriver, manchesterVehicle);
+		return manchester;
+	}
 
-}
+	public static Depot buildBirm() {
+		Vehicle[] birminghamVehicle = new Vehicle[4];
+		Driver[] birminghamDriver = new Driver[4];
+		String name = "birmingham";
+		birminghamDriver[0] = new Driver("milo", "madeitwith");
+		birminghamDriver[1] = new Driver("rao", "morrocco123");
+		birminghamDriver[2] = new Driver("Hilary", "emailpass");
+		birminghamDriver[3] = new Driver("thedon", "nogunlaw");
 
+		birminghamVehicle[0] = new Vehicle("CS1461", "Tankerman", "Wetdrive");
+		birminghamVehicle[1] = new Vehicle("CS1576", "Tankerman", "moistroller");
+		birminghamVehicle[2] = new Vehicle("CS1455", "Hyundai", "Xcient");
+		birminghamVehicle[3] = new Vehicle("CS1456", "Volvo", "VN780");
+		Depot birmingham = new Depot(name, birminghamDriver, birminghamVehicle);
+		return birmingham;
 
-	
+	}
 
-	
-	public void run() throws FileNotFoundException {
+	public void run() {
 
 		System.out.println("Pelase select a Depot");
 		System.out.printf("\n1- [L]iverpool");
@@ -84,23 +79,17 @@ public static Depot buildBirm() {
 		switch (menuNav.toUpperCase()) {
 		case "1":
 		case "L": {
-			depotChoice="liverpool";
-			getDepot();
-			selectedDepot.logOn();
-			System.out.printf("\nwe get here");
+			depotChoice = "liverpool";
 		}
 			break;
 		case "2":
 		case "M": {
-			depotChoice="manchester";
-			selectedDepot.logOn();
-			
+			depotChoice = "manchester";
 		}
 			break;
 		case "3":
 		case "B": {
-			depotChoice="birmingham";
-			selectedDepot.logOn();
+			depotChoice = "birmingham";
 		}
 			break;
 		case "Q": {
@@ -112,89 +101,86 @@ public static Depot buildBirm() {
 			System.out.println("not recognised, please try again");
 			break;
 		}
+
+		getDepot();
+		System.out.println("Please enter your Username : ");
+		String user = sc.next();
+
+		System.out.println("Please enter your Password : ");
+		String password = sc.next();
+		selectedDepot.logOn(user, password);
 	}
 
 	private Depot getDepot() {
-		depotArray= new Depot[3];
-		depotArray[0]=Depot.buildLiv();
-		depotArray[1]= Depot.buildMan();
-		depotArray[2]= Depot.buildBirm();
+		depotArray = new Depot[3];
+		depotArray[0] = Depot.buildLiv();
+		depotArray[1] = Depot.buildMan();
+		depotArray[2] = Depot.buildBirm();
 
-		 for (Depot currentDepot : depotArray) {
-	            if (currentDepot.getDepotName() == depotChoice) {
-	            	System.out.println(currentDepot.getDepotName());
-	            	selectedDepot=currentDepot;
-	                return currentDepot;
-	                
-	            }
-	        }
-	        return null;
+		for (Depot currentDepot : depotArray) {
+			if (currentDepot.getDepotName() == depotChoice) {
+				System.out.println(currentDepot.getDepotName());
+				selectedDepot = currentDepot;
+				return currentDepot;
+
+			}
+		}
+		return null;
 	}
 
+	public void driverMenu() {
 
+		System.out.printf("\n1- View Work Schedule");
+		System.out.printf("\nQ- Quit");
+		System.out.printf("\nPick:");
+		Scanner sc = new Scanner(System.in);
+		String menuNav = " ";
+		menuNav = sc.nextLine();
+		switch (menuNav.toUpperCase()) {
+		case "1": { // put in viewSchedule when made
 
-public void driverMenu(){
+		}
+			break;
+		case "Q":
+		case "2": {
+			sc.close();
+			System.exit(0);
+		}
+			break;
+		default:
+			System.out.println("not recognised, please try again");
+			break;
+		}
 
-	System.out.printf("\n1- View Work Schedule");
-	System.out.printf("\nQ- Quit");
-	System.out.printf("\nPick:");
-	Scanner sc = new Scanner(System.in);
-	String menuNav = " ";
-	menuNav = sc.nextLine();
-	switch (menuNav.toUpperCase()) {
-	case "1":
-	 { //put in viewSchedule when made
-		
 	}
-		break;
-	case "Q": 
-	case "2": {
-		sc.close();
-		System.exit(0);
-	}
-		break;
-	default:
-		System.out.println("not recognised, please try again");
-		break;
-	}
-	
-	
-}	
-	
-	
-	
 
-public void managerMenu(){
+	public void managerMenu() {
 
-	System.out.printf("\n1- View Work Schedule");
-	System.out.printf("\n 2- Create work Schedules");
-	System.out.printf("\n 2- Reassign Vehicle");
-	System.out.printf("\nQ- Quit");
-	System.out.printf("\nPick:");
-	Scanner sc = new Scanner(System.in);
-	String menuNav = " ";
-	menuNav = sc.nextLine();
-	switch (menuNav.toUpperCase()) {
-	case "1":
-	 { //put in viewSchedule when made
-		
-	}
-	case "2":
-	 { //put in create work Schedule when made
-		
-	}
-		break;
-	case "Q": 
-	case "3": {
-		sc.close();
-		System.exit(0);
-	}
-		break;
-	default:
-		System.out.println("not recognised, please try again");
-		break;
+		System.out.printf("\n1- View Work Schedule");
+		System.out.printf("\n 2- Create work Schedules");
+		System.out.printf("\n 2- Reassign Vehicle");
+		System.out.printf("\nQ- Quit");
+		System.out.printf("\nPick:");
+		Scanner sc = new Scanner(System.in);
+		String menuNav = " ";
+		menuNav = sc.nextLine();
+		switch (menuNav.toUpperCase()) {
+		case "1": { // put in viewSchedule when made
+
+		}
+		case "2": { // put in create work Schedule when made
+
+		}
+			break;
+		case "Q":
+		case "3": {
+			sc.close();
+			System.exit(0);
+		}
+			break;
+		default:
+			System.out.println("not recognised, please try again");
+			break;
+		}
 	}
 }
-}
-
-

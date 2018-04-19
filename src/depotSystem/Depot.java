@@ -1,6 +1,5 @@
 package depotSystem;
 
-import java.util.Scanner;
 
 public class Depot {
 	private String depotName;
@@ -17,24 +16,15 @@ public class Depot {
 
 	}
 
-	public void logOn() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Please enter your Username : ");
-		String user = sc.next();
-		
-		System.out.println("Please enter your Password : ");
-		String password = sc.next();
-		
-		
-		selected=getDriver(user);
+	public void logOn(String userName, String password){
+	selected=getDriver(userName);
 		
 		if (selected.checkPassword(password)){
 			System.out.println("worked");
-			sc.close();
 			}
 		else 
 			System.out.print("Not recognised please try again");
-		sc.close();
+		
 	}
 
 
