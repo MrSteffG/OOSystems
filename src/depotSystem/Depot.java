@@ -46,9 +46,19 @@ public class Depot {
 		}
 		return null;
 	}
-
-	public void SetupWorkSchedule() {
-
+	
+	public static WorkSchedule setupWorkSchedule() {
+		
+		String ID = "001";
+		String client = "Markyboi";
+		String startDate = "";
+		String endDate = "";
+		String regNo = "";
+		String driver = "Milo";
+		
+		
+		WorkSchedule WS = new WorkSchedule(ID, client, startDate, endDate, regNo, driver);
+		return WS;
 	}
 
 	public String getDepotName() {
