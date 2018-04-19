@@ -21,7 +21,10 @@ public class Vehicle{
 	}
 	
 	public boolean isAvailble() {
-				return false;
+		//if (Vehicle.regNo) {
+	//		return true;
+	//	} else 
+			return false;
 	}
 	
 	

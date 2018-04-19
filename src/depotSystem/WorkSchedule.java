@@ -16,4 +16,5 @@ public class WorkSchedule {
 		this.regNo= regNo;
 		this.driver= driver;
 	}
+	
 }

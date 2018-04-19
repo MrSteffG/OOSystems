@@ -56,7 +56,6 @@ public class Depot {
 		String regNo = "";
 		String driver = "Milo";
 		
-		
 		WorkSchedule WS = new WorkSchedule(ID, client, startDate, endDate, regNo, driver);
 		return WS;
 	}
