@@ -16,15 +16,16 @@ public class Depot {
 
 	}
 
-	public void logOn(String userName, String password){
+	public Driver logOn(String userName, String password){
 	selected=getDriver(userName);
 		
 		if (selected.checkPassword(password)){
-			System.out.println("worked");
+			System.out.println("worked");	
+			return selected;
 			}
-		else 
+		else
 			System.out.print("Not recognised please try again");
-		
+		return null;
 	}
 
 

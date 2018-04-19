@@ -8,8 +8,10 @@ import depotSystem.Vehicle;
 
 public class Sys {
 	private Depot[] depotArray;
-	private Depot selectedDepot;
+	private Depot depot;
 	private String depotChoice;
+	private Driver driver;
+	private Manager manager;
 
 	public static Depot buildLiv() {
 
@@ -108,7 +110,15 @@ public class Sys {
 
 		System.out.println("Please enter your Password : ");
 		String password = sc.next();
-		selectedDepot.logOn(user, password);
+
+		// depot.logOn(user, password);
+		driver = depot.logOn(user, password);
+		if (Manager.class.isInstance(driver)) {
+			manager = Manager.class.cast(driver);
+			managerMenu();
+		} else
+			driverMenu();
+
 	}
 
 	private Depot getDepot() {
@@ -120,7 +130,7 @@ public class Sys {
 		for (Depot currentDepot : depotArray) {
 			if (currentDepot.getDepotName() == depotChoice) {
 				System.out.println(currentDepot.getDepotName());
-				selectedDepot = currentDepot;
+				depot = currentDepot;
 				return currentDepot;
 
 			}
