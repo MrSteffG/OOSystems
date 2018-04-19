@@ -22,8 +22,8 @@ public class Vehicle{
 	
 	public boolean isAvailble() {
 		//if (Vehicle.regNo) {
-	//		return true;
-	//	} else 
+		//	return true;
+		//} else 
 			return false;
 	}
 	

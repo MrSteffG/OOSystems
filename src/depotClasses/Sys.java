@@ -1,10 +1,13 @@
 package depotClasses;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import depotSystem.Depot;
 import depotSystem.Driver;
 import depotSystem.Manager;
 import depotSystem.Vehicle;
+import depotSystem.WorkSchedule;
+
 
 public class Sys {
 	private Depot[] depotArray;
@@ -148,7 +151,7 @@ public class Sys {
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
 		case "1": { // put in viewSchedule when made
-
+			//System.out.println(WorkSchedule.WS());
 		}
 			break;
 		case "Q":

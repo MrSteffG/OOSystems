@@ -49,11 +49,17 @@ public class Depot {
 	
 	public static WorkSchedule setupWorkSchedule() {
 		
+		
+		return null;
+	}
+	
+	public static WorkSchedule WorkScheduleTest() {
+		
 		String ID = "001";
 		String client = "Markyboi";
-		String startDate = "";
-		String endDate = "";
-		String regNo = "";
+		String startDate = "1st May 2018";
+		String endDate = "3rd May 2018";
+		String regNo = "CS1455";
 		String driver = "Milo";
 		
 		WorkSchedule WS = new WorkSchedule(ID, client, startDate, endDate, regNo, driver);
