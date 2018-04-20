@@ -7,6 +7,8 @@ public class Depot {
 	private LinkedList<Driver> arrayDriver;
 	private LinkedList<Vehicle> arrayVehicle;
 	private Driver selected;
+	private WorkSchedule WS;
+	
 	
 
 	
@@ -49,10 +51,12 @@ public class Depot {
 		return null;
 	}
 	
-	public static WorkSchedule setupWorkSchedule() {
+	public WorkSchedule setupWorkSchedule() {
 		
 		
-		return null;
+		
+		return WS; 
+		
 	}
 	
 	public static WorkSchedule WorkScheduleTest1() {
