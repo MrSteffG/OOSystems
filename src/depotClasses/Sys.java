@@ -126,9 +126,9 @@ public class Sys {
 
 	private Depot getDepot() {
 		depotArray = new Depot[3];
-		depotArray[0] = Depot.buildLiv();
-		depotArray[1] = Depot.buildMan();
-		depotArray[2] = Depot.buildBirm();
+		depotArray[0] = buildLiv();
+		depotArray[1] = buildMan();
+		depotArray[2] = buildBirm();
 
 		for (Depot currentDepot : depotArray) {
 			if (currentDepot.getDepotName() == depotChoice) {
@@ -170,8 +170,8 @@ public class Sys {
 	public void managerMenu() {
 
 		System.out.printf("\n1- View Work Schedule");
-		System.out.printf("\n 2- Create work Schedules");
-		System.out.printf("\n 2- Reassign Vehicle");
+		System.out.printf("\n2- Create work Schedules");
+		System.out.printf("\n3- Reassign Vehicle");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
 		Scanner sc = new Scanner(System.in);

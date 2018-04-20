@@ -75,6 +75,7 @@ public class Depot {
 	}	
 		
 		
+}	
 	
 	
 	
@@ -113,8 +114,7 @@ public class Depot {
 	
 	
 	
-	
-	public static Depot buildLiv() {
+/*	public static Depot buildLiv() {
 	
 		Vehicle[] liverpoolVehicle = new Vehicle[4];
 		Driver[] liverpoolDriver = new Driver[3];
@@ -168,4 +168,4 @@ public class Depot {
 
 	}
 
-}
+}*/
