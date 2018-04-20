@@ -13,7 +13,7 @@ public class Depot {
 	public Depot(String depotName, LinkedList<Driver> arrayDriver, LinkedList<Vehicle> arrayVehicle) {
 		this.depotName=depotName;
 		this.arrayDriver=arrayDriver;
-		this.arrayVehicle=arrayVehicle;
+		this.setArrayVehicle(arrayVehicle);
 
 	}
 
@@ -31,13 +31,14 @@ public class Depot {
 
 
 	public Vehicle getVehicle(String regNo) {
-		for (Vehicle currentVehicle : arrayVehicle) {
-			if (currentVehicle.getRegNo() == regNo) {
+		for (Vehicle currentVehicle : getArrayVehicle()) {
+			if (currentVehicle.getRegNo().equals(regNo)) {
 				return currentVehicle;
 			}
 		}
 		return null;
 	}
+	
 
 	public Driver getDriver(String userName) {//this bit works
 		for (Driver currentDriver : arrayDriver) {
@@ -101,6 +102,14 @@ public class Depot {
 
 	public String getDepotName() {
 		return depotName;
+	}
+
+	public LinkedList<Vehicle> getArrayVehicle() {
+		return arrayVehicle;
+	}
+
+	public void setArrayVehicle(LinkedList<Vehicle> arrayVehicle) {
+		this.arrayVehicle = arrayVehicle;
 	}
 }
 	

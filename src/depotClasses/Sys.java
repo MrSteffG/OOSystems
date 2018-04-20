@@ -13,6 +13,7 @@ public class Sys {
 	private String depotChoice;
 	private Driver driver;
 	private Manager manager;
+	private Vehicle vehicle;
 	Scanner sc = new Scanner(System.in);
 	String menuNav = " ";
 
@@ -71,40 +72,41 @@ public class Sys {
 	}
 
 	public void run() {
+		
+			System.out.println("Pelase select a Depot");
+			System.out.printf("\n1- [L]iverpool");
+			System.out.printf("\n2- [M]anchester");
+			System.out.printf("\n3- [B]irmingham");
+			System.out.printf("\nQ- Quit");
+			System.out.printf("\nPick:");
 
-		System.out.println("Pelase select a Depot");
-		System.out.printf("\n1- [L]iverpool");
-		System.out.printf("\n2- [M]anchester");
-		System.out.printf("\n3- [B]irmingham");
-		System.out.printf("\nQ- Quit");
-		System.out.printf("\nPick:");
-
-		menuNav = sc.nextLine();
-		switch (menuNav.toUpperCase()) {
-		case "1":
-		case "L": {
-			depotChoice = "liverpool";
-		}
-			break;
-		case "2":
-		case "M": {
-			depotChoice = "manchester";
-		}
-			break;
-		case "3":
-		case "B": {
-			depotChoice = "birmingham";
-		}
-			break;
-		case "Q": {
-			sc.close();
-			System.exit(0);
-		}
-			break;
-		default:
-			System.out.println("not recognised, please try again");
-			break;
-		}
+			menuNav = sc.nextLine();
+			switch (menuNav.toUpperCase()) {
+			case "1":
+			case "L": {
+				depotChoice = "liverpool";
+			}
+				break;
+			case "2":
+			case "M": {
+				depotChoice = "manchester";
+			}
+				break;
+			case "3":
+			case "B": {
+				depotChoice = "birmingham";
+			}
+				break;
+			case "Q": {
+				sc.close();
+				System.exit(0);
+			}
+				break;
+			default:
+				System.out.println("not recognised, please try again");
+				break;
+			}
+		
 
 		getDepot();
 		System.out.println("Please enter your Username : ");
@@ -124,14 +126,10 @@ public class Sys {
 	}
 
 	private Depot getDepot() {
-		depotArray = new Depot[3];
-		depotArray[0] = buildLiv();
-		depotArray[1] = buildMan();
-		depotArray[2] = buildBirm();
+		
 
 		for (Depot currentDepot : depotArray) {
 			if (currentDepot.getDepotName() == depotChoice) {
-				System.out.println(currentDepot.getDepotName());
 				depot = currentDepot;
 				return currentDepot;
 
@@ -139,7 +137,7 @@ public class Sys {
 		}
 		return null;
 	}
-	
+
 	public void driverMenu() {
 
 		System.out.printf("\n1- View Work Schedule");
@@ -164,45 +162,79 @@ public class Sys {
 	}
 
 	public void managerMenu() {
-		menuNav=" ";
+		do {
+			System.out.printf("\n1- View Work Schedule");
+			System.out.printf("\n2- Create work Schedules");
+			System.out.printf("\n3- Reassign Vehicle");
+			System.out.printf("\n4- check Vehicle");
+			System.out.printf("\nQ- Quit");
+			System.out.printf("\nPick:");
 
-		System.out.printf("\n1- View Work Schedule");
-		System.out.printf("\n2- Create work Schedules");
-		System.out.printf("\n3- Reassign Vehicle");
-		System.out.printf("\nQ- Quit");
-		System.out.printf("\nPick:");
-		
-		menuNav = sc.nextLine();
-		switch (menuNav.toUpperCase()) {
-		case "1": { // put in viewSchedule when made
+			menuNav = sc.next();
+			switch (menuNav.toUpperCase()) {
+			case "1": {
+				viewWS();
+			}
+				break;
+			case "2": {
+				createWS();
+			}
+				break;
+			case "Q": {
+				run();
+			}
+				break;
+			case "3": {
+				moveVehicle();
+				break;
+			}
+			case "4": {
+				System.out.print(checkVehicle());
 
-		}
-		case "2": { // put in create work Schedule when made
-
-		}
-			break;
-		case "Q":{
-			run();
-		}
-			
-		case "3": {
-			
-			
-		}
-			break;
-		default:
-			System.out.println("not recognised, please try again");
-			break;
-		}
+			}
+				break;
+			default:
+				System.out.println("not recognised, please try again");
+				break;
+			}
+		} while (!"Q".equals(menuNav));
 	}
 
 	public void moveVehicle() {
 		System.out.print("\nplease enter the registration of the vehicle you wish to move");
-		String regNo = sc.nextLine();
-		System.out.print("Please select a depot you wish to move this to");
-		for (Depot currentDepot : depotArray) {
-			System.out.print(currentDepot.getDepotName());
+		String regNo = sc.next();
+		if (depot.getVehicle(regNo) != null) {
+			vehicle = depot.getVehicle(regNo);
+			System.out.print("please select a depot to move this vehicle to");
+			String oldDepot = depotChoice;
+			depot.getArrayVehicle().remove(vehicle);
+			depotChoice = sc.next();
+			getDepot();
+			depot.getArrayVehicle().add(vehicle);
+			depotChoice = oldDepot;
+			getDepot();
+			System.out.print("it wokred maybe");
+			managerMenu();
 		}
+		;
 
+	}
+
+	public void viewWS() {
+
+	}
+
+	public void createWS() {
+
+	};
+
+	public String checkVehicle() {
+		System.out.print("regNo");
+		String regNo = sc.next();
+		if (depot.getVehicle(regNo) != null) {
+			return "its still there";
+
+		} else
+			return "its gone";
 	}
 }
