@@ -55,6 +55,7 @@ public class Depot {
 	
 	public static WorkSchedule WorkScheduleTest1() {
 		
+		String ID = "001";
 		String Depot = "liverpool";
 		String client = "Markyboi";
 		String startDate = "1st May 2018";
@@ -63,12 +64,13 @@ public class Depot {
 		String driver = "Steve";
 		String state = "";
 		
-		WorkSchedule WS1 = new WorkSchedule(Depot, client, startDate, endDate, regNo, driver, state);
+		WorkSchedule WS1 = new WorkSchedule(ID, Depot, client, startDate, endDate, regNo, driver, state);
 		return WS1;
 	}
 	
 	public static WorkSchedule WorkScheduleTest2() {
 		
+		String ID = "002";
 		String Depot = "manchester";
 		String client = "Jeremy";
 		String startDate = "1st May 2018";
@@ -77,12 +79,13 @@ public class Depot {
 		String driver = "Steve";
 		String state = "";
 		
-		WorkSchedule WS2 = new WorkSchedule(Depot, client, startDate, endDate, regNo, driver, state);
+		WorkSchedule WS2 = new WorkSchedule(ID, Depot, client, startDate, endDate, regNo, driver, state);
 		return WS2;
 	}
 	
 	public static WorkSchedule WorkScheduleTest() {
 		
+		String ID = "003";
 		String Depot = "birmingham";
 		String client = "Milo";
 		String startDate = "1st May 2018";
@@ -91,7 +94,7 @@ public class Depot {
 		String driver = "Milo";
 		String state = "";
 		
-		WorkSchedule WS3 = new WorkSchedule(Depot, client, startDate, endDate, regNo, driver, state);
+		WorkSchedule WS3 = new WorkSchedule(ID, Depot, client, startDate, endDate, regNo, driver, state);
 		return WS3;
 	}
 
