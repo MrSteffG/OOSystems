@@ -54,7 +54,7 @@ public class Depot {
 		return null;
 	}
 	
-	/*public static WorkSchedule WorkScheduleTest1() {
+	public static WorkSchedule WorkScheduleTest1() {
 		
 		String ID = "001";
 		String Depot = "liverpool";
@@ -97,7 +97,7 @@ public class Depot {
 		
 		WorkSchedule WS3 = new WorkSchedule(ID, Depot, client, startDate, endDate, regNo, driver, state);
 		return WS3;
-	}*/
+	}
 
 	public String getDepotName() {
 		return depotName;

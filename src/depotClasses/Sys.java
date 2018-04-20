@@ -148,7 +148,7 @@ public class Sys {
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
 		case "1": { // put in viewSchedule when made
-			System.out.print(WorkSchedule.WorkScheduleTest1());
+			System.out.print(Depot.WorkScheduleTest1());
 		}
 			break;
 		case "Q":
