@@ -18,5 +18,14 @@ public class WorkSchedule {
 		this.driver= driver;
 		this.state= state;
 	}
+	
+	public String fullCheck(){
+		String toprint=(Depot+client+startDate);
+		return toprint;
+		
+		
+
+		
+	}
 }
 
