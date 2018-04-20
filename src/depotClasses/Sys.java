@@ -1,6 +1,6 @@
 package depotClasses;
 
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Scanner;
 import depotSystem.Depot;
 import depotSystem.Driver;
@@ -15,56 +15,60 @@ public class Sys {
 	private String depotChoice;
 	private Driver driver;
 	private Manager manager;
+	Scanner sc = new Scanner(System.in);
+	String menuNav = " ";
+	
+
 
 	public static Depot buildLiv() {
 
-		Vehicle[] liverpoolVehicle = new Vehicle[4];
-		Driver[] liverpoolDriver = new Driver[3];
+		LinkedList<Vehicle> liverpoolVehicle = new LinkedList<Vehicle>();
+		LinkedList<Driver> liverpoolDriver = new LinkedList<Driver>();
 
 		String name = "liverpool";
-		liverpoolDriver[0] = new Manager("Steve", "donkeys");
-		liverpoolDriver[1] = new Driver("Pete", "cows1");
-		liverpoolDriver[2] = new Driver("Dan", "mongoose2");
+		liverpoolDriver.add(new Manager("Steve", "donkeys"));
+		liverpoolDriver.add(new Manager("Pete", "cows1"));
+		liverpoolDriver.add(new Manager("Dan", "mongoose2"));
 
-		liverpoolVehicle[0] = new Vehicle("CS1457", "DAYCAB", "WHALEBODY");
-		liverpoolVehicle[1] = new Vehicle("CS1458", "VOLVO", "FM7290");
-		liverpoolVehicle[2] = new Vehicle("CS1451", "Merce;des-Benz", "Actros");
-		liverpoolVehicle[3] = new Vehicle("CS1452", "Iveco", "PowerStar420E5");
+		liverpoolVehicle.add(new Vehicle("CS1457", "DAYCAB", "WHALEBODY"));
+		liverpoolVehicle.add(new Vehicle("CS1458", "VOLVO", "FM7290"));
+		liverpoolVehicle.add(new Vehicle("CS1451", "Merce;des-Benz", "Actros"));
+		liverpoolVehicle.add(new Vehicle("CS1452", "Iveco", "PowerStar420E5"));
 		Depot liverpool = new Depot(name, liverpoolDriver, liverpoolVehicle);
 		return liverpool;
 	}
 
 	public static Depot buildMan() {
 
-		Vehicle[] manchesterVehicle = new Vehicle[4];
-		Driver[] manchesterDriver = new Driver[4];
+		LinkedList<Vehicle> manchesterVehicle = new LinkedList<Vehicle>();
+		LinkedList<Driver> manchesterDriver = new LinkedList<Driver>();
 		String name = "manchester";
-		manchesterDriver[0] = new Driver("Jeremy", "ilovesting");
-		manchesterDriver[1] = new Driver("sally", "trucks4life");
-		manchesterDriver[2] = new Driver("ruairi", "iloveanime");
-		manchesterDriver[3] = new Driver("mark", "not93");
+		manchesterDriver.add(new Driver("Jeremy", "ilovesting"));
+		manchesterDriver.add(new Driver("sally", "trucks4life"));
+		manchesterDriver.add(new Driver("ruairi", "iloveanime"));
+		manchesterDriver.add(new Driver("mark", "not93"));
 
-		manchesterVehicle[0] = new Vehicle("CS1459", "Tankerman", "Tankomatic5000");
-		manchesterVehicle[1] = new Vehicle("CS1460", "Tankerman", "Tankotron4");
-		manchesterVehicle[2] = new Vehicle("CS1453", "Tata", "Prima");
-		manchesterVehicle[3] = new Vehicle("CS1454", "Foton", "Auman");
+		manchesterVehicle.add(new Vehicle("CS1459", "Tankerman", "Tankomatic5000"));
+		manchesterVehicle.add(new Vehicle("CS1460", "Tankerman", "Tankotron4"));
+		manchesterVehicle.add(new Vehicle("CS1453", "Tata", "Prima"));
+		manchesterVehicle.add(new Vehicle("CS1454", "Foton", "Auman"));
 		Depot manchester = new Depot(name, manchesterDriver, manchesterVehicle);
 		return manchester;
 	}
 
 	public static Depot buildBirm() {
-		Vehicle[] birminghamVehicle = new Vehicle[4];
-		Driver[] birminghamDriver = new Driver[4];
+		LinkedList<Vehicle> birminghamVehicle = new LinkedList<Vehicle>();
+		LinkedList<Driver> birminghamDriver = new LinkedList<Driver>();
 		String name = "birmingham";
-		birminghamDriver[0] = new Driver("milo", "madeitwith");
-		birminghamDriver[1] = new Driver("rao", "morrocco123");
-		birminghamDriver[2] = new Driver("Hilary", "emailpass");
-		birminghamDriver[3] = new Driver("thedon", "nogunlaw");
+		birminghamDriver.add(new Driver("milo", "madeitwith"));
+		birminghamDriver.add(new Driver("rao", "morrocco123"));
+		birminghamDriver.add(new Driver("Hilary", "emailpass"));
+		birminghamDriver.add(new Driver("thedon", "nogunlaw"));
 
-		birminghamVehicle[0] = new Vehicle("CS1461", "Tankerman", "Wetdrive");
-		birminghamVehicle[1] = new Vehicle("CS1576", "Tankerman", "moistroller");
-		birminghamVehicle[2] = new Vehicle("CS1455", "Hyundai", "Xcient");
-		birminghamVehicle[3] = new Vehicle("CS1456", "Volvo", "VN780");
+		birminghamVehicle.add(new Vehicle("CS1461", "Tankerman", "Wetdrive")); 
+		birminghamVehicle.add(new Vehicle("CS1576", "Tankerman", "moistroller"));
+		birminghamVehicle.add(new Vehicle("CS1455", "Hyundai", "Xcient"));
+		birminghamVehicle.add(new Vehicle("CS1456", "Volvo", "VN780"));
 		Depot birmingham = new Depot(name, birminghamDriver, birminghamVehicle);
 		return birmingham;
 
@@ -78,8 +82,7 @@ public class Sys {
 		System.out.printf("\n3- [B]irmingham");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
-		Scanner sc = new Scanner(System.in);
-		String menuNav = " ";
+		
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
 		case "1":
@@ -146,8 +149,6 @@ public class Sys {
 		System.out.printf("\n1- View Work Schedule");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
-		Scanner sc = new Scanner(System.in);
-		String menuNav = " ";
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
 		case "1": { // put in viewSchedule when made
@@ -156,8 +157,7 @@ public class Sys {
 			break;
 		case "Q":
 		case "2": {
-			sc.close();
-			System.exit(0);
+			run();
 		}
 			break;
 		default:
@@ -174,8 +174,6 @@ public class Sys {
 		System.out.printf("\n3- Reassign Vehicle");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
-		Scanner sc = new Scanner(System.in);
-		String menuNav = " ";
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
 		case "1": { // put in viewSchedule when made
@@ -187,8 +185,7 @@ public class Sys {
 			break;
 		case "Q":
 		case "3": {
-			sc.close();
-			System.exit(0);
+			run();
 		}
 			break;
 		default:

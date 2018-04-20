@@ -1,15 +1,16 @@
 package depotSystem;
 
+import java.util.LinkedList;
 
 public class Depot {
 	private String depotName;
-	private Driver[] arrayDriver;
-	private Vehicle[] arrayVehicle;
+	private LinkedList<Driver> arrayDriver;
+	private LinkedList<Vehicle> arrayVehicle;
 	private Driver selected;
 	
 
 	
-	public Depot(String depotName, Driver[] arrayDriver, Vehicle[] arrayVehicle) {
+	public Depot(String depotName, LinkedList<Driver> arrayDriver, LinkedList<Vehicle> arrayVehicle) {
 		this.depotName=depotName;
 		this.arrayDriver=arrayDriver;
 		this.arrayVehicle=arrayVehicle;
