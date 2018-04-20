@@ -1,7 +1,6 @@
 package depotSystem;
 
 public class WorkSchedule {
-	private String ID;
 	private String depot;
 	private String client;
 	private String startDate;
@@ -10,8 +9,7 @@ public class WorkSchedule {
 	private String driver;
 	private String state;
 
-	public WorkSchedule(String ID, String depot, String client, String startDate, String endDate, String regNo, String driver, String state){
-		this.ID= ID;
+	public WorkSchedule(String depot, String client, String startDate, String endDate, String regNo, String driver, String state){
 		this.depot= depot;
 		this.client= client;
 		this.startDate= startDate;
@@ -27,14 +25,6 @@ public class WorkSchedule {
 		return toprint;
 	}
 		
-	public String getWorkSchedule() {
-		return ID;
-	}
-	
-	public String getID(){
-		return ID;
-	}
-	
 	public String getDepot(){
 		return depot;
 	}
