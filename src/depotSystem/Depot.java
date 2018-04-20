@@ -53,17 +53,46 @@ public class Depot {
 		return null;
 	}
 	
-	public static WorkSchedule WorkScheduleTest() {
+	public static WorkSchedule WorkScheduleTest1() {
 		
-		String ID = "001";
+		String Depot = "liverpool";
 		String client = "Markyboi";
 		String startDate = "1st May 2018";
 		String endDate = "3rd May 2018";
-		String regNo = "CS1455";
-		String driver = "Milo";
+		String regNo = "CS1457";
+		String driver = "Steve";
+		String state = "";
 		
-		WorkSchedule WS = new WorkSchedule(ID, client, startDate, endDate, regNo, driver);
-		return WS;
+		WorkSchedule WS1 = new WorkSchedule(Depot, client, startDate, endDate, regNo, driver, state);
+		return WS1;
+	}
+	
+	public static WorkSchedule WorkScheduleTest2() {
+		
+		String Depot = "manchester";
+		String client = "Jeremy";
+		String startDate = "1st May 2018";
+		String endDate = "3rd May 2018";
+		String regNo = "CS1459";
+		String driver = "Steve";
+		String state = "";
+		
+		WorkSchedule WS2 = new WorkSchedule(Depot, client, startDate, endDate, regNo, driver, state);
+		return WS2;
+	}
+	
+	public static WorkSchedule WorkScheduleTest() {
+		
+		String Depot = "birmingham";
+		String client = "Milo";
+		String startDate = "1st May 2018";
+		String endDate = "3rd May 2018";
+		String regNo = "CS1461";
+		String driver = "Milo";
+		String state = "";
+		
+		WorkSchedule WS3 = new WorkSchedule(Depot, client, startDate, endDate, regNo, driver, state);
+		return WS3;
 	}
 
 	public String getDepotName() {
