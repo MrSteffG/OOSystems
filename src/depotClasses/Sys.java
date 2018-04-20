@@ -9,7 +9,7 @@ import depotSystem.Vehicle;
 import depotSystem.WorkSchedule;
 
 public class Sys {
-	private Depot[] depotArray;
+	private LinkedList<Depot> depotArray;
 	private Depot depot;
 	private String depotChoice;
 	private Driver driver;
@@ -18,8 +18,8 @@ public class Sys {
 	Scanner sc = new Scanner(System.in);
 	String menuNav = " ";
 
-	public static Depot buildLiv() {
-
+	public LinkedList<Depot> buildDepots() {
+		depotArray= new LinkedList<Depot>();
 		LinkedList<Vehicle> liverpoolVehicle = new LinkedList<Vehicle>();
 		LinkedList<Driver> liverpoolDriver = new LinkedList<Driver>();
 
@@ -33,14 +33,10 @@ public class Sys {
 		liverpoolVehicle.add(new Vehicle("CS1451", "Merce;des-Benz", "Actros"));
 		liverpoolVehicle.add(new Vehicle("CS1452", "Iveco", "PowerStar420E5"));
 		Depot liverpool = new Depot(name, liverpoolDriver, liverpoolVehicle);
-		return liverpool;
-	}
-
-	public static Depot buildMan() {
 
 		LinkedList<Vehicle> manchesterVehicle = new LinkedList<Vehicle>();
 		LinkedList<Driver> manchesterDriver = new LinkedList<Driver>();
-		String name = "manchester";
+		name = "manchester";
 		manchesterDriver.add(new Driver("Jeremy", "ilovesting"));
 		manchesterDriver.add(new Driver("sally", "trucks4life"));
 		manchesterDriver.add(new Driver("ruairi", "iloveanime"));
@@ -51,13 +47,10 @@ public class Sys {
 		manchesterVehicle.add(new Vehicle("CS1453", "Tata", "Prima"));
 		manchesterVehicle.add(new Vehicle("CS1454", "Foton", "Auman"));
 		Depot manchester = new Depot(name, manchesterDriver, manchesterVehicle);
-		return manchester;
-	}
 
-	public static Depot buildBirm() {
 		LinkedList<Vehicle> birminghamVehicle = new LinkedList<Vehicle>();
 		LinkedList<Driver> birminghamDriver = new LinkedList<Driver>();
-		String name = "birmingham";
+		name = "birmingham";
 		birminghamDriver.add(new Driver("milo", "madeitwith"));
 		birminghamDriver.add(new Driver("rao", "morrocco123"));
 		birminghamDriver.add(new Driver("Hilary", "emailpass"));
@@ -68,45 +61,49 @@ public class Sys {
 		birminghamVehicle.add(new Vehicle("CS1455", "Hyundai", "Xcient"));
 		birminghamVehicle.add(new Vehicle("CS1456", "Volvo", "VN780"));
 		Depot birmingham = new Depot(name, birminghamDriver, birminghamVehicle);
-		return birmingham;
+
+		depotArray.add(liverpool);
+		depotArray.add(birmingham);
+		depotArray.add(manchester);
+		return depotArray;
+
 	}
 
 	public void run() {
-		
-			System.out.println("Pelase select a Depot");
-			System.out.printf("\n1- [L]iverpool");
-			System.out.printf("\n2- [M]anchester");
-			System.out.printf("\n3- [B]irmingham");
-			System.out.printf("\nQ- Quit");
-			System.out.printf("\nPick:");
+		buildDepots();
+		System.out.println("Pelase select a Depot");
+		System.out.printf("\n1- [L]iverpool");
+		System.out.printf("\n2- [M]anchester");
+		System.out.printf("\n3- [B]irmingham");
+		System.out.printf("\nQ- Quit");
+		System.out.printf("\nPick:");
 
-			menuNav = sc.nextLine();
-			switch (menuNav.toUpperCase()) {
-			case "1":
-			case "L": {
-				depotChoice = "liverpool";
-			}
-				break;
-			case "2":
-			case "M": {
-				depotChoice = "manchester";
-			}
-				break;
-			case "3":
-			case "B": {
-				depotChoice = "birmingham";
-			}
-				break;
-			case "Q": {
-				sc.close();
-				System.exit(0);
-			}
-				break;
-			default:
-				System.out.println("not recognised, please try again");
-				break;
-			}
-		
+		menuNav = sc.nextLine();
+		switch (menuNav.toUpperCase()) {
+		case "1":
+		case "L": {
+			depotChoice = "liverpool";
+		}
+			break;
+		case "2":
+		case "M": {
+			depotChoice = "manchester";
+		}
+			break;
+		case "3":
+		case "B": {
+			depotChoice = "birmingham";
+		}
+			break;
+		case "Q": {
+			sc.close();
+			System.exit(0);
+		}
+			break;
+		default:
+			System.out.println("not recognised, please try again");
+			break;
+		}
 
 		getDepot();
 		System.out.println("Please enter your Username : ");
@@ -126,10 +123,8 @@ public class Sys {
 	}
 
 	private Depot getDepot() {
-		
-
 		for (Depot currentDepot : depotArray) {
-			if (currentDepot.getDepotName() == depotChoice) {
+			if (currentDepot.getDepotName().equals(depotChoice)) {
 				depot = currentDepot;
 				return currentDepot;
 
@@ -216,7 +211,6 @@ public class Sys {
 			System.out.print("it wokred maybe");
 			managerMenu();
 		}
-		;
 
 	}
 
