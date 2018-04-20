@@ -30,4 +30,33 @@ public class WorkSchedule {
 	public String getWorkSchedule() {
 		return ID;
 	}
+	
+	public String getID(){
+		return ID;
+	}
+	
+	public String getDepot(){
+		return depot;
+	}
+	
+	public String getClient(){
+		return client;
+	}
+	
+	public String getStartDate(){
+		return startDate;
+	}
+	
+	public String getEndDate(){
+		return endDate;
+	}
+	public String getregNo(){
+		return regNo;
+	}
+	public String getDriver(){
+		return driver;
+	}
+	public String getState(){
+		return state;
+	}
 }
