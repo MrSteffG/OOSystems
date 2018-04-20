@@ -6,7 +6,6 @@ import depotSystem.Depot;
 import depotSystem.Driver;
 import depotSystem.Manager;
 import depotSystem.Vehicle;
-import depotSystem.WorkSchedule;
 
 public class Sys {
 	private Depot[] depotArray;
@@ -140,7 +139,7 @@ public class Sys {
 		}
 		return null;
 	}
-
+	
 	public void driverMenu() {
 
 		System.out.printf("\n1- View Work Schedule");
@@ -149,7 +148,7 @@ public class Sys {
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
 		case "1": { // put in viewSchedule when made
-			// System.out.println(WorkSchedule.WS());
+
 		}
 			break;
 		case "Q":
