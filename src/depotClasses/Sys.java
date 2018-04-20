@@ -8,7 +8,6 @@ import depotSystem.Manager;
 import depotSystem.Vehicle;
 import depotSystem.WorkSchedule;
 
-
 public class Sys {
 	private Depot[] depotArray;
 	private Depot depot;
@@ -17,8 +16,6 @@ public class Sys {
 	private Manager manager;
 	Scanner sc = new Scanner(System.in);
 	String menuNav = " ";
-	
-
 
 	public static Depot buildLiv() {
 
@@ -65,7 +62,7 @@ public class Sys {
 		birminghamDriver.add(new Driver("Hilary", "emailpass"));
 		birminghamDriver.add(new Driver("thedon", "nogunlaw"));
 
-		birminghamVehicle.add(new Vehicle("CS1461", "Tankerman", "Wetdrive")); 
+		birminghamVehicle.add(new Vehicle("CS1461", "Tankerman", "Wetdrive"));
 		birminghamVehicle.add(new Vehicle("CS1576", "Tankerman", "moistroller"));
 		birminghamVehicle.add(new Vehicle("CS1455", "Hyundai", "Xcient"));
 		birminghamVehicle.add(new Vehicle("CS1456", "Volvo", "VN780"));
@@ -82,7 +79,7 @@ public class Sys {
 		System.out.printf("\n3- [B]irmingham");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
-		
+
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
 		case "1":
@@ -152,7 +149,7 @@ public class Sys {
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
 		case "1": { // put in viewSchedule when made
-			//System.out.println(WorkSchedule.WS());
+			// System.out.println(WorkSchedule.WS());
 		}
 			break;
 		case "Q":
@@ -168,12 +165,14 @@ public class Sys {
 	}
 
 	public void managerMenu() {
+		menuNav=" ";
 
 		System.out.printf("\n1- View Work Schedule");
 		System.out.printf("\n2- Create work Schedules");
 		System.out.printf("\n3- Reassign Vehicle");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
+		
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
 		case "1": { // put in viewSchedule when made
@@ -183,14 +182,28 @@ public class Sys {
 
 		}
 			break;
-		case "Q":
-		case "3": {
+		case "Q":{
 			run();
+		}
+			
+		case "3": {
+			
+			
 		}
 			break;
 		default:
 			System.out.println("not recognised, please try again");
 			break;
 		}
+	}
+
+	public void moveVehicle() {
+		System.out.print("\nplease enter the registration of the vehicle you wish to move");
+		String regNo = sc.nextLine();
+		System.out.print("Please select a depot you wish to move this to");
+		for (Depot currentDepot : depotArray) {
+			System.out.print(currentDepot.getDepotName());
+		}
+
 	}
 }

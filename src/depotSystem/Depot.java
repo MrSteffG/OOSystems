@@ -70,13 +70,7 @@ public class Depot {
 	public String getDepotName() {
 		return depotName;
 	}
-
-	public static void driverMenu(){
-		
-	}	
-		
-		
-}	
+}
 	
 	
 	
