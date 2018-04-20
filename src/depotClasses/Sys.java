@@ -6,6 +6,7 @@ import depotSystem.Depot;
 import depotSystem.Driver;
 import depotSystem.Manager;
 import depotSystem.Vehicle;
+import depotSystem.WorkSchedule;
 
 public class Sys {
 	private Depot[] depotArray;
@@ -67,7 +68,6 @@ public class Sys {
 		birminghamVehicle.add(new Vehicle("CS1456", "Volvo", "VN780"));
 		Depot birmingham = new Depot(name, birminghamDriver, birminghamVehicle);
 		return birmingham;
-
 	}
 
 	public void run() {
@@ -148,7 +148,7 @@ public class Sys {
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
 		case "1": { // put in viewSchedule when made
-
+			System.out.print(WorkSchedule.WorkScheduleTest1());
 		}
 			break;
 		case "Q":
