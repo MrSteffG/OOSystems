@@ -47,29 +47,11 @@ public class Depot {
 
 	public WorkSchedule setupWorkSchedule(String depot, String client, String startDate, String endDate, String regNo,
 			String driver, String state) {
+				return WS;
 
-		WorkSchedule WS001 = new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve",
-				"Completed");
-		WorkSchedule WS002 = new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy",
-				"Active");
-		WorkSchedule WS003 = new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo",
-				"Pending");
-		return null;
+	
 	}
 
-	public static WorkSchedule WorkScheduleTest1() {
-
-		String Depot = "liverpool";
-		String client = "Markyboi";
-		String startDate = "1st May 2018";
-		String endDate = "3rd May 2018";
-		String regNo = "CS1457";
-		String driver = "Steve";
-		String state = "";
-
-		WorkSchedule WST1 = new WorkSchedule(Depot, client, startDate, endDate, regNo, driver, state);
-		return WST1;
-	}
 
 	public String getDepotName() {
 		return depotName;
@@ -81,5 +63,9 @@ public class Depot {
 
 	public void setArrayVehicle(LinkedList<Vehicle> arrayVehicle) {
 		this.arrayVehicle = arrayVehicle;
+	}
+
+	public LinkedList<Driver> getArrayDriver() {
+		return arrayDriver;
 	}
 }

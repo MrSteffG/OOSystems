@@ -9,7 +9,7 @@ public class WorkSchedule {
 	private String driver;
 	private String state;
 
-	public WorkSchedule(String depot, String client, String startDate, String endDate, String regNo, String driver, String state){
+	public WorkSchedule(String depot, String client,String startDate , String endDate, String regNo, String driver, String state){
 		this.depot= depot;
 		this.client= client;
 		this.startDate= startDate;
@@ -48,5 +48,9 @@ public class WorkSchedule {
 	}
 	public String getState(){
 		return state;
+	}
+	public String toString(){
+		return client+" "+startDate+" "+endDate+" "+regNo;
+		
 	}
 }
