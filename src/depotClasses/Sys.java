@@ -5,13 +5,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.Locale;
 import java.util.Scanner;
+
+import depotSystem.Archive;
 import depotSystem.Depot;
 import depotSystem.Driver;
 import depotSystem.Manager;
 import depotSystem.Vehicle;
 import depotSystem.WorkSchedule;
 
-public class Sys extends Thread {
+public class Sys implements Runnable {
 	private LinkedList<Depot> depotArray;
 	private Depot depot;
 	private String depotChoice;
@@ -116,6 +118,9 @@ public class Sys extends Thread {
 	}
 
 	public void run() {
+		Archive archive=new Archive();
+		Thread t=new Thread(archive);
+		t.start();
 		buildSchedules();
 		buildDepots();
 		System.out.println("Pelase select a Depot");
@@ -366,7 +371,7 @@ public class Sys extends Thread {
 		return dList;
 	}
 
-	public void archiver() {
+/*	public void archiver() {
 		for (WorkSchedule currentWS : workList) {
 			String start = currentWS.getStartDate();
 			String end = currentWS.getEndDate();
@@ -388,6 +393,6 @@ public class Sys extends Thread {
 
 		}
 
-	}
+	}*/
 
 }
