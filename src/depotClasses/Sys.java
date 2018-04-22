@@ -118,11 +118,12 @@ public class Sys implements Runnable {
 	}
 
 	public void run() {
+		
+		buildSchedules();
+		buildDepots();
 		Archive archive=new Archive();
 		Thread t=new Thread(archive);
 		t.start();
-		buildSchedules();
-		buildDepots();
 		System.out.println("Pelase select a Depot");
 		System.out.printf("\n1- [L]iverpool");
 		System.out.printf("\n2- [M]anchester");

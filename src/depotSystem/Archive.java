@@ -11,6 +11,7 @@ public class Archive implements Runnable {
 
 	public void  run() {
 		
+		
 		for (WorkSchedule currentWS : workList) {
 			String start = currentWS.getStartDate();
 			String end = currentWS.getEndDate();
@@ -28,10 +29,14 @@ public class Archive implements Runnable {
 					currentWS.setState("active");
 				}
 			}
+			System.out.print("hello");
 try{Thread.sleep(30000);} catch (Exception e){}
 		}
 		
 	}
 
+		
 	}
+
+	
 
