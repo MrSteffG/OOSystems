@@ -51,6 +51,8 @@ public class WorkSchedule {
 	}
 	public String toString(){
 		return client+" "+startDate+" "+endDate+" "+regNo;
-		
+	}
+	public void setState(String newState){
+		this.state=newState;
 	}
 }

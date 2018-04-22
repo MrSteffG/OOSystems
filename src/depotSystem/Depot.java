@@ -1,5 +1,6 @@
 package depotSystem;
 
+
 import java.util.LinkedList;
 
 public class Depot {
@@ -7,12 +8,15 @@ public class Depot {
 	private LinkedList<Driver> arrayDriver;
 	private LinkedList<Vehicle> arrayVehicle;
 	private Driver selected;
-	private WorkSchedule WS;
+	private LinkedList<WorkSchedule> wS;
+	
 
-	public Depot(String depotName, LinkedList<Driver> arrayDriver, LinkedList<Vehicle> arrayVehicle) {
+	public Depot(String depotName, LinkedList<Driver> arrayDriver, LinkedList<Vehicle> arrayVehicle, LinkedList<WorkSchedule> wS) {
 		this.depotName = depotName;
 		this.arrayDriver = arrayDriver;
-		this.setArrayVehicle(arrayVehicle);
+		this.arrayVehicle=arrayVehicle;
+		this.wS=wS;
+		
 
 	}
 
@@ -45,11 +49,10 @@ public class Depot {
 		return null;
 	}
 
-	public WorkSchedule setupWorkSchedule(String depot, String client, String startDate, String endDate, String regNo,
+	public void setupWorkSchedule(String depot, String client, String startDate, String endDate, String regNo,
 			String driver, String state) {
-				return WS;
-
-	
+		WorkSchedule WS= new WorkSchedule(depot, client, startDate, endDate, regNo, driver, state);
+		wS.add(WS);	
 	}
 
 
@@ -67,5 +70,10 @@ public class Depot {
 
 	public LinkedList<Driver> getArrayDriver() {
 		return arrayDriver;
+	}
+
+	public LinkedList<WorkSchedule> getWS() {
+		
+		return wS;
 	}
 }

@@ -11,7 +11,7 @@ import depotSystem.Manager;
 import depotSystem.Vehicle;
 import depotSystem.WorkSchedule;
 
-public class Sys {
+public class Sys extends Thread {
 	private LinkedList<Depot> depotArray;
 	private Depot depot;
 	private String depotChoice;
@@ -19,6 +19,7 @@ public class Sys {
 	private Manager manager;
 	private Vehicle vehicle;
 	private LinkedList<WorkSchedule> workList;
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
 	Scanner sc = new Scanner(System.in);
 	String menuNav = " ";
 
@@ -36,7 +37,7 @@ public class Sys {
 		liverpoolVehicle.add(new Vehicle("CS1458", "VOLVO", "FM7290", buildVWS("CS1458")));
 		liverpoolVehicle.add(new Vehicle("CS1451", "Merce;des-Benz", "Actros", buildVWS("CS1451")));
 		liverpoolVehicle.add(new Vehicle("CS1452", "Iveco", "PowerStar420E5", buildVWS("CS14521")));
-		Depot liverpool = new Depot(name, liverpoolDriver, liverpoolVehicle);
+		Depot liverpool = new Depot(name, liverpoolDriver, liverpoolVehicle, buildDWS(name));
 
 		LinkedList<Vehicle> manchesterVehicle = new LinkedList<Vehicle>();
 		LinkedList<Driver> manchesterDriver = new LinkedList<Driver>();
@@ -50,7 +51,7 @@ public class Sys {
 		manchesterVehicle.add(new Vehicle("CS1460", "Tankerman", "Tankotron4", buildVWS("CS1460")));
 		manchesterVehicle.add(new Vehicle("CS1453", "Tata", "Prima", buildVWS("CS1453")));
 		manchesterVehicle.add(new Vehicle("CS1454", "Foton", "Auman", buildVWS("CS1454")));
-		Depot manchester = new Depot(name, manchesterDriver, manchesterVehicle);
+		Depot manchester = new Depot(name, manchesterDriver, manchesterVehicle, buildDWS(name));
 
 		LinkedList<Vehicle> birminghamVehicle = new LinkedList<Vehicle>();
 		LinkedList<Driver> birminghamDriver = new LinkedList<Driver>();
@@ -64,7 +65,7 @@ public class Sys {
 		birminghamVehicle.add(new Vehicle("CS1576", "Tankerman", "moistroller", buildVWS("CS1576")));
 		birminghamVehicle.add(new Vehicle("CS1455", "Hyundai", "Xcient", buildVWS("CS1455")));
 		birminghamVehicle.add(new Vehicle("CS1456", "Volvo", "VN780", buildVWS("CS1456")));
-		Depot birmingham = new Depot(name, birminghamDriver, birminghamVehicle);
+		Depot birmingham = new Depot(name, birminghamDriver, birminghamVehicle, buildDWS(name));
 
 		depotArray.add(liverpool);
 		depotArray.add(birmingham);
@@ -186,9 +187,9 @@ public class Sys {
 		System.out.printf("\nPick:");
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
-		case "1": { 
+		case "1": {
 			viewWS();
-			
+
 		}
 			break;
 		case "Q":
@@ -274,41 +275,39 @@ public class Sys {
 		for (WorkSchedule currentSchedule : workList) {
 			if (driver.getUser().equals(currentSchedule.getDriver())) {
 				System.out.print("\n" + currentSchedule.toString());
-			} else;
-				
+			} else
+				;
+
 		}
 	}
 
 	public void createWS() {
 		// request start date
 		String start = sc.next();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
 		LocalDate startDate = LocalDate.parse(start, formatter);
 		if (startDate.isAfter(LocalDate.now())) {
 			// request end date
 			String end = sc.next();
 			LocalDate endDate = LocalDate.parse(end, formatter);
 			if (endDate.isAfter(startDate)) {
-				
-				LinkedList<Vehicle> checkV=depot.getArrayVehicle();
-				for(Vehicle currentVehicle:checkV){
+
+				LinkedList<Vehicle> checkV = depot.getArrayVehicle();
+				for (Vehicle currentVehicle : checkV) {
 					currentVehicle.isAvailble(startDate, endDate);
 					System.out.print(currentVehicle.getinfo());
-					String selectedV= sc.next();
-					
+					String selectedV = sc.next();
+
 				}
-				
-				LinkedList<Driver> checkD=depot.getArrayDriver();
-				for(Driver currentDriver: checkD){
+
+				LinkedList<Driver> checkD = depot.getArrayDriver();
+				for (Driver currentDriver : checkD) {
 					currentDriver.isAvailble(startDate, endDate);
 					System.out.print(currentDriver.getUser());
-					String selectedD= sc.next();
+					String selectedD = sc.next();
 				}
-				
-				
-				
+
 				// please select a vehicle
-				
+
 				// please select a driver
 
 			}
@@ -326,7 +325,10 @@ public class Sys {
 			return "its gone";
 	}
 
-	public LinkedList<WorkSchedule> buildDriverWS(String name) { //for building test drivers WS
+	public LinkedList<WorkSchedule> buildDriverWS(String name) { // for building
+																	// test
+																	// drivers
+																	// WS
 		LinkedList<WorkSchedule> driveList = new LinkedList<WorkSchedule>();
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getDriver().equals(name)) {
@@ -338,7 +340,8 @@ public class Sys {
 		return driveList;
 	}
 
-	public LinkedList<WorkSchedule> buildVWS(String regNo) {//build test vehicles WS
+	public LinkedList<WorkSchedule> buildVWS(String regNo) {// build test
+															// vehicles WS
 		LinkedList<WorkSchedule> vList = new LinkedList<WorkSchedule>();
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getregNo().equals(regNo)) {
@@ -349,4 +352,42 @@ public class Sys {
 
 		return vList;
 	}
+
+	public LinkedList<WorkSchedule> buildDWS(String depot) {// build test depots
+															// WS
+		LinkedList<WorkSchedule> dList = new LinkedList<WorkSchedule>();
+		for (WorkSchedule currentSchedule : workList) {
+			if (currentSchedule.getDepot().equals(depot)) {
+				dList.add(currentSchedule);
+			}
+
+		}
+
+		return dList;
+	}
+
+	public void archiver() {
+		for (WorkSchedule currentWS : workList) {
+			String start = currentWS.getStartDate();
+			String end = currentWS.getEndDate();
+			LocalDate startD = LocalDate.parse(start, formatter);
+			LocalDate endD = LocalDate.parse(end, formatter);
+			if (endD.isBefore(LocalDate.now())) {
+				currentWS.setState("archived");
+				break;
+			}
+			if (startD.isAfter(LocalDate.now())) {
+				currentWS.setState("pending");
+				break;
+			}
+			if (startD.isBefore(LocalDate.now())) {
+				if (endD.isAfter(LocalDate.now())) {
+					currentWS.setState("active");
+				}
+			}
+
+		}
+
+	}
+
 }
