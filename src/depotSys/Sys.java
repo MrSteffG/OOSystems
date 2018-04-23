@@ -109,7 +109,7 @@ public class Sys implements Runnable {
 
 	public void run() {
 if(i==0){
-		buildSchedules();
+		workList=buildSchedules();
 		buildDepots();
 		Archive archive = new Archive(workList);
 		Thread t1 = new Thread(archive);
@@ -294,6 +294,7 @@ if(i==0){
 	public void viewWS() {
 		for (WorkSchedule currentSchedule : workList) {
 			if (driver.getUser().equals(currentSchedule.getDriver())) {
+				if(!currentSchedule.getState().equals("Archived"))
 				System.out.print("\n" + currentSchedule.toString());
 			} 
 		}
@@ -328,7 +329,6 @@ if(i==0){
 				}
 				System.out.println("Please select a driver (Username)");
 				String selectedD = sc.next();
-				
 			}
 		}
 	}
