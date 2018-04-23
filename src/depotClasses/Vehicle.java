@@ -51,7 +51,7 @@ public class Vehicle {
 	}
 		
 	public String getinfo(){
-		return regNo + make + model;
+		return ("Registration Number:" + regNo + " Make:"+ make + " Model:" + model);
 	}
 
 	public boolean isAvailble(LocalDate newSD, LocalDate newED) {

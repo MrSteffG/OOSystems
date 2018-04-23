@@ -162,7 +162,7 @@ if(i==0){
 		String password = sc.next();
 
 		driver= depot.logOn(user, password);
-		
+	
 		if (driver!=null){
 		if (Manager.class.isInstance(driver)) {
 			manager = Manager.class.cast(driver);
@@ -171,8 +171,9 @@ if(i==0){
 			driverMenu();
 		}
 		else System.out.print("sorry no user matches those parameters");
-	}
-
+		}
+	
+	
 	private Depot getDepot() {
 		for (Depot currentDepot : depotArray) {
 			if (currentDepot.getDepotName().equals(depotChoice)) {
