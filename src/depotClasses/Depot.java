@@ -26,13 +26,17 @@ public class Depot {
 	}
 
 	public Driver logOn(String userName, String password) {
+		
 		selected = getDriver(userName);
+		if (selected !=null){
 
 		if (selected.checkPassword(password)) {
 			System.out.println("Login Success"); 
 			return selected;
 		} else
 			System.out.print("Not recognised please try again");
+		return null;
+	}
 		return null;
 	}
 
@@ -45,13 +49,13 @@ public class Depot {
 		return null;
 	}
 
-	public Driver getDriver(String userName) {// this bit works
+	public Driver getDriver(String userName) {
 		for (Driver currentDriver : arrayDriver) {
 			if (currentDriver.getUser().equals(userName)) {
 				return currentDriver;
 			}
 		}
-		return null;
+	return null;
 	}
 
 	public void setupWorkSchedule(String depot, String client, String startDate, String endDate, String regNo,

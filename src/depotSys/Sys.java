@@ -20,6 +20,7 @@ public class Sys implements Runnable {
 	private Driver driver;
 	private Manager manager;
 	private Vehicle vehicle;
+	private int i=0;
 	private LinkedList<WorkSchedule> workList;
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
 	Scanner sc = new Scanner(System.in);
@@ -107,12 +108,17 @@ public class Sys implements Runnable {
 	}
 
 	public void run() {
-
+if(i==0){
 		buildSchedules();
 		buildDepots();
 		Archive archive = new Archive(workList);
 		Thread t1 = new Thread(archive);
 		t1.start();
+		i++;
+}
+		
+		depot=null;
+		driver=null;
 		System.out.println("Pelase select a Depot");
 		System.out.printf("\n1- [L]iverpool");
 		System.out.printf("\n2- [M]anchester");
@@ -120,7 +126,7 @@ public class Sys implements Runnable {
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
 
-		menuNav = sc.nextLine();
+		menuNav = sc.next();
 		switch (menuNav.toUpperCase()) {
 		case "1":
 		case "L": {
@@ -144,6 +150,7 @@ public class Sys implements Runnable {
 			break;
 		default:
 			System.out.println("not recognised, please try again");
+			run();
 			break;
 		}
 
@@ -154,13 +161,16 @@ public class Sys implements Runnable {
 		System.out.println("Please enter your Password : ");
 		String password = sc.next();
 
-		// depot.logOn(user, password);
-		driver = depot.logOn(user, password);
+		driver= depot.logOn(user, password);
+		
+		if (driver!=null){
 		if (Manager.class.isInstance(driver)) {
 			manager = Manager.class.cast(driver);
 			managerMenu();
 		} else
 			driverMenu();
+		}
+		else System.out.print("sorry no user matches those parameters");
 	}
 
 	private Depot getDepot() {
@@ -175,28 +185,35 @@ public class Sys implements Runnable {
 	}
 
 	public void driverMenu() {
+		do{
 		System.out.printf("\nDriver Menu");
 		System.out.printf("\n1- View Work Schedule");
 		System.out.printf("\n2- Sign Out");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
-		
-		menuNav = sc.nextLine();
+	
+		menuNav = sc.next();
 		switch (menuNav.toUpperCase()) {
 		case "1": {
 			viewWS();
 		}
 			break;
 			
-		case "Q":
+		case "Q":{
+			System.exit(0);
+		}
 		case "2": {
 			run();
 		}
 			break;
 		default:
 			System.out.println("not recognised, please try again");
+			driverMenu();
 			break;
+			
 		}
+	}
+	while(!menuNav.equals("Q"));
 	}
 
 	public void managerMenu() {
@@ -221,7 +238,7 @@ public class Sys implements Runnable {
 			}
 				break;
 			case "Q": {
-				run();
+			System.exit(0);;
 			}
 				break;
 			case "3": {
@@ -230,14 +247,18 @@ public class Sys implements Runnable {
 			}
 			case "4": {
 				System.out.print(checkVehicle());
-				break;
+				
 			}
+			break;
 			case "5": {
 				run();
+			
 			}
 				break;
+
 			default:
 				System.out.println("not recognised, please try again");
+				managerMenu();
 				break;
 			}
 		} while (!"Q".equals(menuNav));
