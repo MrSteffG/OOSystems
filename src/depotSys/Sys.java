@@ -268,17 +268,16 @@ public class Sys implements Runnable {
 		for (WorkSchedule currentSchedule : workList) {
 			if (driver.getUser().equals(currentSchedule.getDriver())) {
 				System.out.print("\n" + currentSchedule.toString());
-			} else
-				System.out.print("Summink's been ballsed");
+			} 
 		}
 	}
 
 	public void createWS() {
-		// request start date
+		System.out.println("Please enter the start date (DD-MM-YYYY)");
 		String start = sc.next();
 		LocalDate startDate = LocalDate.parse(start, formatter);
 		if (startDate.isAfter(LocalDate.now())) {
-			// request end date
+			System.out.println("Please enter the end date (DD-MM-YYYY)");
 			String end = sc.next();
 			LocalDate endDate = LocalDate.parse(end, formatter);
 			if (endDate.isAfter(startDate)) {
