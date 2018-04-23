@@ -19,5 +19,9 @@ public class Truck extends Vehicle {
 			String type) {
 		super(regNo, model, make, wsList);
 	}
+	
+	public String getType() {
+		return type;
+	}
 
 }
