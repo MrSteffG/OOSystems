@@ -10,6 +10,12 @@ public class Driver {
 	protected String password;
 	protected LinkedList<WorkSchedule> wsList;
 
+	/**
+	 * Constructs a driver consisting of username, password and work schedule.
+	 * @param userName the username used to identify the user.
+	 * @param password the password used to verify the user.
+	 * @param wsList the work schedule the user adheres to.
+	 */
 	public Driver(String userName, String password, LinkedList<WorkSchedule> wsList) {
 		this.userName = userName;
 		this.password = password;

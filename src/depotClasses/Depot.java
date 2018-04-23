@@ -1,6 +1,5 @@
 package depotClasses;
 
-
 import java.util.LinkedList;
 
 public class Depot {
@@ -10,7 +9,13 @@ public class Depot {
 	private Driver selected;
 	private LinkedList<WorkSchedule> wS;
 	
-
+	/**
+	 * Constructs a depot consisting of a name, drivers, vehicles and work schedule.
+	 * @param depotName the name of the depot usually after it's location
+	 * @param arrayDriver the drivers based in this depot
+	 * @param arrayVehicle the vehicles based in this depot
+	 * @param wS the work schedule this depot adheres to
+	 */
 	public Depot(String depotName, LinkedList<Driver> arrayDriver, LinkedList<Vehicle> arrayVehicle, LinkedList<WorkSchedule> wS) {
 		this.depotName = depotName;
 		this.arrayDriver = arrayDriver;

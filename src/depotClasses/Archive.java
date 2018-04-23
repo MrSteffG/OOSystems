@@ -9,10 +9,10 @@ public class Archive implements Runnable {
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
 	private LinkedList<WorkSchedule> workList;
 
-	public void  run() {
+	public void run() {
 		archiver();
 	}
-	
+
 	public void archiver() {
 		for (WorkSchedule currentWS : workList) {
 			String start = currentWS.getStartDate();
@@ -20,7 +20,8 @@ public class Archive implements Runnable {
 			LocalDate startD = LocalDate.parse(start, formatter);
 			LocalDate endD = LocalDate.parse(end, formatter);
 			if (endD.isBefore(LocalDate.now())) {
-				currentWS.setState("archived");				break;
+				currentWS.setState("archived");
+				break;
 			}
 			if (startD.isAfter(LocalDate.now())) {
 				currentWS.setState("pending");
@@ -31,10 +32,13 @@ public class Archive implements Runnable {
 					currentWS.setState("active");
 				}
 			}
-			
+
 			System.out.print("Archiver has a done summink");
-			
-			try{Thread.sleep(30000);} catch (Exception e){}
+
+			try {
+				Thread.sleep(30000);
+			} catch (Exception e) {
+			}
 		}
-	}	
+	}
 }

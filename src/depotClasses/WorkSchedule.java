@@ -9,6 +9,16 @@ public class WorkSchedule {
 	private String driver;
 	private String state;
 
+	/**
+	 * Constructs a work schedule consisting of depot, client, start date, end date, registration number, driver and state.
+	 * @param depot identifies the depot the WS is based from
+	 * @param client identifies the client 
+	 * @param startDate the start date of the schedule
+	 * @param endDate the end date of the schedule
+	 * @param regNo used to identify the vehicle used
+	 * @param driver used to identify the driver
+	 * @param state used to identify the state, either active, pending or archived
+	 */
 	public WorkSchedule(String depot, String client,String startDate , String endDate, String regNo, String driver, String state){
 		this.depot= depot;
 		this.client= client;
