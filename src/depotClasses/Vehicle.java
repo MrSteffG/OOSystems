@@ -45,6 +45,9 @@ public class Vehicle {
 	public String getMake() {
 			return make;
 	}
+	public void setUpWS(WorkSchedule ws){
+		wsList.add(ws);	
+	}
 	
 	public LinkedList<WorkSchedule> getWsList() {
 		return wsList;

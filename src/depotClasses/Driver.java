@@ -33,6 +33,9 @@ public class Driver {
 	public String getUserName() {
 		return userName;
 	}
+	public void setWorkSchedule(WorkSchedule ws){
+		wsList.add(ws);
+	}
 	
 	public String getPassword() {
 		return password;
