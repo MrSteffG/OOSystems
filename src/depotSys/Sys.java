@@ -79,50 +79,36 @@ public class Sys implements Runnable {
 	public LinkedList<WorkSchedule> buildSchedules() {
 		workList = new LinkedList<WorkSchedule>();
 		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(
-				new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(
-				new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
+		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
+		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
 		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(
-				new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(
-				new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
+		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
+		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
 		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(
-				new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(
-				new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
+		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
+		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
 		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(
-				new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(
-				new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
+		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
+		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
 		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(
-				new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(
-				new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
+		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
+		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
 		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(
-				new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(
-				new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
-		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(
-				new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(
-				new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
+		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
+		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
+		workList.add(new WorkSchedule("liverpool", "Markyboi", "22-4-2018", "23-4-2018", "CS1457", "Steve", "active"));
+		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
+		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
 
 		return workList;
 	}
 
 	public void run() {
-		
+
 		buildSchedules();
 		buildDepots();
-		Archive archive=new Archive();
-		Thread t=new Thread(archive);
+		Archive archive = new Archive();
+		Thread t = new Thread(archive);
 		t.start();
 		System.out.println("Pelase select a Depot");
 		System.out.printf("\n1- [L]iverpool");
@@ -172,7 +158,6 @@ public class Sys implements Runnable {
 			managerMenu();
 		} else
 			driverMenu();
-
 	}
 
 	private Depot getDepot() {
@@ -187,7 +172,7 @@ public class Sys implements Runnable {
 	}
 
 	public void driverMenu() {
-
+		System.out.printf("\nDriver Menu");
 		System.out.printf("\n1- View Work Schedule");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
@@ -207,11 +192,11 @@ public class Sys implements Runnable {
 			System.out.println("not recognised, please try again");
 			break;
 		}
-
 	}
 
 	public void managerMenu() {
 		do {
+			System.out.printf("\nManager Menu:");
 			System.out.printf("\n1- View Work Schedule");
 			System.out.printf("\n2- Create work Schedules");
 			System.out.printf("\n3- Reassign Vehicle");
@@ -274,7 +259,6 @@ public class Sys implements Runnable {
 				managerMenu();
 			}
 		}
-
 	}
 
 	public void viewWS() {
@@ -283,7 +267,6 @@ public class Sys implements Runnable {
 				System.out.print("\n" + currentSchedule.toString());
 			} else
 				;
-
 		}
 	}
 
@@ -326,28 +309,22 @@ public class Sys implements Runnable {
 		String regNo = sc.next();
 		if (depot.getVehicle(regNo) != null) {
 			return "its still there";
-
 		} else
 			return "its gone";
 	}
 
-	public LinkedList<WorkSchedule> buildDriverWS(String name) { // for building
-																	// test
-																	// drivers
-																	// WS
+	public LinkedList<WorkSchedule> buildDriverWS(String name) { // for building test drivers WS
 		LinkedList<WorkSchedule> driveList = new LinkedList<WorkSchedule>();
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getDriver().equals(name)) {
 				driveList.add(currentSchedule);
 			}
-
 		}
-
+		
 		return driveList;
 	}
 
-	public LinkedList<WorkSchedule> buildVWS(String regNo) {// build test
-															// vehicles WS
+	public LinkedList<WorkSchedule> buildVWS(String regNo) {// build test vehicles WS
 		LinkedList<WorkSchedule> vList = new LinkedList<WorkSchedule>();
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getregNo().equals(regNo)) {
@@ -359,20 +336,18 @@ public class Sys implements Runnable {
 		return vList;
 	}
 
-	public LinkedList<WorkSchedule> buildDWS(String depot) {// build test depots
-															// WS
+	public LinkedList<WorkSchedule> buildDWS(String depot) {// build test depots WS
 		LinkedList<WorkSchedule> dList = new LinkedList<WorkSchedule>();
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getDepot().equals(depot)) {
 				dList.add(currentSchedule);
 			}
-
 		}
 
 		return dList;
 	}
 
-/*	public void archiver() {
+	public void archiver() {
 		for (WorkSchedule currentWS : workList) {
 			String start = currentWS.getStartDate();
 			String end = currentWS.getEndDate();
@@ -391,9 +366,6 @@ public class Sys implements Runnable {
 					currentWS.setState("active");
 				}
 			}
-
 		}
-
-	}*/
-
+	}
 }
