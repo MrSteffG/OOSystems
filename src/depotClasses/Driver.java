@@ -30,11 +30,19 @@ public class Driver {
 			return false;
 	}
 
-	public String getUser() {
+	public String getUserName() {
 		return userName;
 	}
 	public void setWorkSchedule(WorkSchedule ws){
 		wsList.add(ws);
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public LinkedList<WorkSchedule> getWorkSchedule() {
+		return wsList;
 	}
 	
 
