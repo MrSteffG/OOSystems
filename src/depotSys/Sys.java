@@ -281,28 +281,27 @@ public class Sys implements Runnable {
 			String end = sc.next();
 			LocalDate endDate = LocalDate.parse(end, formatter);
 			if (endDate.isAfter(startDate)) {
-
+				System.out.println("Available Vehicles:");
 				LinkedList<Vehicle> checkV = depot.getArrayVehicle();
+				
 				for (Vehicle currentVehicle : checkV) {
 					currentVehicle.isAvailble(startDate, endDate);
-					System.out.print(currentVehicle.getinfo());
-					String selectedV = sc.next();
-
+					System.out.println(currentVehicle.getinfo());	
 				}
-
+				
+				System.out.println("Please select a vehicle (Reg No)");
+				
+				String selectedV = sc.next();
+				
+				System.out.println("Available Drivers:");
 				LinkedList<Driver> checkD = depot.getArrayDriver();
 				for (Driver currentDriver : checkD) {
 					currentDriver.isAvailble(startDate, endDate);
-					System.out.print(currentDriver.getUser());
+					System.out.println(currentDriver.getUser());
+					System.out.println("Please select a driver (Username)");
 					String selectedD = sc.next();
 				}
-
-				// please select a vehicle
-
-				// please select a driver
-
 			}
-
 		}
 	}
 
