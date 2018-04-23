@@ -10,8 +10,10 @@ public class Archive implements Runnable {
 	private LinkedList<WorkSchedule> workList;
 
 	public void  run() {
-		
-		
+		archiver();
+	}
+	
+	public void archiver() {
 		for (WorkSchedule currentWS : workList) {
 			String start = currentWS.getStartDate();
 			String end = currentWS.getEndDate();
@@ -29,14 +31,10 @@ public class Archive implements Runnable {
 					currentWS.setState("active");
 				}
 			}
-			System.out.print("hello");
-try{Thread.sleep(30000);} catch (Exception e){}
+			
+			System.out.print("Archiver has a done summink");
+			
+			try{Thread.sleep(30000);} catch (Exception e){}
 		}
-		
-	}
-
-		
-	}
-
-	
-
+	}	
+}

@@ -31,9 +31,9 @@ public class Sys implements Runnable {
 		LinkedList<Driver> liverpoolDriver = new LinkedList<Driver>();
 
 		String name = "liverpool";
-		liverpoolDriver.add(new Manager("Steve", "donkeys", buildDriverWS("Steve")));
-		liverpoolDriver.add(new Driver("Pete", "cows1", buildDriverWS("Pete")));
-		liverpoolDriver.add(new Manager("Dan", "mongoose2", buildDriverWS("Dan")));
+		liverpoolDriver.add(new Manager("Steve.Lovatt", "d0nkeys", buildDriverWS("Steve.Lovatt")));
+		liverpoolDriver.add(new Driver("Pete.Wilson", "Cows1", buildDriverWS("Pete.Wilson")));
+		liverpoolDriver.add(new Manager("Dan.McCabe", "mongoose2", buildDriverWS("Dan.McCabe")));
 
 		liverpoolVehicle.add(new Vehicle("CS1457", "DAYCAB", "WHALEBODY", buildVWS("CS1457")));
 		liverpoolVehicle.add(new Vehicle("CS1458", "VOLVO", "FM7290", buildVWS("CS1458")));
@@ -44,10 +44,10 @@ public class Sys implements Runnable {
 		LinkedList<Vehicle> manchesterVehicle = new LinkedList<Vehicle>();
 		LinkedList<Driver> manchesterDriver = new LinkedList<Driver>();
 		name = "manchester";
-		manchesterDriver.add(new Manager("Jeremy", "ilovesting", buildDriverWS("Jeremy")));
-		manchesterDriver.add(new Driver("sally", "trucks4life", buildDriverWS("sally")));
-		manchesterDriver.add(new Driver("ruairi", "iloveanime", buildDriverWS("ruairi")));
-		manchesterDriver.add(new Driver("mark", "not93", buildDriverWS("mark")));
+		manchesterDriver.add(new Manager("Jeremy.Zuckerman", "ilovesting", buildDriverWS("Jeremy.Zuckerman")));
+		manchesterDriver.add(new Driver("Sally.Cotton", "trucks4life", buildDriverWS("Sally.Cotton")));
+		manchesterDriver.add(new Driver("Ruairi.Irvine", "notsouthern4", buildDriverWS("Ruairi.Irvine")));
+		manchesterDriver.add(new Driver("Mark.Keenan", "not93", buildDriverWS("Mark.Keenan")));
 
 		manchesterVehicle.add(new Vehicle("CS1459", "Tankerman", "Tankomatic5000", buildVWS("CS1459")));
 		manchesterVehicle.add(new Vehicle("CS1460", "Tankerman", "Tankotron4", buildVWS("CS1460")));
@@ -58,10 +58,10 @@ public class Sys implements Runnable {
 		LinkedList<Vehicle> birminghamVehicle = new LinkedList<Vehicle>();
 		LinkedList<Driver> birminghamDriver = new LinkedList<Driver>();
 		name = "birmingham";
-		birminghamDriver.add(new Manager("milo", "madeitwith", buildDriverWS("milo")));
-		birminghamDriver.add(new Driver("rao", "morrocco123", buildDriverWS("rao")));
-		birminghamDriver.add(new Driver("Hilary", "emailpass", buildDriverWS("Hilary")));
-		birminghamDriver.add(new Driver("thedon", "nogunlaw", buildDriverWS("thedon")));
+		birminghamDriver.add(new Manager("Milo.McAleny", "made1twith", buildDriverWS("Milo.McAleny")));
+		birminghamDriver.add(new Driver("Raul.Gruics", "morocco123", buildDriverWS("Raul.Gruics")));
+		birminghamDriver.add(new Driver("Karl.Fitzgerald", "myname39", buildDriverWS("Karl.Fitzgerald")));
+		birminghamDriver.add(new Driver("Stefarno.Gorn", "sp4repart", buildDriverWS("Stefarno.Gorn")));
 
 		birminghamVehicle.add(new Vehicle("CS1461", "Tankerman", "Wetdrive", buildVWS("CS1461")));
 		birminghamVehicle.add(new Vehicle("CS1576", "Tankerman", "moistroller", buildVWS("CS1576")));
@@ -78,28 +78,31 @@ public class Sys implements Runnable {
 
 	public LinkedList<WorkSchedule> buildSchedules() {
 		workList = new LinkedList<WorkSchedule>();
-		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
-		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
-		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
-		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
-		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
-		workList.add(new WorkSchedule("liverpool", "Markyboi", "18-4-2018", "19-4-2018", "CS1457", "Steve", "active"));
-		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
-		workList.add(new WorkSchedule("liverpool", "Markyboi", "22-4-2018", "23-4-2018", "CS1457", "Steve", "active"));
-		workList.add(new WorkSchedule("manchester", "Ruaiaiairi", "20-4-2018", "21-4-2018", "CS1459", "Jeremy", "pending"));
-		workList.add(new WorkSchedule("birmingham", "HarryDuncalf", "1-5-2018", "3-5-2018", "CS1461", "Milo", "archived"));
-
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "05-04-2018", "07-04-2018", "CS1457", "Steve.Lovatt", "Archived"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "07-04-2018", "10-04-2018", "CS1459", "Jeremy.Zuckerman", "Archived"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "09-04-2018", "10-04-2018", "CS1461", "Milo.McAleny", "Archived"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "11-04-2018", "14-04-2018", "CS1457", "Pete.Wilson", "Archived"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "11-4-2018", "15-04-2018", "CS1459", "Sally.Cotton", "Archived"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "13-04-2018", "14-04-2018", "CS1461", "Raul.Gruics", "Archived"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "14-4-2018", "16-4-2018", "CS1457", "Dan.McCabe", "Archived"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "18-4-2018", "21-4-2018", "CS1459", "Ruairi.Irvine", "Archived"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "20-04-2018", "25-04-2018", "CS1461", "Karl.Fitzgerald", "Active"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "22-04-2018", "19-24-2018", "CS1457", "Mark.Keenan", "Active"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "23-04-2018", "27-04-2018", "CS1459", "Stefarno.Gorn", "Active"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "23-04-2018", "16-04-2018", "CS1461", "Milo.McAleny", "Active"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "23-04-2018", "24-04-2018", "CS1457", "Steve.Lovatt", "Active"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "23-04-2018", "24-4-2018", "CS1459", "Jeremy.Zuckerman", "Active"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "25-04-2018", "27-04-2018", "CS1461", "Milo.McAleny", "Pending"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "27-04-2018", "29-04-2018", "CS1457", "Pete.Wilson", "Pending"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "27-04-2018", "28-04-2018", "CS1459", "Sally.Cotton", "Pending"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "28-04-2018", "30-04-2018", "CS1461", "Raul.Gruics", "Pending"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "30-04-2018", "01-05-2018", "CS1457", "Dan.McCabe", "Pending"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "01-05-2018", "02-05-2018", "CS1459", "Ruairi.Irvine", "Pending"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "02-05-2018", "03-05-2018", "CS1461", "Karl.Fitzgerald", "Pending"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "02-05-2018", "04-05-2018", "CS1457", "Mark.Keenan", "Pending"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "04-05-2018", "05-05-2018", "CS1459", "Stefarno.Gorn", "Pending"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "06-05-2018", "08-05-2018", "CS1461", "Milo", "Pending"));
+		
 		return workList;
 	}
 
@@ -108,8 +111,8 @@ public class Sys implements Runnable {
 		buildSchedules();
 		buildDepots();
 		Archive archive = new Archive();
-		Thread t = new Thread(archive);
-		t.start();
+		Thread t1 = new Thread(archive);
+		t1.start();
 		System.out.println("Pelase select a Depot");
 		System.out.printf("\n1- [L]iverpool");
 		System.out.printf("\n2- [M]anchester");
@@ -176,11 +179,11 @@ public class Sys implements Runnable {
 		System.out.printf("\n1- View Work Schedule");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
+		
 		menuNav = sc.nextLine();
 		switch (menuNav.toUpperCase()) {
 		case "1": {
 			viewWS();
-
 		}
 			break;
 		case "Q":
@@ -266,7 +269,7 @@ public class Sys implements Runnable {
 			if (driver.getUser().equals(currentSchedule.getDriver())) {
 				System.out.print("\n" + currentSchedule.toString());
 			} else
-				;
+				System.out.print("Summink's been ballsed");
 		}
 	}
 
