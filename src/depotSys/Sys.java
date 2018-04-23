@@ -320,7 +320,7 @@ do{
 	}
 
 	public void viewWS() {
-		for (WorkSchedule currentSchedule : workList) {
+		for (WorkSchedule currentSchedule : depot.getWS()) {
 			if (driver.getUserName().equals(currentSchedule.getDriver())) {
 				if(!currentSchedule.getState().equals("Archived"))
 				System.out.print("\n" + currentSchedule.toString());
@@ -348,6 +348,7 @@ do{
 				System.out.println("Please select a vehicle (Reg No)");
 				String selectedV = sc.next();
 				vehicle=depot.getVehicle(selectedV);
+				System.out.print(vehicle.getRegNo());
 
 				System.out.println("Available Drivers:");
 				LinkedList<Driver> checkD = depot.getArrayDriver();
@@ -358,6 +359,7 @@ do{
 				System.out.println("Please select a driver (Username)");
 				String selectedD = sc.next();
 				driver=depot.getDriver(selectedD);
+				System.out.print(driver.getUserName());
 				System.out.println("Please enter the clients Name");
 				String client=sc.next();
 				WorkSchedule createdWS=depot.setupWorkSchedule(depot.getDepotName(), client, start, end, vehicle.getRegNo(),driver.getUserName(), "pending");
@@ -366,7 +368,6 @@ do{
 				System.out.printf("\n created");
 			}
 		}
-		run();
 	}
 
 	public String checkVehicle() {
