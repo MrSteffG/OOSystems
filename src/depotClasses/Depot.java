@@ -58,10 +58,12 @@ public class Depot {
 	return null;
 	}
 
-	public void setupWorkSchedule(String depot, String client, String startDate, String endDate, String regNo,
+	public WorkSchedule setupWorkSchedule(String depot, String client, String startDate, String endDate, String regNo,
 			String driver, String state) {
 		WorkSchedule WS= new WorkSchedule(depot, client, startDate, endDate, regNo, driver, state);
-		wS.add(WS);	
+		wS.add(WS);
+		return WS;
+		
 	}
 
 

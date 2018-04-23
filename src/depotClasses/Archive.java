@@ -16,16 +16,16 @@ public class Archive implements Runnable {
 			LocalDate startD = LocalDate.parse(start, formatter);
 			LocalDate endD = LocalDate.parse(end, formatter);
 			if (endD.isBefore(LocalDate.now())) {
-				currentWS.setState("archived");
+				currentWS.setState("Archived");
 				break;
 			}
 			if (startD.isAfter(LocalDate.now())) {
-				currentWS.setState("pending");
+				currentWS.setState("Pending");
 				break;
 			}
 			if (startD.isBefore(LocalDate.now())) {
 				if (endD.isAfter(LocalDate.now())) {
-					currentWS.setState("active");
+					currentWS.setState("Active");
 				}
 			}
 
