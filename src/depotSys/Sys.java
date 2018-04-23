@@ -78,7 +78,7 @@ public class Sys implements Runnable {
 
 	public LinkedList<WorkSchedule> buildSchedules() {
 		workList = new LinkedList<WorkSchedule>();
-		workList.add(new WorkSchedule("liverpool", "Keenan Co", "05-04-2018", "07-04-2018", "CS1457", "Steve.Lovatt", "Archived"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "05-04-2018", "07-04-2018", "CS1457", "Steve.Lovatt", "Active"));
 		workList.add(new WorkSchedule("manchester", "RuairiCorp", "07-04-2018", "10-04-2018", "CS1459", "Jeremy.Zuckerman", "Archived"));
 		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "09-04-2018", "10-04-2018", "CS1461", "Milo.McAleny", "Archived"));
 		workList.add(new WorkSchedule("liverpool", "Keenan Co", "11-04-2018", "14-04-2018", "CS1457", "Pete.Wilson", "Archived"));
@@ -177,6 +177,7 @@ public class Sys implements Runnable {
 	public void driverMenu() {
 		System.out.printf("\nDriver Menu");
 		System.out.printf("\n1- View Work Schedule");
+		System.out.printf("\n2- Sign Out");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
 		
@@ -186,6 +187,7 @@ public class Sys implements Runnable {
 			viewWS();
 		}
 			break;
+			
 		case "Q":
 		case "2": {
 			run();
@@ -204,6 +206,7 @@ public class Sys implements Runnable {
 			System.out.printf("\n2- Create work Schedules");
 			System.out.printf("\n3- Reassign Vehicle");
 			System.out.printf("\n4- check Vehicle");
+			System.out.printf("\n5- Sign Out");
 			System.out.printf("\nQ- Quit");
 			System.out.printf("\nPick:");
 
@@ -227,7 +230,10 @@ public class Sys implements Runnable {
 			}
 			case "4": {
 				System.out.print(checkVehicle());
-
+				break;
+			}
+			case "5": {
+				run();
 			}
 				break;
 			default:
@@ -350,25 +356,4 @@ public class Sys implements Runnable {
 		return dList;
 	}
 
-	public void archiver() {
-		for (WorkSchedule currentWS : workList) {
-			String start = currentWS.getStartDate();
-			String end = currentWS.getEndDate();
-			LocalDate startD = LocalDate.parse(start, formatter);
-			LocalDate endD = LocalDate.parse(end, formatter);
-			if (endD.isBefore(LocalDate.now())) {
-				currentWS.setState("archived");
-				break;
-			}
-			if (startD.isAfter(LocalDate.now())) {
-				currentWS.setState("pending");
-				break;
-			}
-			if (startD.isBefore(LocalDate.now())) {
-				if (endD.isAfter(LocalDate.now())) {
-					currentWS.setState("active");
-				}
-			}
-		}
-	}
 }

@@ -10,10 +10,6 @@ public class Archive implements Runnable {
 	private LinkedList<WorkSchedule> workList;
 
 	public void run() {
-		archiver();
-	}
-
-	public void archiver() {
 		for (WorkSchedule currentWS : workList) {
 			String start = currentWS.getStartDate();
 			String end = currentWS.getEndDate();
@@ -41,4 +37,6 @@ public class Archive implements Runnable {
 			}
 		}
 	}
-}
+} 
+
+
