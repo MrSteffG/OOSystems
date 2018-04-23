@@ -1,9 +1,9 @@
 package depotSys;
-import java.io.FileNotFoundException;
+
 
 public class Entry {
 
-	public static void main(String[] args) throws FileNotFoundException  {
+	public static void main(String[] args) {
 		
 		new Sys().run();	
 

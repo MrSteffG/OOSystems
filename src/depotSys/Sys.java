@@ -110,7 +110,7 @@ public class Sys implements Runnable {
 
 		buildSchedules();
 		buildDepots();
-		Archive archive = new Archive();
+		Archive archive = new Archive(workList);
 		Thread t1 = new Thread(archive);
 		t1.start();
 		System.out.println("Pelase select a Depot");

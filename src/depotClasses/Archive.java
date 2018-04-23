@@ -9,7 +9,7 @@ public class Archive implements Runnable {
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
 	private LinkedList<WorkSchedule> workList;
 
-	public void run() {
+	public Archive(LinkedList<WorkSchedule> workList){
 		for (WorkSchedule currentWS : workList) {
 			String start = currentWS.getStartDate();
 			String end = currentWS.getEndDate();
@@ -37,6 +37,12 @@ public class Archive implements Runnable {
 			}
 		}
 	}
-} 
+
+
+	@Override
+	public void run() {
+		
+		
+	}} 
 
 
