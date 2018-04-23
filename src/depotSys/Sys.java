@@ -177,7 +177,6 @@ public class Sys implements Runnable {
 	public void driverMenu() {
 		System.out.printf("\nDriver Menu");
 		System.out.printf("\n1- View Work Schedule");
-		System.out.printf("\n2- Sign Out");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
 		
@@ -206,7 +205,6 @@ public class Sys implements Runnable {
 			System.out.printf("\n2- Create work Schedules");
 			System.out.printf("\n3- Reassign Vehicle");
 			System.out.printf("\n4- check Vehicle");
-			System.out.printf("\n5- Sign Out");
 			System.out.printf("\nQ- Quit");
 			System.out.printf("\nPick:");
 
@@ -232,10 +230,6 @@ public class Sys implements Runnable {
 				System.out.print(checkVehicle());
 				break;
 			}
-			case "5": {
-				run();
-			}
-				break;
 			default:
 				System.out.println("not recognised, please try again");
 				break;
