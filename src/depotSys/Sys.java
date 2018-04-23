@@ -20,7 +20,7 @@ public class Sys implements Runnable {
 	private Driver driver;
 	private Manager manager;
 	private Vehicle vehicle;
-	private int i=0;
+	private int i = 0;
 	private LinkedList<WorkSchedule> workList;
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
 	Scanner sc = new Scanner(System.in);
@@ -79,47 +79,71 @@ public class Sys implements Runnable {
 
 	public LinkedList<WorkSchedule> buildSchedules() {
 		workList = new LinkedList<WorkSchedule>();
-		workList.add(new WorkSchedule("liverpool", "Keenan Co", "05-04-2018", "07-04-2018", "CS1457", "Steve.Lovatt", "Active"));
-		workList.add(new WorkSchedule("manchester", "RuairiCorp", "07-04-2018", "10-04-2018", "CS1459", "Jeremy.Zuckerman", "Archived"));
-		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "09-04-2018", "10-04-2018", "CS1461", "Milo.McAleny", "Archived"));
-		workList.add(new WorkSchedule("liverpool", "Keenan Co", "11-04-2018", "14-04-2018", "CS1457", "Pete.Wilson", "Archived"));
-		workList.add(new WorkSchedule("manchester", "RuairiCorp", "11-04-2018", "15-04-2018", "CS1459", "Sally.Cotton", "Archived"));
-		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "13-04-2018", "14-04-2018", "CS1461", "Raul.Gruics", "Archived"));
-		workList.add(new WorkSchedule("liverpool", "Keenan Co", "14-04-2018", "16-04-2018", "CS1457", "Dan.McCabe", "Archived"));
-		workList.add(new WorkSchedule("manchester", "RuairiCorp", "18-04-2018", "21-04-2018", "CS1459", "Ruairi.Irvine", "Archived"));
-		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "20-04-2018", "25-04-2018", "CS1461", "Karl.Fitzgerald", "Active"));
-		workList.add(new WorkSchedule("liverpool", "Keenan Co", "22-04-2018", "19-24-2018", "CS1457", "Mark.Keenan", "Active"));
-		workList.add(new WorkSchedule("manchester", "RuairiCorp", "23-04-2018", "27-04-2018", "CS1459", "Stefarno.Gorn", "Active"));
-		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "23-04-2018", "16-04-2018", "CS1461", "Milo.McAleny", "Active"));
-		workList.add(new WorkSchedule("liverpool", "Keenan Co", "23-04-2018", "24-04-2018", "CS1457", "Steve.Lovatt", "Active"));
-		workList.add(new WorkSchedule("manchester", "RuairiCorp", "23-04-2018", "24-4-2018", "CS1459", "Jeremy.Zuckerman", "Active"));
-		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "25-04-2018", "27-04-2018", "CS1461", "Milo.McAleny", "Pending"));
-		workList.add(new WorkSchedule("liverpool", "Keenan Co", "27-04-2018", "29-04-2018", "CS1457", "Pete.Wilson", "Pending"));
-		workList.add(new WorkSchedule("manchester", "RuairiCorp", "27-04-2018", "28-04-2018", "CS1459", "Sally.Cotton", "Pending"));
-		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "28-04-2018", "30-04-2018", "CS1461", "Raul.Gruics", "Pending"));
-		workList.add(new WorkSchedule("liverpool", "Keenan Co", "30-04-2018", "01-05-2018", "CS1457", "Dan.McCabe", "Pending"));
-		workList.add(new WorkSchedule("manchester", "RuairiCorp", "01-05-2018", "02-05-2018", "CS1459", "Ruairi.Irvine", "Pending"));
-		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "02-05-2018", "03-05-2018", "CS1461", "Karl.Fitzgerald", "Pending"));
-		workList.add(new WorkSchedule("liverpool", "Keenan Co", "02-05-2018", "04-05-2018", "CS1457", "Mark.Keenan", "Pending"));
-		workList.add(new WorkSchedule("manchester", "RuairiCorp", "04-05-2018", "05-05-2018", "CS1459", "Stefarno.Gorn", "Pending"));
-		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "06-05-2018", "08-05-2018", "CS1461", "Milo", "Pending"));
-		
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "05-04-2018", "07-04-2018", "CS1457", "Steve.Lovatt",
+				"Active"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "07-04-2018", "10-04-2018", "CS1459",
+				"Jeremy.Zuckerman", "Archived"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "09-04-2018", "10-04-2018", "CS1461",
+				"Milo.McAleny", "Archived"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "11-04-2018", "14-04-2018", "CS1457", "Pete.Wilson",
+				"Archived"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "11-04-2018", "15-04-2018", "CS1459", "Sally.Cotton",
+				"Archived"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "13-04-2018", "14-04-2018", "CS1461",
+				"Raul.Gruics", "Archived"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "14-04-2018", "16-04-2018", "CS1457", "Dan.McCabe",
+				"Archived"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "18-04-2018", "21-04-2018", "CS1459", "Ruairi.Irvine",
+				"Archived"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "20-04-2018", "25-04-2018", "CS1461",
+				"Karl.Fitzgerald", "Active"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "22-04-2018", "19-24-2018", "CS1457", "Mark.Keenan",
+				"Active"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "23-04-2018", "27-04-2018", "CS1459", "Stefarno.Gorn",
+				"Active"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "23-04-2018", "16-04-2018", "CS1461",
+				"Milo.McAleny", "Active"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "23-04-2018", "24-04-2018", "CS1457", "Steve.Lovatt",
+				"Active"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "23-04-2018", "24-4-2018", "CS1459",
+				"Jeremy.Zuckerman", "Active"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "25-04-2018", "27-04-2018", "CS1461",
+				"Milo.McAleny", "Pending"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "27-04-2018", "29-04-2018", "CS1457", "Pete.Wilson",
+				"Pending"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "27-04-2018", "28-04-2018", "CS1459", "Sally.Cotton",
+				"Pending"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "28-04-2018", "30-04-2018", "CS1461",
+				"Raul.Gruics", "Pending"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "30-04-2018", "01-05-2018", "CS1457", "Dan.McCabe",
+				"Pending"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "01-05-2018", "02-05-2018", "CS1459", "Ruairi.Irvine",
+				"Pending"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "02-05-2018", "03-05-2018", "CS1461",
+				"Karl.Fitzgerald", "Pending"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "02-05-2018", "04-05-2018", "CS1457", "Mark.Keenan",
+				"Pending"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "04-05-2018", "05-05-2018", "CS1459", "Stefarno.Gorn",
+				"Pending"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "06-05-2018", "08-05-2018", "CS1461", "Milo",
+				"Pending"));
+
 		return workList;
 	}
 
 	public void run() {
-if(i==0){
-		workList=buildSchedules();
-		buildDepots();
-		Archive archive = new Archive(workList);
-		Thread t1 = new Thread(archive);
-		t1.start();
-		i++;
-}
-		
-		depot=null;
-		driver=null;
-		System.out.println("Pelase select a Depot");
+		if (i == 0) {
+			workList = buildSchedules();
+			buildDepots();
+			Archive archive = new Archive(workList);
+			Thread t1 = new Thread(archive);
+			t1.start();
+			i++;
+		}
+do{
+		depot = null;
+		driver = null;
+		System.out.println("\nPelase select a Depot");
 		System.out.printf("\n1- [L]iverpool");
 		System.out.printf("\n2- [M]anchester");
 		System.out.printf("\n3- [B]irmingham");
@@ -155,22 +179,24 @@ if(i==0){
 		}
 
 		getDepot();
-		System.out.println("Please enter your Username : ");
+		System.out.printf("\nPlease enter your Username : ");
 		String user = sc.next();
 
-		System.out.println("Please enter your Password : ");
+		System.out.printf("\nPlease enter your Password : ");
 		String password = sc.next();
 
-		driver= depot.logOn(user, password);
-		
-		if (driver!=null){
-		if (Manager.class.isInstance(driver)) {
-			manager = Manager.class.cast(driver);
-			managerMenu();
+		driver = depot.logOn(user, password);
+
+		if (driver != null) {
+			if (Manager.class.isInstance(driver)) {
+				manager = Manager.class.cast(driver);
+				managerMenu();
+			} else
+				driverMenu();
 		} else
-			driverMenu();
-		}
-		else System.out.print("sorry no user matches those parameters");
+			System.out.print("sorry no user matches those parameters");
+	
+	}	while(!menuNav.equals("Q"));
 	}
 
 	private Depot getDepot() {
@@ -185,43 +211,43 @@ if(i==0){
 	}
 
 	public void driverMenu() {
-		do{
-		System.out.printf("\nDriver Menu");
-		System.out.printf("\n1- View Work Schedule");
-		System.out.printf("\nQ- Quit");
-		System.out.printf("\nPick:");
-	
-		menuNav = sc.next();
-		switch (menuNav.toUpperCase()) {
-		case "1": {
-			viewWS();
-		}
-			break;
-			
-		case "Q":{
-			System.exit(0);
-		}
-		case "2": {
-			run();
-		}
-			break;
-		default:
-			System.out.println("not recognised, please try again");
-			driverMenu();
-			break;
-			
-		}
-	}
-	while(!menuNav.equals("Q"));
+		do {
+			System.out.printf("\nDriver Menu");
+			System.out.printf("\n1- View Work Schedule");
+			System.out.printf("\n2- Sign Out");
+			System.out.printf("\nQ- Quit");
+			System.out.printf("\nPick:");
+
+			menuNav = sc.next();
+			switch (menuNav.toUpperCase()) {
+			case "1": {
+				viewWS();
+			}
+				break;
+
+			case "Q": {
+				System.exit(0);
+			}
+			case "2": {
+				System.out.printf("\n Signing out...");
+				run();
+			}
+				break;
+			default:
+				System.out.println("not recognised, please try again");
+				break;
+			}
+		} while (!menuNav.equals("Q"));
 	}
 
 	public void managerMenu() {
-		
+		do {
 			System.out.printf("\nManager Menu:");
 			System.out.printf("\n1- View Work Schedule");
 			System.out.printf("\n2- Create work Schedules");
 			System.out.printf("\n3- Reassign Vehicle");
 			System.out.printf("\n4- check Vehicle");
+			System.out.printf("\n5- Sign Out");
 			System.out.printf("\nQ- Quit");
 			System.out.printf("\nPick:");
 
@@ -236,7 +262,8 @@ if(i==0){
 			}
 				break;
 			case "Q": {
-			System.exit(0);;
+				System.exit(0);
+				;
 			}
 				break;
 			case "3": {
@@ -245,23 +272,22 @@ if(i==0){
 			}
 			case "4": {
 				System.out.print(checkVehicle());
-				
-			}
-
-			break;
-			case "5": {
-				run();
-			
 			}
 				break;
+			case "5": {
+				System.out.printf("\nSigning out...");
+				run();
 
+			}
+				break;
 
 			default:
 				System.out.println("not recognised, please try again");
-				managerMenu();
+				
 				break;
 			}
-	
+
+		} while (!menuNav.equals("Q"));
 	}
 
 	public void moveVehicle() {
@@ -269,8 +295,8 @@ if(i==0){
 		String regNo = sc.next();
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getregNo().equals(regNo)) {
-				if (!currentSchedule.getState().equals("archived")) {
-					System.out.print("\n sorry but that busy as Active or upcoming work and cannot be moved right now");
+				if (!currentSchedule.getState().equals("Archived")) {
+					System.out.print("\n sorry but that vehicle has Active or upcoming work and cannot be moved right now");
 					return;
 				}
 
@@ -285,8 +311,7 @@ if(i==0){
 				depot.getArrayVehicle().add(vehicle);
 				depotChoice = oldDepot;
 				getDepot();
-				System.out.print("it wokred maybe");
-				managerMenu();
+				System.out.print("Vehicle moved");
 			}
 		}
 	}
@@ -294,9 +319,9 @@ if(i==0){
 	public void viewWS() {
 		for (WorkSchedule currentSchedule : workList) {
 			if (driver.getUser().equals(currentSchedule.getDriver())) {
-				if(!currentSchedule.getState().equals("Archived"))
-				System.out.print("\n" + currentSchedule.toString());
-			} 
+				if (!currentSchedule.getState().equals("Archived"))
+					System.out.print("\n" + currentSchedule.toString());
+			}
 		}
 	}
 
@@ -311,14 +336,15 @@ if(i==0){
 			if (endDate.isAfter(startDate)) {
 				System.out.println("Available Vehicles:");
 				LinkedList<Vehicle> checkV = depot.getArrayVehicle();
-				
+
 				for (Vehicle currentVehicle : checkV) {
 					currentVehicle.isAvailble(startDate, endDate);
 					System.out.println(currentVehicle.getinfo());
 				}
 				System.out.println("Please select a vehicle (Reg No)");
 				String selectedV = sc.next();
-				
+				vehicle=depot.getVehicle(selectedV);
+
 				System.out.println("Available Drivers:");
 				LinkedList<Driver> checkD = depot.getArrayDriver();
 				for (Driver currentDriver : checkD) {
@@ -326,9 +352,14 @@ if(i==0){
 					System.out.println(currentDriver.getUser());
 				}
 				System.out.println("Please select a driver (Username)");
-
 				String selectedD = sc.next();
-
+				driver=depot.getDriver(selectedD);
+				System.out.println("Please enter the clients Name");
+				String client=sc.next();
+				WorkSchedule createdWS=depot.setupWorkSchedule(depot.getDepotName(), client, start, end, vehicle.getRegNo(),driver.getUser(), "pending");
+				driver.setWorkSchedule(createdWS);
+				vehicle.setUpWS(createdWS);
+				System.out.printf("\n created");
 			}
 		}
 		run();
@@ -343,18 +374,22 @@ if(i==0){
 			return "its gone";
 	}
 
-	public LinkedList<WorkSchedule> buildDriverWS(String name) { // for building test drivers WS
+	public LinkedList<WorkSchedule> buildDriverWS(String name) { // for building
+																	// test
+																	// drivers
+																	// WS
 		LinkedList<WorkSchedule> driveList = new LinkedList<WorkSchedule>();
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getDriver().equals(name)) {
 				driveList.add(currentSchedule);
 			}
 		}
-		
+
 		return driveList;
 	}
 
-	public LinkedList<WorkSchedule> buildVWS(String regNo) {// build test vehicles WS
+	public LinkedList<WorkSchedule> buildVWS(String regNo) {// build test
+															// vehicles WS
 		LinkedList<WorkSchedule> vList = new LinkedList<WorkSchedule>();
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getregNo().equals(regNo)) {
@@ -366,7 +401,8 @@ if(i==0){
 		return vList;
 	}
 
-	public LinkedList<WorkSchedule> buildDWS(String depot) {// build test depots WS
+	public LinkedList<WorkSchedule> buildDWS(String depot) {// build test depots
+															// WS
 		LinkedList<WorkSchedule> dList = new LinkedList<WorkSchedule>();
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getDepot().equals(depot)) {

@@ -33,6 +33,9 @@ public class Driver {
 	public String getUser() {
 		return userName;
 	}
+	public void setWorkSchedule(WorkSchedule ws){
+		wsList.add(ws);
+	}
 	
 
 	public boolean isAvailble(LocalDate newSD, LocalDate newED) {

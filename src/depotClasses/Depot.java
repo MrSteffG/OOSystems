@@ -63,6 +63,8 @@ public class Depot {
 		WorkSchedule WS= new WorkSchedule(depot, client, startDate, endDate, regNo, driver, state);
 		wS.add(WS);
 		
+		return WS;
+		
 	}
 
 
@@ -85,5 +87,9 @@ public class Depot {
 	public LinkedList<WorkSchedule> getWS() {
 		
 		return wS;
+	}
+	public void addWS(){
+		
+	
 	}
 }
