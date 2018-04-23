@@ -83,10 +83,10 @@ public class Sys implements Runnable {
 		workList.add(new WorkSchedule("manchester", "RuairiCorp", "07-04-2018", "10-04-2018", "CS1459", "Jeremy.Zuckerman", "Archived"));
 		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "09-04-2018", "10-04-2018", "CS1461", "Milo.McAleny", "Archived"));
 		workList.add(new WorkSchedule("liverpool", "Keenan Co", "11-04-2018", "14-04-2018", "CS1457", "Pete.Wilson", "Archived"));
-		workList.add(new WorkSchedule("manchester", "RuairiCorp", "11-4-2018", "15-04-2018", "CS1459", "Sally.Cotton", "Archived"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "11-04-2018", "15-04-2018", "CS1459", "Sally.Cotton", "Archived"));
 		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "13-04-2018", "14-04-2018", "CS1461", "Raul.Gruics", "Archived"));
-		workList.add(new WorkSchedule("liverpool", "Keenan Co", "14-4-2018", "16-4-2018", "CS1457", "Dan.McCabe", "Archived"));
-		workList.add(new WorkSchedule("manchester", "RuairiCorp", "18-4-2018", "21-4-2018", "CS1459", "Ruairi.Irvine", "Archived"));
+		workList.add(new WorkSchedule("liverpool", "Keenan Co", "14-04-2018", "16-04-2018", "CS1457", "Dan.McCabe", "Archived"));
+		workList.add(new WorkSchedule("manchester", "RuairiCorp", "18-04-2018", "21-04-2018", "CS1459", "Ruairi.Irvine", "Archived"));
 		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "20-04-2018", "25-04-2018", "CS1461", "Karl.Fitzgerald", "Active"));
 		workList.add(new WorkSchedule("liverpool", "Keenan Co", "22-04-2018", "19-24-2018", "CS1457", "Mark.Keenan", "Active"));
 		workList.add(new WorkSchedule("manchester", "RuairiCorp", "23-04-2018", "27-04-2018", "CS1459", "Stefarno.Gorn", "Active"));
@@ -216,7 +216,7 @@ if(i==0){
 	}
 
 	public void managerMenu() {
-		do {
+		
 			System.out.printf("\nManager Menu:");
 			System.out.printf("\n1- View Work Schedule");
 			System.out.printf("\n2- Create work Schedules");
@@ -261,7 +261,7 @@ if(i==0){
 				managerMenu();
 				break;
 			}
-		} while (!"Q".equals(menuNav));
+	
 	}
 
 	public void moveVehicle() {
@@ -325,9 +325,10 @@ if(i==0){
 				for (Driver currentDriver : checkD) {
 					currentDriver.isAvailble(startDate, endDate);
 					System.out.println(currentDriver.getUser());
-					System.out.println("Please select a driver (Username)");
-					String selectedD = sc.next();
 				}
+				System.out.println("Please select a driver (Username)");
+				String selectedD = sc.next();
+				
 			}
 		}
 	}
