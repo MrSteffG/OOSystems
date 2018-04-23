@@ -51,7 +51,7 @@ public class Depot {
 
 	public Driver getDriver(String userName) {
 		for (Driver currentDriver : arrayDriver) {
-			if (currentDriver.getUser().equals(userName)) {
+			if (currentDriver.getUserName().equals(userName)) {
 				return currentDriver;
 			}
 		}
@@ -69,20 +69,21 @@ public class Depot {
 		return depotName;
 	}
 
-	public LinkedList<Vehicle> getArrayVehicle() {
-		return arrayVehicle;
-	}
-
-	public void setArrayVehicle(LinkedList<Vehicle> arrayVehicle) {
-		this.arrayVehicle = arrayVehicle;
-	}
-
 	public LinkedList<Driver> getArrayDriver() {
 		return arrayDriver;
+	}
+	
+	public LinkedList<Vehicle> getArrayVehicle() {
+		return arrayVehicle;
 	}
 
 	public LinkedList<WorkSchedule> getWS() {
 		
 		return wS;
 	}
+
+	public void setArrayVehicle(LinkedList<Vehicle> arrayVehicle) {
+		this.arrayVehicle = arrayVehicle;
+	}
+
 }

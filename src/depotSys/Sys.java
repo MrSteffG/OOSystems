@@ -293,7 +293,7 @@ if(i==0){
 
 	public void viewWS() {
 		for (WorkSchedule currentSchedule : workList) {
-			if (driver.getUser().equals(currentSchedule.getDriver())) {
+			if (driver.getUserName().equals(currentSchedule.getDriver())) {
 				System.out.print("\n" + currentSchedule.toString());
 			} 
 		}
@@ -322,7 +322,7 @@ if(i==0){
 				LinkedList<Driver> checkD = depot.getArrayDriver();
 				for (Driver currentDriver : checkD) {
 					currentDriver.isAvailble(startDate, endDate);
-					System.out.println(currentDriver.getUser());
+					System.out.println(currentDriver.getUserName());
 				}
 				System.out.println("Please select a driver (Username)");
 				String selectedD = sc.next();
