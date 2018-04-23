@@ -366,7 +366,6 @@ do{
 				System.out.printf("\n created");
 			}
 		}
-		run();
 	}
 
 	public String checkVehicle() {
