@@ -13,6 +13,10 @@ public class Vehicle {
 	private String jobState;
 	protected LinkedList<WorkSchedule> wsList;
 
+	public void setWsList(LinkedList<WorkSchedule> wsList) {
+		this.wsList = wsList;
+	}
+
 	/**
 	 * Constructs a vehicle consisting of registration number, model, make, work schedule, weight, job state and cargo type.
 	 * @param regNo the registration number used to identify the vehicle.
@@ -32,11 +36,22 @@ public class Vehicle {
 
 	public String getRegNo() {
 		return regNo;
-
 	}
+	
+	public String getModel() {
+			return model;		
+	}
+		
+	public String getMake() {
+			return make;
+	}
+	
+	public LinkedList<WorkSchedule> getWsList() {
+		return wsList;
+	}
+		
 	public String getinfo(){
 		return regNo + make + model;
-		
 	}
 
 	public boolean isAvailble(LocalDate newSD, LocalDate newED) {

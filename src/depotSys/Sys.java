@@ -314,11 +314,9 @@ if(i==0){
 				
 				for (Vehicle currentVehicle : checkV) {
 					currentVehicle.isAvailble(startDate, endDate);
-					System.out.println(currentVehicle.getinfo());	
+					System.out.println(currentVehicle.getinfo());
 				}
-				
 				System.out.println("Please select a vehicle (Reg No)");
-				
 				String selectedV = sc.next();
 				
 				System.out.println("Available Drivers:");
@@ -328,9 +326,12 @@ if(i==0){
 					System.out.println(currentDriver.getUser());
 				}
 				System.out.println("Please select a driver (Username)");
+
 				String selectedD = sc.next();
+
 			}
 		}
+		run();
 	}
 
 	public String checkVehicle() {

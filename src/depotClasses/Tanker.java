@@ -21,4 +21,7 @@ public class Tanker extends Vehicle {
 		this.cargoCapactity = cargoCapacity;
 	}
 
+	public String getCargoCapactity() {
+		return cargoCapactity;
+	}
 }
