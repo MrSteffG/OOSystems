@@ -1,4 +1,4 @@
-package depotClasses;
+package depotSys;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -6,12 +6,12 @@ import java.util.LinkedList;
 import java.util.Locale;
 import java.util.Scanner;
 
-import depotSystem.Archive;
-import depotSystem.Depot;
-import depotSystem.Driver;
-import depotSystem.Manager;
-import depotSystem.Vehicle;
-import depotSystem.WorkSchedule;
+import depotClasses.Archive;
+import depotClasses.Depot;
+import depotClasses.Driver;
+import depotClasses.Manager;
+import depotClasses.Vehicle;
+import depotClasses.WorkSchedule;
 
 public class Sys implements Runnable {
 	private LinkedList<Depot> depotArray;

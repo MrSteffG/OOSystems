@@ -1,4 +1,4 @@
-package depotClasses;
+package depotSys;
 import java.io.FileNotFoundException;
 
 public class Entry {

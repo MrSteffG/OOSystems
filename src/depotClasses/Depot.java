@@ -1,4 +1,4 @@
-package depotSystem;
+package depotClasses;
 
 
 import java.util.LinkedList;

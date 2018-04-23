@@ -1,4 +1,4 @@
-package depotSystem;
+package depotClasses;
 
 public class WorkSchedule {
 	private String depot;
