@@ -188,7 +188,6 @@ if(i==0){
 		do{
 		System.out.printf("\nDriver Menu");
 		System.out.printf("\n1- View Work Schedule");
-		System.out.printf("\n2- Sign Out");
 		System.out.printf("\nQ- Quit");
 		System.out.printf("\nPick:");
 	
@@ -223,7 +222,6 @@ if(i==0){
 			System.out.printf("\n2- Create work Schedules");
 			System.out.printf("\n3- Reassign Vehicle");
 			System.out.printf("\n4- check Vehicle");
-			System.out.printf("\n5- Sign Out");
 			System.out.printf("\nQ- Quit");
 			System.out.printf("\nPick:");
 
@@ -249,12 +247,14 @@ if(i==0){
 				System.out.print(checkVehicle());
 				
 			}
+
 			break;
 			case "5": {
 				run();
 			
 			}
 				break;
+
 
 			default:
 				System.out.println("not recognised, please try again");
@@ -295,42 +295,40 @@ if(i==0){
 		for (WorkSchedule currentSchedule : workList) {
 			if (driver.getUser().equals(currentSchedule.getDriver())) {
 				System.out.print("\n" + currentSchedule.toString());
-			} else
-				System.out.print("Summink's been ballsed");
+			} 
 		}
 	}
 
 	public void createWS() {
-		// request start date
+		System.out.println("Please enter the start date (DD-MM-YYYY)");
 		String start = sc.next();
 		LocalDate startDate = LocalDate.parse(start, formatter);
 		if (startDate.isAfter(LocalDate.now())) {
-			// request end date
+			System.out.println("Please enter the end date (DD-MM-YYYY)");
 			String end = sc.next();
 			LocalDate endDate = LocalDate.parse(end, formatter);
 			if (endDate.isAfter(startDate)) {
-
+				System.out.println("Available Vehicles:");
 				LinkedList<Vehicle> checkV = depot.getArrayVehicle();
+				
 				for (Vehicle currentVehicle : checkV) {
 					currentVehicle.isAvailble(startDate, endDate);
-					System.out.print(currentVehicle.getinfo());
-					String selectedV = sc.next();
-
+					System.out.println(currentVehicle.getinfo());	
 				}
-
+				
+				System.out.println("Please select a vehicle (Reg No)");
+				
+				String selectedV = sc.next();
+				
+				System.out.println("Available Drivers:");
 				LinkedList<Driver> checkD = depot.getArrayDriver();
 				for (Driver currentDriver : checkD) {
 					currentDriver.isAvailble(startDate, endDate);
-					System.out.print(currentDriver.getUser());
+					System.out.println(currentDriver.getUser());
+					System.out.println("Please select a driver (Username)");
 					String selectedD = sc.next();
 				}
-
-				// please select a vehicle
-
-				// please select a driver
-
 			}
-
 		}
 	}
 
