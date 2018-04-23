@@ -37,7 +37,7 @@ public class Driver {
 
 	public boolean isAvailble(LocalDate newSD, LocalDate newED) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
-		for(WorkSchedule currentWS:wsList){
+		for(WorkSchedule currentWS : wsList){
 			String start= currentWS.getStartDate();
 			String end=currentWS.getEndDate();
 			LocalDate startDate = LocalDate.parse(start, formatter);
@@ -54,7 +54,7 @@ public class Driver {
 				if(newED.isAfter(startDate)){
 					return false;	
 				}
-				else return true;
+				 return true;
 			}
 			
 			
