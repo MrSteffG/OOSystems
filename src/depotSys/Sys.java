@@ -328,6 +328,7 @@ if(i==0){
 				String selectedD = sc.next();
 			}
 		}
+		run();
 	}
 
 	public String checkVehicle() {
