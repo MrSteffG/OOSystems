@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.Locale;
 
-public class Vehicle {
+public abstract class Vehicle {
 	private String regNo;
 	private String model;
 	private String make;
@@ -52,8 +52,20 @@ public class Vehicle {
 		return wsList;
 	}
 		
-	public void setRegNo(){
-		
+	public void setRegNo(){	
+	}
+	public boolean moveable(){
+		int i=0;
+		for(WorkSchedule currentWS: wsList){
+			if(currentWS.getState().equals("Active")){
+				i++;
+			}
+			if(currentWS.getState().equals("Pending")){
+				i++;
+			}
+			
+			
+		} if(i==0){return true;}else return false;
 	}
 	
 	public void setWorkSchedule(WorkSchedule ws){
