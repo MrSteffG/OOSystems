@@ -199,9 +199,6 @@ public class Sys implements Runnable {
 					driverMenu();
 			} else
 				System.out.print("sorry no user matches those parameters");
-
-			System.out.print("sorry no user matches those parameters");
-
 		} while (!menuNav.equals("Q"));
 	}
 
@@ -302,7 +299,6 @@ public class Sys implements Runnable {
 		for (Vehicle currentVehicle : checkV) {
 			currentVehicle.getinfo();
 			System.out.println(currentVehicle.getinfo());
-		}
 		System.out.println("\nplease enter the registration of the vehicle you wish to move:");
 		String regNo = sc.next();
 		for (WorkSchedule currentSchedule : workList) {
@@ -325,6 +321,7 @@ public class Sys implements Runnable {
 					System.out.print("Vehicle moved!");
 				}
 			}	
+		}
 		}
 	}
 
