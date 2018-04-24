@@ -298,28 +298,34 @@ do{
 	}
 
 	public void moveVehicle() {
-		System.out.print("\nplease enter the registration of the vehicle you wish to move");
+		System.out.println("Available Vehicles:");
+		LinkedList<Vehicle> checkV = depot.getListVehicle();
+		for (Vehicle currentVehicle : checkV) {
+			currentVehicle.getinfo();
+			System.out.println(currentVehicle.getinfo());
+		}
+		System.out.println("\nplease enter the registration of the vehicle you wish to move:");
 		String regNo = sc.next();
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getregNo().equals(regNo)) {
 				if (!currentSchedule.getState().equals("Archived")) {
 					System.out.print("\n sorry but that vehicle has Active or upcoming work and cannot be moved right now");
-					return;
+					managerMenu();
 				}
-			}
-			
-			if (depot.getVehicle(regNo) != null) {
-				vehicle = depot.getVehicle(regNo);
-				System.out.print("please select a depot to move this vehicle to");
-				String oldDepot = depotChoice;
-				depot.getListVehicle().remove(vehicle);
-				depotChoice = sc.next();
-				getDepot();
-				depot.getListVehicle().add(vehicle);
-				depotChoice = oldDepot;
-				getDepot();
-				System.out.print("Vehicle moved");
-			}
+			} else {
+				if (depot.getVehicle(regNo) != null) {
+					vehicle = depot.getVehicle(regNo);
+					System.out.print("please select a depot to move this vehicle to:");
+					String oldDepot = depotChoice;
+					depot.getListVehicle().remove(vehicle);
+					depotChoice = sc.next();
+					getDepot();
+					depot.getListVehicle().add(vehicle);
+					depotChoice = oldDepot;
+					getDepot();
+					System.out.print("Vehicle moved!");
+				}
+			}	
 		}
 	}
 
