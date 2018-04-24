@@ -7,6 +7,9 @@ import java.util.Locale;
 
 import depotSys.Sys;
 
+/**
+ * Threading used to archive finished work schedules as a background process.
+ */  
 public class Archive implements Runnable {
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
 	public void run() {

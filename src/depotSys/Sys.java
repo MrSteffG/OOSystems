@@ -135,9 +135,10 @@ public class Sys implements Runnable {
 		return workList;
 	}
 
+
 	public synchronized void run() {// main menu
 		if (i == 0) {// builds schedules and depots only once when ran
-			buildSchedules();
+		buildSchedules();
 			buildDepots();
 			i++;
 		}
