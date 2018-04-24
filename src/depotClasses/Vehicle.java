@@ -116,8 +116,6 @@ public abstract class Vehicle {
 		return false;
 	}
 
-
-
 	public boolean moveable(){
 		int i=0;
 		for(WorkSchedule currentWS: wsList){

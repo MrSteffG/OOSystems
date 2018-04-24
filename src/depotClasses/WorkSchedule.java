@@ -29,7 +29,6 @@ public class WorkSchedule {
 		this.state= state;
 	}
 	
-
 	public String fullCheck(){
 		String toprint=(depot+client+startDate);
 		return toprint;

@@ -23,9 +23,8 @@ public class Truck extends Vehicle {
 	public int getCargoCapacity() {
 		return cargoCapacity;
 	}
+	
 	public void setCargoCapactiy(int capacity){
 		cargoCapacity= capacity;
 	}
-	 
-
 }
