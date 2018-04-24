@@ -137,7 +137,7 @@ public class Sys implements Runnable {
 
 	public synchronized void run() {
 		if (i == 0) {
-			workList = buildSchedules();
+			buildSchedules();
 			buildDepots();
 			i++;
 		}
