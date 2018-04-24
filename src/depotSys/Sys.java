@@ -261,7 +261,8 @@ public class Sys implements Runnable {
 			System.out.printf("\n2- Create Work Schedules");
 			System.out.printf("\n3- Reassign Vehicle");
 			System.out.printf("\n4- Check Vehicle");
-			System.out.printf("\n5- Sign Out");
+			System.out.printf("\n5- Add Vehicle");
+			System.out.printf("\n6- Sign Out");
 			System.out.printf("\nQ- Quit");
 			System.out.printf("\nPick:");
 
@@ -287,8 +288,13 @@ public class Sys implements Runnable {
 			case "4": {
 				System.out.print(checkVehicle());
 			}
+			break;
+			case"5":
+			{
+				addVehicle();
+			}
 				break;
-			case "5": {
+			case "6": {
 				System.out.printf("\nSigning out...");
 				run();
 
@@ -302,6 +308,35 @@ public class Sys implements Runnable {
 			}
 
 		} while (!menuNav.equals("Q"));
+	}
+
+	private void addVehicle() {
+		System.out.print("please eneter Vehcile registration");
+		String regNo=sc.next();
+		System.out.print("Please enter vehicle Make");
+		String make=sc.next();
+		System.out.print("Please enter vehicle Model");
+		String model=sc.next();
+		System.out.print("Please enter vehicle Weight(Kg)");
+		int weight=Integer.parseInt(sc.next());
+		System.out.print("Please enter if vehicle is a truck or a tanker");
+		String type=sc.next().toUpperCase();
+		
+		if (type.equals("TRUCK")){
+			System.out.print("Please enter vehicle Cargo Capacity(Kg");
+			
+		}
+		if (type.equals("TANKER")){
+			System.out.print("Please enter vehicles Liquid Capacity");
+			Integer lC= Integer.parseInt(sc.next());
+			System.out.print("Please enter the name of the type of liquid the vehicle carries");
+			String liquid =sc.next();
+			Tanker add= new Tanker(regNo, make, model, null, weight, lC, liquid);
+			depot.setListVehicle(add);
+			
+		}
+		
+		
 	}
 
 	public void moveVehicle() {

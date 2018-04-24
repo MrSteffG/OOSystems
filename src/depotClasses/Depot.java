@@ -87,12 +87,13 @@ public class Depot {
 
 		return wS;
 	}
+	
 
-	public void setArrayVehicle(LinkedList<Vehicle> listVehicle) {
-		this.listVehicle = listVehicle;
+	public void setListVehicle(Vehicle vehicle) {
+		listVehicle.add(vehicle);
 	}
 
-	public void setArrayDriver(LinkedList<Driver> listDriver) {
+	public void setListDriver(LinkedList<Driver> listDriver) {
 
 	}
 }
