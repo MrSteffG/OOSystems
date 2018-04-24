@@ -38,8 +38,8 @@ public class Sys implements Runnable {
 		liverpoolDriver.add(new Driver("Pete.Wilson", "Cows1", buildDriverWS("Pete.Wilson")));
 		liverpoolDriver.add(new Manager("Dan.McCabe", "mongoose2", buildDriverWS("Dan.McCabe")));
 
-		liverpoolVehicle.add(new Tanker("CS1457", "DAYCAB", "WHALEBODY", buildVWS("CS1457"), 700,1900,"Soy Sauce"));
-		liverpoolVehicle.add(new Tanker("CS1458", "VOLVO", "FM7290", buildVWS("CS1458"), 500,700,"Sunflower Oil"));
+		liverpoolVehicle.add(new Tanker("CS1457", "DAYCAB", "WHALEBODY", buildVWS("CS1457"), 700, 1900, "Soy Sauce"));
+		liverpoolVehicle.add(new Tanker("CS1458", "VOLVO", "FM7290", buildVWS("CS1458"), 500, 700, "Sunflower Oil"));
 		liverpoolVehicle.add(new Truck("CS1451", "Merce;des-Benz", "Actros", buildVWS("CS1451"), 420, 790));
 		liverpoolVehicle.add(new Truck("CS1452", "Iveco", "PowerStar420E5", buildVWS("CS14521"), 600, 1005));
 		Depot liverpool = new Depot(name, liverpoolDriver, liverpoolVehicle, buildDWS(name));
@@ -52,8 +52,9 @@ public class Sys implements Runnable {
 		manchesterDriver.add(new Driver("Ruairi.Irvine", "notsouthern4", buildDriverWS("Ruairi.Irvine")));
 		manchesterDriver.add(new Driver("Mark.Keenan", "not93", buildDriverWS("Mark.Keenan")));
 
-		manchesterVehicle.add(new Tanker("CS1459", "Tankerman", "Tankomatic5000", buildVWS("CS1459"), 680,800, "Crude Oil"));
-		manchesterVehicle.add(new Tanker("CS1460", "Tankerman", "Tankotron4", buildVWS("CS1460"),900, 1600, "milk"));
+		manchesterVehicle
+				.add(new Tanker("CS1459", "Tankerman", "Tankomatic5000", buildVWS("CS1459"), 680, 800, "Crude Oil"));
+		manchesterVehicle.add(new Tanker("CS1460", "Tankerman", "Tankotron4", buildVWS("CS1460"), 900, 1600, "milk"));
 		manchesterVehicle.add(new Truck("CS1453", "Tata", "Prima", buildVWS("CS1453"), 390, 700));
 		manchesterVehicle.add(new Truck("CS1454", "Foton", "Auman", buildVWS("CS1454"), 590, 1000));
 		Depot manchester = new Depot(name, manchesterDriver, manchesterVehicle, buildDWS(name));
@@ -67,7 +68,8 @@ public class Sys implements Runnable {
 		birminghamDriver.add(new Driver("Stefarno.Gorn", "sp4repart", buildDriverWS("Stefarno.Gorn")));
 
 		birminghamVehicle.add(new Tanker("CS1461", "Tankerman", "Wetdrive", buildVWS("CS1461"), 600, 900, "Wet"));
-		birminghamVehicle.add(new Tanker("CS1576", "Tankerman", "moistroller", buildVWS("CS1576"), 700, 1500, "Lubricating Gel"));
+		birminghamVehicle.add(
+				new Tanker("CS1576", "Tankerman", "moistroller", buildVWS("CS1576"), 700, 1500, "Lubricating Gel"));
 		birminghamVehicle.add(new Truck("CS1455", "Hyundai", "Xcient", buildVWS("CS1455"), 700, 800));
 		birminghamVehicle.add(new Truck("CS1456", "Volvo", "VN780", buildVWS("CS1456"), 370, 900));
 		Depot birmingham = new Depot(name, birminghamDriver, birminghamVehicle, buildDWS(name));
@@ -132,8 +134,6 @@ public class Sys implements Runnable {
 
 		return workList;
 	}
-	
-
 
 	public void run() {
 		if (i == 0) {
@@ -144,67 +144,66 @@ public class Sys implements Runnable {
 			t1.start();
 			i++;
 		}
-do{
-		depot = null;
-		driver = null;
-		System.out.println("\nPelase select a Depot");
-		System.out.printf("\n1- [L]iverpool");
-		System.out.printf("\n2- [M]anchester");
-		System.out.printf("\n3- [B]irmingham");
-		System.out.printf("\nQ- Quit");
-		System.out.printf("\nPick:");
+		do {
+			depot = null;
+			driver = null;
+			System.out.println("\nPelase select a Depot");
+			System.out.printf("\n1- [L]iverpool");
+			System.out.printf("\n2- [M]anchester");
+			System.out.printf("\n3- [B]irmingham");
+			System.out.printf("\nQ- Quit");
+			System.out.printf("\nPick:");
 
-		menuNav = sc.next();
-		switch (menuNav.toUpperCase()) {
-		case "1":
-		case "L": {
-			depotChoice = "liverpool";
-		}
-			break;
-		case "2":
-		case "M": {
-			depotChoice = "manchester";
-		}
-			break;
-		case "3":
-		case "B": {
-			depotChoice = "birmingham";
-		}
-			break;
-		case "Q": {
-			sc.close();
-			System.exit(0);
-		}
-			break;
-		default:
-			System.out.println("not recognised, please try again");
-			run();
-			break;
-		}
+			menuNav = sc.next();
+			switch (menuNav.toUpperCase()) {
+			case "1":
+			case "L": {
+				depotChoice = "liverpool";
+			}
+				break;
+			case "2":
+			case "M": {
+				depotChoice = "manchester";
+			}
+				break;
+			case "3":
+			case "B": {
+				depotChoice = "birmingham";
+			}
+				break;
+			case "Q": {
+				sc.close();
+				System.exit(0);
+			}
+				break;
+			default:
+				System.out.println("not recognised, please try again");
+				run();
+				break;
+			}
 
-		getDepot();
-		System.out.printf("\nPlease enter your Username : ");
-		String user = sc.next();
+			getDepot();
+			System.out.printf("\nPlease enter your Username : ");
+			String user = sc.next();
 
-		System.out.printf("\nPlease enter your Password : ");
-		String password = sc.next();
+			System.out.printf("\nPlease enter your Password : ");
+			String password = sc.next();
 
-		driver = depot.logOn(user, password);
+			driver = depot.logOn(user, password);
 
-		if (driver != null) {
-		if (Manager.class.isInstance(driver)) {
-			manager = Manager.class.cast(driver);
-			managerMenu();
+			if (driver != null) {
+				if (Manager.class.isInstance(driver)) {
+					manager = Manager.class.cast(driver);
+					managerMenu();
+				} else
+					driverMenu();
 			} else
-				driverMenu();
-		}
-		else System.out.print("sorry no user matches those parameters");
+				System.out.print("sorry no user matches those parameters");
 
 			System.out.print("sorry no user matches those parameters");
-	
-	}	while(!menuNav.equals("Q"));
-	}
 
+		} while (!menuNav.equals("Q"));
+	}
 
 	private Depot getDepot() {
 		for (Depot currentDepot : depotArray) {
@@ -290,7 +289,7 @@ do{
 
 			default:
 				System.out.println("not recognised, please try again");
-				
+
 				break;
 			}
 
@@ -309,6 +308,7 @@ do{
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getregNo().equals(regNo)) {
 				if (!currentSchedule.getState().equals("Archived")) {
+
 					System.out.print("\n sorry but that vehicle has Active or upcoming work and cannot be moved right now");
 					managerMenu();
 				}
@@ -332,9 +332,9 @@ do{
 	public void viewWS() {
 		for (WorkSchedule currentSchedule : depot.getWS()) {
 			if (driver.getUserName().equals(currentSchedule.getDriver())) {
-				if(!currentSchedule.getState().equals("Archived"))
-				System.out.print("\n" + currentSchedule.toString());
-			} 
+				if (!currentSchedule.getState().equals("Archived"))
+					System.out.print("\n" + currentSchedule.toString());
+			}
 
 		}
 	}
@@ -358,6 +358,10 @@ do{
 				
 				System.out.println("Please select a vehicle (Reg No)");
 				String selectedV = sc.next();
+
+				vehicle = depot.getVehicle(selectedV);
+				System.out.print(vehicle.getRegNo());
+
 				vehicle=depot.getVehicle(selectedV);
 				if (vehicle != null) {
 					//Prints list of available drivers
@@ -387,9 +391,46 @@ do{
 					System.out.print("That Vehicle doesn't exist! Please start over.");
 					managerMenu();
 				}
+
+				//Prints list of available drivers
+
+				System.out.println("Available Drivers:");
+				LinkedList<Driver> checkD = depot.getListDriver();
+				for (Driver currentDriver : checkD) {
+					currentDriver.isAvailble(startDate, endDate);
+					System.out.println(currentDriver.getUserName());
+				}
+				
+				System.out.println("Please select a driver (Username)");
+				String selectedD = sc.next();
+
+				driver = depot.getDriver(selectedD);
+				System.out.print(driver.getUserName());
+
+				driver=depot.getDriver(selectedD);
+				if (driver != null) {
+					
+				}	else {
+					System.out.println("That driver doesn't exist, please enter another driver:");
+					selectedD = sc.next();
+					vehicle=depot.getVehicle(selectedD);
+				}
+
+
+				System.out.println("Please enter the clients Name");
+
+				String client=sc.next();
+				WorkSchedule createdWS=depot.setWorkSchedule(depot.getDepotName(), client, start, end, vehicle.getRegNo(),driver.getUserName(), "pending");
+				driver.setWorkSchedule(createdWS);
+
+				vehicle.setWorkSchedule(createdWS);
+				System.out.println("Work Schedule created:");
+				System.out.println(createdWS);
+
 			} 	else {
 				System.out.print("That end date is before your start date! Please start over.");
 				managerMenu();
+
 			}
 		}	else {
 			System.out.print("That start date is before today! Please start over.");
