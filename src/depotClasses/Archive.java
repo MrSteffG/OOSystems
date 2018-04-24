@@ -32,7 +32,7 @@ public class Archive implements Runnable {
 		
 		System.out.print("\nArchiving complete");
 		try {
-			Thread.sleep(300000);
+			Thread.sleep(3000);
 		} catch (Exception e) {
 		}
 	}
