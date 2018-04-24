@@ -333,17 +333,14 @@ public class Sys implements Runnable {
 		System.out.println("Available Vehicles:");
 		LinkedList<Vehicle> checkV = depot.getListVehicle();
 		for (Vehicle currentVehicle : checkV){
-			for(WorkSchedule currentSchedule: currentVehicle.getWsList()){
-				if(!currentSchedule.getState().equals("archived")){
-					break;
-				}	else currentVehicle.getinfo();
-				
-			}
+				if(currentVehicle.moveable()){
+					System.out.println(currentVehicle.getinfo());
+				}
 			
 			
 			
 				
-			System.out.println(currentVehicle.getinfo());
+
 		}
 		System.out.println("\nplease enter the registration of the vehicle you wish to move:");
 		String regNo = sc.next();
