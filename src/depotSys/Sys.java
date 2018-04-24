@@ -129,7 +129,7 @@ public class Sys implements Runnable {
 				"Pending"));
 		workList.add(new WorkSchedule("manchester", "RuairiCorp", "04-05-2018", "05-05-2018", "CS1459", "Stefarno.Gorn",
 				"Pending"));
-		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "06-05-2018", "08-05-2018", "CS1461", "Milo",
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "06-05-2018", "08-05-2018", "CS1461", "Milo.McAleny",
 				"Pending"));
 
 		return workList;
