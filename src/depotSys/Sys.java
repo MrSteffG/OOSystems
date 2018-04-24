@@ -196,9 +196,6 @@ public class Sys implements Runnable {
 					driverMenu();
 			} else
 				System.out.print("sorry no user matches those parameters");
-
-			System.out.print("sorry no user matches those parameters");
-
 		} while (!menuNav.equals("Q"));
 	}
 
@@ -212,11 +209,11 @@ public class Sys implements Runnable {
 		}
 		return null;
 	}
-	
-public static LinkedList<Depot> getDepotList(){
+
+	public static LinkedList<Depot> getDepotList() {
 		return depotArray;
 	}
-	
+
 	public void driverMenu() {
 		do {
 			System.out.printf("\nDriver Menu");
@@ -282,11 +279,11 @@ public static LinkedList<Depot> getDepotList(){
 			case "4": {
 				System.out.print(checkVehicle());
 			}
-			case "5":{
+			case "5": {
 				addVehicle();
 			}
-			case "6":{
-				addDriver();	
+			case "6": {
+				addDriver();
 			}
 
 				break;
@@ -307,7 +304,7 @@ public static LinkedList<Depot> getDepotList(){
 	}
 
 	private void addVehicle() {
-		System.out.print("please eneter Vehcile registration");
+		System.out.print("please eneter Vehicle registration");
 		String regNo = sc.next();
 		System.out.print("Please enter vehicle Make");
 		String make = sc.next();
@@ -337,18 +334,20 @@ public static LinkedList<Depot> getDepotList(){
 
 	}
 
-	public void addDriver(){
+	public void addDriver() {
 		System.out.print("please eneter userName");
 		String name = sc.next();
 		System.out.print("Please enter password");
 		String pass = sc.next();
-		LinkedList<WorkSchedule> list= new LinkedList<WorkSchedule>();
-		Driver made= new Driver(name, pass, list);
+		LinkedList<WorkSchedule> list = new LinkedList<WorkSchedule>();
+		Driver made = new Driver(name, pass, list);
 		depot.setListDriver(made);
 	}
+
 	public void moveVehicle() {
 		System.out.println("Available Vehicles:");
 		LinkedList<Vehicle> checkV = depot.getListVehicle();
+
 		for (Vehicle currentVehicle : checkV) {
 			if (currentVehicle.moveable()) {
 				System.out.println(currentVehicle.getinfo());
@@ -357,6 +356,7 @@ public static LinkedList<Depot> getDepotList(){
 		}
 		System.out.println("\nplease enter the registration of the vehicle you wish to move:");
 		String regNo = sc.next();
+
 		if (depot.getVehicle(regNo) != null) {
 			vehicle = depot.getVehicle(regNo);
 			System.out.print("please select a depot to move this vehicle to:");
@@ -368,6 +368,7 @@ public static LinkedList<Depot> getDepotList(){
 			depotChoice = oldDepot;
 			getDepot();
 			System.out.print("Vehicle moved!");
+
 		}
 	}
 
@@ -407,35 +408,7 @@ public static LinkedList<Depot> getDepotList(){
 				vehicle = depot.getVehicle(selectedV);
 				if (vehicle != null) {
 					// Prints list of available drivers
-					System.out.println("Available Drivers:");
-					LinkedList<Driver> checkD = depot.getListDriver();
-					for (Driver currentDriver : checkD) {
-						currentDriver.isAvailble(startDate, endDate);
-						System.out.println(currentDriver.getUserName());
-					}
-
-					System.out.println("Please select a driver (Username)");
-					String selectedD = sc.next();
-					driver = depot.getDriver(selectedD);
-					if (driver != null) {
-						System.out.println("Please enter the clients Name");
-						String client = sc.next();
-						WorkSchedule createdWS = depot.setWorkSchedule(depot.getDepotName(), client, start, end,
-								vehicle.getRegNo(), driver.getUserName(), "pending");
-						driver.setWorkSchedule(createdWS);
-						vehicle.setWorkSchedule(createdWS);
-						System.out.println("Work Schedule created:");
-						System.out.println(createdWS);
-					} else {
-						System.out.print("That driver doesn't exist! Please start over.");
-						managerMenu();
-					}
-				} else {
-					System.out.print("That Vehicle doesn't exist! Please start over.");
-					managerMenu();
-				}
-
-				// Prints list of available drivers
+					
 
 				System.out.println("Available Drivers:");
 				LinkedList<Driver> checkD = depot.getListDriver();
@@ -446,9 +419,6 @@ public static LinkedList<Depot> getDepotList(){
 
 				System.out.println("Please select a driver (Username)");
 				String selectedD = sc.next();
-
-				driver = depot.getDriver(selectedD);
-				System.out.print(driver.getUserName());
 
 				driver = depot.getDriver(selectedD);
 				if (driver != null) {
@@ -476,9 +446,12 @@ public static LinkedList<Depot> getDepotList(){
 
 			}
 		} else {
+
 			System.out.print("A job cannot be started in the next 48 hours");
-			managerMenu();
 		}
+		}
+
+		
 	}
 
 	public String checkVehicle() {
@@ -508,7 +481,7 @@ public static LinkedList<Depot> getDepotList(){
 															// vehicles WS
 		LinkedList<WorkSchedule> vList = new LinkedList<WorkSchedule>();
 		for (WorkSchedule currentSchedule : workList) {
-			if (currentSchedule.getregNo().equals(regNo)) {
+			if (currentSchedule.getRegNo().equals(regNo)) {
 				vList.add(currentSchedule);
 			}
 

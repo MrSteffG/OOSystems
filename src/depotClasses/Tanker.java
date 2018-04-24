@@ -40,9 +40,11 @@ public class Tanker extends Vehicle {
 		return liquidType;
 		
 	}
+	
 	public void setLiquidType(String type){
 		liquidType=type;
 	}
+	
 	public void setliquidCapactity(int capacity){
 		liquidCapacity= capacity;
 	}

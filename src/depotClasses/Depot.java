@@ -44,6 +44,14 @@ public class Depot {
 		}
 		return null;
 	}
+	
+	public WorkSchedule setWorkSchedule(String depot, String client, String startDate, String endDate, String regNo,
+			String driver, String state) {
+		WorkSchedule WS = new WorkSchedule(depot, client, startDate, endDate, regNo, driver, state);
+		wS.add(WS);
+		return WS;
+
+	}
 
 	public Vehicle getVehicle(String regNo) {
 		for (Vehicle currentVehicle : listVehicle) {
@@ -63,14 +71,6 @@ public class Depot {
 		return null;
 	}
 
-	public WorkSchedule setWorkSchedule(String depot, String client, String startDate, String endDate, String regNo,
-			String driver, String state) {
-		WorkSchedule WS = new WorkSchedule(depot, client, startDate, endDate, regNo, driver, state);
-		wS.add(WS);
-		return WS;
-
-	}
-
 	public String getDepotName() {
 		return depotName;
 	}
@@ -88,13 +88,37 @@ public class Depot {
 		return wS;
 	}
 	
-
 	public void setListVehicle(Vehicle vehicle) {
 		listVehicle.add(vehicle);
 	}
 
+
 	public void setListDriver(Driver driver) {
 		listDriver.add(driver);
+	}
+	
+	public Driver getSelected() {
+		return selected;
+	}
 
+
+	public void setSelected(Driver selected) {
+		this.selected = selected;
+	}
+
+	public LinkedList<WorkSchedule> getwS() {
+		return wS;
+	}
+
+	public void setwS(LinkedList<WorkSchedule> wS) {
+		this.wS = wS;
+	}
+
+	public void setDepotName(String depotName) {
+		this.depotName = depotName;
+	}
+
+	public void setListVehicle(LinkedList<Vehicle> listVehicle) {
+		this.listVehicle = listVehicle;
 	}
 }
