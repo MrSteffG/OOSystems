@@ -45,7 +45,7 @@ public class Vehicle {
 	public String getMake() {
 			return make;
 	}
-	public void setUpWS(WorkSchedule ws){
+	public void setWorkSchedule(WorkSchedule ws){
 		wsList.add(ws);	
 	}
 	

@@ -3,7 +3,7 @@ package depotClasses;
 import java.util.LinkedList;
 
 public class Truck extends Vehicle {
-	private String type;
+	private int cargoCapacity;
 
 	/**
 	 * Constructs a truck vehicle type consisting of registration number, model, make, work schedule, weight, job state and cargo type.
@@ -15,13 +15,17 @@ public class Truck extends Vehicle {
 	 * @param jobState the job state of this vehicle.
 	 * @param type the type of cargo this vehicle holds
 	 */
-	public Truck(String regNo, String model, String make, LinkedList<WorkSchedule> wsList, int weight, String jobState,
-			String type) {
+	public Truck(String regNo, String model, String make, LinkedList<WorkSchedule> wsList, int weight, int cargoCapacity ) {
 		super(regNo, model, make, wsList);
+		this.cargoCapacity=cargoCapacity;
 	}
 	
-	public String getType() {
-		return type;
+	public int getCargoCapacity() {
+		return cargoCapacity;
 	}
+	public void setCargoCapactiy(int capacity){
+		cargoCapacity= capacity;
+	}
+	 
 
 }

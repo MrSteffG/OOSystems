@@ -10,6 +10,8 @@ import depotClasses.Archive;
 import depotClasses.Depot;
 import depotClasses.Driver;
 import depotClasses.Manager;
+import depotClasses.Tanker;
+import depotClasses.Truck;
 import depotClasses.Vehicle;
 import depotClasses.WorkSchedule;
 
@@ -36,10 +38,10 @@ public class Sys implements Runnable {
 		liverpoolDriver.add(new Driver("Pete.Wilson", "Cows1", buildDriverWS("Pete.Wilson")));
 		liverpoolDriver.add(new Manager("Dan.McCabe", "mongoose2", buildDriverWS("Dan.McCabe")));
 
-		liverpoolVehicle.add(new Vehicle("CS1457", "DAYCAB", "WHALEBODY", buildVWS("CS1457")));
-		liverpoolVehicle.add(new Vehicle("CS1458", "VOLVO", "FM7290", buildVWS("CS1458")));
-		liverpoolVehicle.add(new Vehicle("CS1451", "Merce;des-Benz", "Actros", buildVWS("CS1451")));
-		liverpoolVehicle.add(new Vehicle("CS1452", "Iveco", "PowerStar420E5", buildVWS("CS14521")));
+		liverpoolVehicle.add(new Tanker("CS1457", "DAYCAB", "WHALEBODY", buildVWS("CS1457"), 700,1900,"Soy Sauce"));
+		liverpoolVehicle.add(new Tanker("CS1458", "VOLVO", "FM7290", buildVWS("CS1458"), 500,700,"Sunflower Oil"));
+		liverpoolVehicle.add(new Truck("CS1451", "Merce;des-Benz", "Actros", buildVWS("CS1451"), 420, 790));
+		liverpoolVehicle.add(new Truck("CS1452", "Iveco", "PowerStar420E5", buildVWS("CS14521"), 600, 1005));
 		Depot liverpool = new Depot(name, liverpoolDriver, liverpoolVehicle, buildDWS(name));
 
 		LinkedList<Vehicle> manchesterVehicle = new LinkedList<Vehicle>();
@@ -50,10 +52,10 @@ public class Sys implements Runnable {
 		manchesterDriver.add(new Driver("Ruairi.Irvine", "notsouthern4", buildDriverWS("Ruairi.Irvine")));
 		manchesterDriver.add(new Driver("Mark.Keenan", "not93", buildDriverWS("Mark.Keenan")));
 
-		manchesterVehicle.add(new Vehicle("CS1459", "Tankerman", "Tankomatic5000", buildVWS("CS1459")));
-		manchesterVehicle.add(new Vehicle("CS1460", "Tankerman", "Tankotron4", buildVWS("CS1460")));
-		manchesterVehicle.add(new Vehicle("CS1453", "Tata", "Prima", buildVWS("CS1453")));
-		manchesterVehicle.add(new Vehicle("CS1454", "Foton", "Auman", buildVWS("CS1454")));
+		manchesterVehicle.add(new Tanker("CS1459", "Tankerman", "Tankomatic5000", buildVWS("CS1459"), 680,800, "Crude Oil"));
+		manchesterVehicle.add(new Tanker("CS1460", "Tankerman", "Tankotron4", buildVWS("CS1460"),900, 1600, "milk"));
+		manchesterVehicle.add(new Truck("CS1453", "Tata", "Prima", buildVWS("CS1453"), 390, 700));
+		manchesterVehicle.add(new Truck("CS1454", "Foton", "Auman", buildVWS("CS1454"), 590, 1000));
 		Depot manchester = new Depot(name, manchesterDriver, manchesterVehicle, buildDWS(name));
 
 		LinkedList<Vehicle> birminghamVehicle = new LinkedList<Vehicle>();
@@ -64,10 +66,10 @@ public class Sys implements Runnable {
 		birminghamDriver.add(new Driver("Karl.Fitzgerald", "myname39", buildDriverWS("Karl.Fitzgerald")));
 		birminghamDriver.add(new Driver("Stefarno.Gorn", "sp4repart", buildDriverWS("Stefarno.Gorn")));
 
-		birminghamVehicle.add(new Vehicle("CS1461", "Tankerman", "Wetdrive", buildVWS("CS1461")));
-		birminghamVehicle.add(new Vehicle("CS1576", "Tankerman", "moistroller", buildVWS("CS1576")));
-		birminghamVehicle.add(new Vehicle("CS1455", "Hyundai", "Xcient", buildVWS("CS1455")));
-		birminghamVehicle.add(new Vehicle("CS1456", "Volvo", "VN780", buildVWS("CS1456")));
+		birminghamVehicle.add(new Tanker("CS1461", "Tankerman", "Wetdrive", buildVWS("CS1461"), 600, 900, "Wet"));
+		birminghamVehicle.add(new Tanker("CS1576", "Tankerman", "moistroller", buildVWS("CS1576"), 700, 1500, "Lubricating Gel"));
+		birminghamVehicle.add(new Truck("CS1455", "Hyundai", "Xcient", buildVWS("CS1455"), 700, 800));
+		birminghamVehicle.add(new Truck("CS1456", "Volvo", "VN780", buildVWS("CS1456"), 370, 900));
 		Depot birmingham = new Depot(name, birminghamDriver, birminghamVehicle, buildDWS(name));
 
 		depotArray.add(liverpool);
@@ -364,7 +366,7 @@ do{
 				String client=sc.next();
 				WorkSchedule createdWS=depot.setupWorkSchedule(depot.getDepotName(), client, start, end, vehicle.getRegNo(),driver.getUserName(), "pending");
 				driver.setWorkSchedule(createdWS);
-				vehicle.setUpWS(createdWS);
+				vehicle.setWorkSchedule(createdWS);
 				System.out.printf("\n created");
 			}
 		}
