@@ -247,9 +247,9 @@ do{
 		do {
 			System.out.printf("\nManager Menu:");
 			System.out.printf("\n1- View Work Schedule");
-			System.out.printf("\n2- Create work Schedules");
+			System.out.printf("\n2- Create Work Schedules");
 			System.out.printf("\n3- Reassign Vehicle");
-			System.out.printf("\n4- check Vehicle");
+			System.out.printf("\n4- Check Vehicle");
 			System.out.printf("\n5- Sign Out");
 			System.out.printf("\nQ- Quit");
 			System.out.printf("\nPick:");
@@ -338,37 +338,54 @@ do{
 			String end = sc.next();
 			LocalDate endDate = LocalDate.parse(end, formatter);
 			if (endDate.isAfter(startDate)) {
+				//Prints list of available vehicles
 				System.out.println("Available Vehicles:");
 				LinkedList<Vehicle> checkV = depot.getArrayVehicle();
-
 				for (Vehicle currentVehicle : checkV) {
 					currentVehicle.isAvailble(startDate, endDate);
 					System.out.println(currentVehicle.getinfo());
 				}
+				
 				System.out.println("Please select a vehicle (Reg No)");
 				String selectedV = sc.next();
 				vehicle=depot.getVehicle(selectedV);
-				System.out.print(vehicle.getRegNo());
-
+				if (vehicle != null) {
+					
+				}	else {
+					System.out.println("That vehicle doesn't exist, please enter another vehicle:");
+					selectedV = sc.next();
+					vehicle=depot.getVehicle(selectedV);
+				}
+				//Prints list of available drivers
 				System.out.println("Available Drivers:");
 				LinkedList<Driver> checkD = depot.getArrayDriver();
 				for (Driver currentDriver : checkD) {
 					currentDriver.isAvailble(startDate, endDate);
 					System.out.println(currentDriver.getUserName());
 				}
+				
 				System.out.println("Please select a driver (Username)");
 				String selectedD = sc.next();
 				driver=depot.getDriver(selectedD);
-				System.out.print(driver.getUserName());
+				if (driver != null) {
+					
+				}	else {
+					System.out.println("That driver doesn't exist, please enter another driver:");
+					selectedD = sc.next();
+					vehicle=depot.getVehicle(selectedD);
+				}
+
 				System.out.println("Please enter the clients Name");
 				String client=sc.next();
 				WorkSchedule createdWS=depot.setupWorkSchedule(depot.getDepotName(), client, start, end, vehicle.getRegNo(),driver.getUserName(), "pending");
 				driver.setWorkSchedule(createdWS);
 				vehicle.setUpWS(createdWS);
-				System.out.printf("\n created");
+				System.out.println("Work Schedule created:");
+				System.out.println(createdWS);
 			}
 		}
 	}
+	
 
 	public String checkVehicle() {
 		System.out.print("regNo");
