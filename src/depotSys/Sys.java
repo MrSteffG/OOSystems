@@ -251,7 +251,7 @@ public class Sys implements Runnable {
 			System.out.printf("\n2- Create Work Schedules");
 			System.out.printf("\n3- Reassign Vehicle");
 			System.out.printf("\n4- Check Vehicle");
-			System.out.printf("\n5- add Vehcile");
+			System.out.printf("\n5- add Vehicle");
 			System.out.printf("\n6- add Driver");
 			System.out.printf("\n7- Sign Out");
 			System.out.printf("\nQ- Quit");
@@ -307,7 +307,7 @@ public class Sys implements Runnable {
 	}
 
 	private void addVehicle() {
-		System.out.print("please eneter Vehicle registration");
+		System.out.print("please enter Vehicle registration");
 		String regNo = sc.next();
 		System.out.print("Please enter vehicle Make");
 		String make = sc.next();
