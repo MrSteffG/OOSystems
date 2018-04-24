@@ -9,7 +9,7 @@ public class Archive implements Runnable {
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
 	private LinkedList<WorkSchedule> workList;
 
-	public Archive(LinkedList<WorkSchedule> workList){
+	public Archive(LinkedList<WorkSchedule> workList) {
 		for (WorkSchedule currentWS : workList) {
 			String start = currentWS.getStartDate();
 			String end = currentWS.getEndDate();
@@ -27,22 +27,18 @@ public class Archive implements Runnable {
 				if (endD.isAfter(LocalDate.now())) {
 					currentWS.setState("Active");
 				}
-			}
-
-			System.out.print("Archiver has a done summink");
-
-			try {
-				Thread.sleep(30000);
-			} catch (Exception e) {
-			}
+			}	
+		}
+		
+		System.out.print("\nArchiving complete");
+		try {
+			Thread.sleep(300000);
+		} catch (Exception e) {
 		}
 	}
 
-
 	@Override
 	public void run() {
-		
-		
-	}} 
 
-
+	}
+}

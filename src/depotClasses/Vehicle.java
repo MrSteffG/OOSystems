@@ -43,16 +43,23 @@ public class Vehicle {
 	}
 		
 	public String getMake() {
+
 			return make;
 	}
+	
+	public LinkedList<WorkSchedule> getWsList() {
+
+		return wsList;
+	}
+		
+	public void setRegNo(){
+		
+	}
+	
 	public void setWorkSchedule(WorkSchedule ws){
 		wsList.add(ws);	
 	}
 	
-	public LinkedList<WorkSchedule> getWsList() {
-		return wsList;
-	}
-		
 	public String getinfo(){
 		return ("Registration Number:" + regNo + " Make:"+ make + " Model:" + model);
 	}
