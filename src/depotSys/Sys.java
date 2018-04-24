@@ -274,16 +274,17 @@ public class Sys implements Runnable {
 				break;
 			case "3": {
 				moveVehicle();
-				break;
+				
 			}
+			break;
 			case "4": {
 				checkVehicle();
 			}
-			break;
+				break;
 			case "5": {
 				addVehicle();
 			}
-			break;
+				break;
 			case "6": {
 				addDriver();
 			}
@@ -410,50 +411,48 @@ public class Sys implements Runnable {
 				vehicle = depot.getVehicle(selectedV);
 				if (vehicle != null) {
 					// Prints list of available drivers
-					
 
-				System.out.println("Available Drivers:");
-				LinkedList<Driver> checkD = depot.getListDriver();
-				for (Driver currentDriver : checkD) {
-					currentDriver.isAvailble(startDate, endDate);
-					System.out.println(currentDriver.getUserName());
-				}
+					System.out.println("Available Drivers:");
+					LinkedList<Driver> checkD = depot.getListDriver();
+					for (Driver currentDriver : checkD) {
+						currentDriver.isAvailble(startDate, endDate);
+						System.out.println(currentDriver.getUserName());
+					}
 
-				System.out.println("Please select a driver (Username)");
-				String selectedD = sc.next();
+					System.out.println("Please select a driver (Username)");
+					String selectedD = sc.next();
 
-				driver = depot.getDriver(selectedD);
-				if (driver != null) {
+					driver = depot.getDriver(selectedD);
+					if (driver != null) {
+
+					} else {
+						System.out.println("That driver doesn't exist, please enter another driver:");
+						selectedD = sc.next();
+						vehicle = depot.getVehicle(selectedD);
+					}
+
+					System.out.println("Please enter the clients Name");
+
+					String client = sc.next();
+					WorkSchedule createdWS = depot.setWorkSchedule(depot.getDepotName(), client, start, end,
+							vehicle.getRegNo(), driver.getUserName(), "pending");
+					driver.setWorkSchedule(createdWS);
+
+					vehicle.setWorkSchedule(createdWS);
+					System.out.println("Work Schedule created:");
+					System.out.println(createdWS);
 
 				} else {
-					System.out.println("That driver doesn't exist, please enter another driver:");
-					selectedD = sc.next();
-					vehicle = depot.getVehicle(selectedD);
+					System.out.print("That end date is before your start date! Please start over.");
+					managerMenu();
+
 				}
-
-				System.out.println("Please enter the clients Name");
-
-				String client = sc.next();
-				WorkSchedule createdWS = depot.setWorkSchedule(depot.getDepotName(), client, start, end,
-						vehicle.getRegNo(), driver.getUserName(), "pending");
-				driver.setWorkSchedule(createdWS);
-
-				vehicle.setWorkSchedule(createdWS);
-				System.out.println("Work Schedule created:");
-				System.out.println(createdWS);
-
 			} else {
-				System.out.print("That end date is before your start date! Please start over.");
-				managerMenu();
 
+				System.out.print("A job cannot be started in the next 48 hours");
 			}
-		} else {
-
-			System.out.print("A job cannot be started in the next 48 hours");
-		}
 		}
 
-		
 	}
 
 	public void checkVehicle() {
