@@ -47,7 +47,7 @@ public class Archive implements Runnable {
 		}
 		System.out.println("\n==============================\nArchiving Complete");
 		try {
-			Thread.sleep(30000);
+			Thread.sleep(60000);
 			} catch (Exception e) {
 
 	}

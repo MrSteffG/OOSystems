@@ -277,11 +277,13 @@ public class Sys implements Runnable {
 				break;
 			}
 			case "4": {
-				System.out.print(checkVehicle());
+				checkVehicle();
 			}
+			break;
 			case "5": {
 				addVehicle();
 			}
+			break;
 			case "6": {
 				addDriver();
 			}
@@ -454,13 +456,13 @@ public class Sys implements Runnable {
 		
 	}
 
-	public String checkVehicle() {
+	public void checkVehicle() {
 		System.out.print("regNo");
 		String regNo = sc.next();
 		if (depot.getVehicle(regNo) != null) {
-			return "its still there";
+			System.out.printf("\nIt belongs to us");
 		} else
-			return "No Vehicle of that registration found";
+			System.out.printf("No Vehicle of that registration found");
 	}
 
 	public LinkedList<WorkSchedule> buildDriverWS(String name) { // for building
