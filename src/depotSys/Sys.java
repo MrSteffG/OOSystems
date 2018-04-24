@@ -129,8 +129,8 @@ public class Sys implements Runnable {
 				"Pending"));
 		workList.add(new WorkSchedule("manchester", "RuairiCorp", "04-05-2018", "05-05-2018", "CS1459", "Stefarno.Gorn",
 				"Pending"));
-		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "06-05-2018", "08-05-2018", "CS1461",
-				"Milo.McAleny", "Pending"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "06-05-2018", "08-05-2018", "CS1461", "Milo.McAleny",
+				"Pending"));
 
 		return workList;
 	}
@@ -141,12 +141,6 @@ public class Sys implements Runnable {
 			buildDepots();
 			Archive archive = new Archive(workList);
 			Thread t1 = new Thread(archive);
-			/*
-			 * Runnable r= new Archive(workList); Thread t1= new Thread(r);
-			 * Runnable r2=new Sys(); Thread t2= new Thread(r2);
-			 * 
-			 * t2.run();
-			 */
 			t1.start();
 			i++;
 		}
@@ -206,10 +200,9 @@ public class Sys implements Runnable {
 			} else
 				System.out.print("sorry no user matches those parameters");
 
+			System.out.print("sorry no user matches those parameters");
+
 		} while (!menuNav.equals("Q"));
-		/*
-		 * try { Thread.sleep(3000); } catch (Exception e) { }
-		 */
 	}
 
 	private Depot getDepot() {
@@ -260,8 +253,7 @@ public class Sys implements Runnable {
 			System.out.printf("\n2- Create Work Schedules");
 			System.out.printf("\n3- Reassign Vehicle");
 			System.out.printf("\n4- Check Vehicle");
-			System.out.printf("\n5- Add Vehicle");
-			System.out.printf("\n6- Sign Out");
+			System.out.printf("\n5- Sign Out");
 			System.out.printf("\nQ- Quit");
 			System.out.printf("\nPick:");
 
@@ -289,10 +281,6 @@ public class Sys implements Runnable {
 			}
 				break;
 			case "5": {
-				addVehicle();
-			}
-				break;
-			case "6": {
 				System.out.printf("\nSigning out...");
 				run();
 
@@ -308,34 +296,6 @@ public class Sys implements Runnable {
 		} while (!menuNav.equals("Q"));
 	}
 
-	private void addVehicle() {
-		System.out.print("please eneter Vehcile registration");
-		String regNo = sc.next();
-		System.out.print("Please enter vehicle Make");
-		String make = sc.next();
-		System.out.print("Please enter vehicle Model");
-		String model = sc.next();
-		System.out.print("Please enter vehicle Weight(Kg)");
-		int weight = Integer.parseInt(sc.next());
-		System.out.print("Please enter if vehicle is a truck or a tanker");
-		String type = sc.next().toUpperCase();
-
-		if (type.equals("TRUCK")) {
-			System.out.print("Please enter vehicle Cargo Capacity(Kg");
-
-		}
-		if (type.equals("TANKER")) {
-			System.out.print("Please enter vehicles Liquid Capacity");
-			Integer lC = Integer.parseInt(sc.next());
-			System.out.print("Please enter the name of the type of liquid the vehicle carries");
-			String liquid = sc.next();
-			Tanker add = new Tanker(regNo, make, model, null, weight, lC, liquid);
-			depot.setListVehicle(add);
-
-		}
-
-	}
-
 	public void moveVehicle() {
 		System.out.println("Available Vehicles:");
 		LinkedList<Vehicle> checkV = depot.getListVehicle();
@@ -349,11 +309,9 @@ public class Sys implements Runnable {
 			if (currentSchedule.getregNo().equals(regNo)) {
 				if (!currentSchedule.getState().equals("Archived")) {
 
-					System.out.print(
-							"\n sorry but that vehicle has Active or upcoming work and cannot be moved right now");
+					System.out.print("\n sorry but that vehicle has Active or upcoming work and cannot be moved right now");
 					managerMenu();
 				}
-
 			} else {
 				if (depot.getVehicle(regNo) != null) {
 					vehicle = depot.getVehicle(regNo);
@@ -367,8 +325,7 @@ public class Sys implements Runnable {
 					getDepot();
 					System.out.print("Vehicle moved!");
 				}
-			}
-
+			}	
 		}
 	}
 
@@ -391,60 +348,96 @@ public class Sys implements Runnable {
 			String end = sc.next();
 			LocalDate endDate = LocalDate.parse(end, formatter);
 			if (endDate.isAfter(startDate)) {
-				// Prints list of available vehicles
+				//Prints list of available vehicles
 				System.out.println("Available Vehicles:");
 				LinkedList<Vehicle> checkV = depot.getListVehicle();
 				for (Vehicle currentVehicle : checkV) {
 					currentVehicle.isAvailble(startDate, endDate);
 					System.out.println(currentVehicle.getinfo());
 				}
-
+				
 				System.out.println("Please select a vehicle (Reg No)");
 				String selectedV = sc.next();
 
 				vehicle = depot.getVehicle(selectedV);
 				System.out.print(vehicle.getRegNo());
 
-				vehicle = depot.getVehicle(selectedV);
+				vehicle=depot.getVehicle(selectedV);
 				if (vehicle != null) {
-					// Prints list of available drivers
+					//Prints list of available drivers
 					System.out.println("Available Drivers:");
 					LinkedList<Driver> checkD = depot.getListDriver();
 					for (Driver currentDriver : checkD) {
 						currentDriver.isAvailble(startDate, endDate);
 						System.out.println(currentDriver.getUserName());
-						System.out.println("Please select a driver (Username)");
-						String selectedD = sc.next();
-						driver = depot.getDriver(selectedD);
-						if (driver != null) {
-							System.out.println("Please enter the clients Name");
-							String client = sc.next();
-							WorkSchedule createdWS = depot.setWorkSchedule(depot.getDepotName(), client, start, end,
-									vehicle.getRegNo(), driver.getUserName(), "pending");
-							driver.setWorkSchedule(createdWS);
-							vehicle.setWorkSchedule(createdWS);
-							System.out.println("Work Schedule created:");
-							System.out.println(createdWS);
-						}
+					}
+					
+					System.out.println("Please select a driver (Username)");
+					String selectedD = sc.next();
+					driver=depot.getDriver(selectedD);
+					if (driver != null) {
+						System.out.println("Please enter the clients Name");
+						String client=sc.next();
+						WorkSchedule createdWS=depot.setWorkSchedule(depot.getDepotName(), client, start, end, vehicle.getRegNo(),driver.getUserName(), "pending");
+						driver.setWorkSchedule(createdWS);
+						vehicle.setWorkSchedule(createdWS);
+						System.out.println("Work Schedule created:");
+						System.out.println(createdWS);	
+					}	else {
 						System.out.print("That driver doesn't exist! Please start over.");
 						managerMenu();
-
-					}
-				} else {
-
+					}			
+				}	else {
+					System.out.print("That Vehicle doesn't exist! Please start over.");
+					managerMenu();
 				}
-			} else
-				System.out.print("That Vehicle doesn't exist! Please start over.");
-			managerMenu();
-			{
+
+				//Prints list of available drivers
+
+				System.out.println("Available Drivers:");
+				LinkedList<Driver> checkD = depot.getListDriver();
+				for (Driver currentDriver : checkD) {
+					currentDriver.isAvailble(startDate, endDate);
+					System.out.println(currentDriver.getUserName());
+				}
+				
+				System.out.println("Please select a driver (Username)");
+				String selectedD = sc.next();
+
+				driver = depot.getDriver(selectedD);
+				System.out.print(driver.getUserName());
+
+				driver=depot.getDriver(selectedD);
+				if (driver != null) {
+					
+				}	else {
+					System.out.println("That driver doesn't exist, please enter another driver:");
+					selectedD = sc.next();
+					vehicle=depot.getVehicle(selectedD);
+				}
+
+
+				System.out.println("Please enter the clients Name");
+
+				String client=sc.next();
+				WorkSchedule createdWS=depot.setWorkSchedule(depot.getDepotName(), client, start, end, vehicle.getRegNo(),driver.getUserName(), "pending");
+				driver.setWorkSchedule(createdWS);
+
+				vehicle.setWorkSchedule(createdWS);
+				System.out.println("Work Schedule created:");
+				System.out.println(createdWS);
+
+			} 	else {
+				System.out.print("That end date is before your start date! Please start over.");
+				managerMenu();
 
 			}
-		} else {
+		}	else {
 			System.out.print("That start date is before today! Please start over.");
 			managerMenu();
 		}
 	}
-
+	
 	public String checkVehicle() {
 		System.out.print("regNo");
 		String regNo = sc.next();
