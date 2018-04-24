@@ -93,7 +93,8 @@ public class Depot {
 		listVehicle.add(vehicle);
 	}
 
-	public void setListDriver(LinkedList<Driver> listDriver) {
+	public void setListDriver(Driver driver) {
+		listDriver.add(driver);
 
 	}
 }
