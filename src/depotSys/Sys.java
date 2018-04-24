@@ -28,7 +28,7 @@ public class Sys implements Runnable {
 	Scanner sc = new Scanner(System.in);
 	String menuNav = " ";
 
-	public LinkedList<Depot> buildDepots() {
+	public LinkedList<Depot> buildDepots() {// building test data
 		depotArray = new LinkedList<Depot>();
 		LinkedList<Vehicle> liverpoolVehicle = new LinkedList<Vehicle>();
 		LinkedList<Driver> liverpoolDriver = new LinkedList<Driver>();
@@ -81,7 +81,7 @@ public class Sys implements Runnable {
 
 	}
 
-	public LinkedList<WorkSchedule> buildSchedules() {
+	public LinkedList<WorkSchedule> buildSchedules() {// building test data
 		workList = new LinkedList<WorkSchedule>();
 		workList.add(new WorkSchedule("liverpool", "Keenan Co", "05-04-2018", "07-04-2018", "CS1457", "Steve.Lovatt",
 				"Active"));
@@ -135,9 +135,9 @@ public class Sys implements Runnable {
 		return workList;
 	}
 
-	public synchronized void run() {
-		if (i == 0) {
-			workList = buildSchedules();
+	public synchronized void run() {// main menu
+		if (i == 0) {// builds schedules and depots only once when ran
+			buildSchedules();
 			buildDepots();
 			i++;
 		}
@@ -210,7 +210,8 @@ public class Sys implements Runnable {
 		return null;
 	}
 
-	public static LinkedList<Depot> getDepotList() {
+	public static LinkedList<Depot> getDepotList() {// Array of depots for login
+													// and archiving
 		return depotArray;
 	}
 
@@ -274,9 +275,9 @@ public class Sys implements Runnable {
 				break;
 			case "3": {
 				moveVehicle();
-				
+
 			}
-			break;
+				break;
 			case "4": {
 				checkVehicle();
 			}
@@ -318,14 +319,14 @@ public class Sys implements Runnable {
 		System.out.print("Please enter if vehicle is a truck or a tanker");
 		String type = sc.next().toUpperCase();
 
-		if (type.equals("TRUCK")) {
+		if (type.equals("TRUCK")) {// Differentiate between vehicle subclasses
 			System.out.print("Please enter vehicle Cargo Capacity(Kg");
 			Integer cC = Integer.parseInt(sc.next());
 			Truck add = new Truck(regNo, make, model, null, weight, cC);
 			depot.setListVehicle(add);
 
 		}
-		if (type.equals("TANKER")) {
+		if (type.equals("TANKER")) {// Differentiate between vehicle subclasses
 			System.out.print("Please enter vehicles Liquid Capacity");
 			Integer lC = Integer.parseInt(sc.next());
 			System.out.print("Please enter the name of the type of liquid the vehicle carries");
@@ -337,7 +338,7 @@ public class Sys implements Runnable {
 
 	}
 
-	public void addDriver() {
+	public void addDriver() {// creates new driver and adds it to active depot
 		System.out.print("please eneter userName");
 		String name = sc.next();
 		System.out.print("Please enter password");
@@ -363,7 +364,7 @@ public class Sys implements Runnable {
 		if (depot.getVehicle(regNo) != null) {
 			vehicle = depot.getVehicle(regNo);
 			System.out.print("please select a depot to move this vehicle to:");
-			String oldDepot = depotChoice;
+			String oldDepot = depotChoice; // store previous depot
 			depot.getListVehicle().remove(vehicle);
 			depotChoice = sc.next();
 			getDepot();
@@ -385,45 +386,47 @@ public class Sys implements Runnable {
 		}
 	}
 
-	public void createWS() {
+	public void createWS() {// creates a new Work schedule for driver,
 		System.out.println("Please enter the start date (DD-MM-YYYY)");
 		String start = sc.next();
-		LocalDate startDate = LocalDate.parse(start, formatter);
-		if (startDate.isAfter(LocalDate.now().plusDays(2))) {
+		LocalDate startDate = LocalDate.parse(start, formatter);//parses input String to LocalDate
+		if (startDate.isAfter(LocalDate.now().plusDays(2))) {//job can't be started in next 48 hours from now
 			System.out.println("Please enter the end date (DD-MM-YYYY)");
 			String end = sc.next();
 			LocalDate endDate = LocalDate.parse(end, formatter);
-			if (endDate.isAfter(startDate)) {
-				// Prints list of available vehicles
+			if (endDate.isAfter(startDate)) {//ensures start date is before end date
+
 				System.out.println("Available Vehicles:");
 				LinkedList<Vehicle> checkV = depot.getListVehicle();
 				for (Vehicle currentVehicle : checkV) {
 					currentVehicle.isAvailble(startDate, endDate);
 					System.out.println(currentVehicle.getinfo());
+					// Prints list of available vehicles
 				}
 
 				System.out.println("Please select a vehicle (Reg No)");
 				String selectedV = sc.next();
 
 				vehicle = depot.getVehicle(selectedV);
-				System.out.print(vehicle.getRegNo());
 
-				vehicle = depot.getVehicle(selectedV);
-				if (vehicle != null) {
-					// Prints list of available drivers
+				if (vehicle != null) {// checks vehicle exists in depot
 
 					System.out.println("Available Drivers:");
 					LinkedList<Driver> checkD = depot.getListDriver();
 					for (Driver currentDriver : checkD) {
 						currentDriver.isAvailble(startDate, endDate);
-						System.out.println(currentDriver.getUserName());
+						System.out.println(currentDriver.getUserName());// Prints
+																		// list
+																		// of
+																		// available
+																		// drivers
 					}
 
 					System.out.println("Please select a driver (Username)");
 					String selectedD = sc.next();
 
 					driver = depot.getDriver(selectedD);
-					if (driver != null) {
+					if (driver != null) {// checks driver exists in depot
 
 					} else {
 						System.out.println("That driver doesn't exist, please enter another driver:");
@@ -443,11 +446,11 @@ public class Sys implements Runnable {
 					System.out.println(createdWS);
 
 				} else {
-					System.out.print("That end date is before your start date! Please start over.");
-					managerMenu();
 
 				}
-			} else {
+			}
+			System.out.print("That end date is before your start date! Please start over.");
+			{
 
 				System.out.print("A job cannot be started in the next 48 hours");
 			}
@@ -455,7 +458,8 @@ public class Sys implements Runnable {
 
 	}
 
-	public void checkVehicle() {
+	public void checkVehicle() {// mostly for test. Checks is vehicle by regNo
+								// is present at active depot
 		System.out.print("regNo");
 		String regNo = sc.next();
 		if (depot.getVehicle(regNo) != null) {
