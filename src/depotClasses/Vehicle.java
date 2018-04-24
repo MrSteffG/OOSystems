@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.Locale;
 
-public class Vehicle {
+public abstract class Vehicle {
 	private String regNo;
 	private String model;
 	private String make;

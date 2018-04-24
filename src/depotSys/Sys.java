@@ -322,6 +322,10 @@ public class Sys implements Runnable {
 
 		if (type.equals("TRUCK")) {
 			System.out.print("Please enter vehicle Cargo Capacity(Kg");
+			Integer cC = Integer.parseInt(sc.next());
+			Truck add = new Truck(regNo, make, model, null, weight, cC);
+			depot.setListVehicle(add);
+
 
 		}
 		if (type.equals("TANKER")) {
@@ -345,7 +349,7 @@ public class Sys implements Runnable {
 		}
 		System.out.println("\nplease enter the registration of the vehicle you wish to move:");
 		String regNo = sc.next();
-		for (WorkSchedule currentSchedule : workList) {
+		for (WorkSchedule currentSchedule : vehicle.getWsList()) {
 			if (currentSchedule.getregNo().equals(regNo)) {
 				if (!currentSchedule.getState().equals("Archived")) {
 
@@ -451,7 +455,7 @@ public class Sys implements Runnable {
 		if (depot.getVehicle(regNo) != null) {
 			return "its still there";
 		} else
-			return "its gone";
+			return "No Vehicle of that registration found";
 	}
 
 	public LinkedList<WorkSchedule> buildDriverWS(String name) { // for building
