@@ -37,7 +37,7 @@ public abstract class Vehicle {
 	public String getRegNo() {
 		return regNo;
 	}
-	
+		
 	public String getModel() {
 			return model;		
 	}
@@ -51,31 +51,43 @@ public abstract class Vehicle {
 
 		return wsList;
 	}
-		
-	public void setRegNo(){	
-	}
-	public boolean moveable(){
-		int i=0;
-		for(WorkSchedule currentWS: wsList){
-			if(currentWS.getState().equals("Active")){
-				i++;
-			}
-			if(currentWS.getState().equals("Pending")){
-				i++;
-			}
-			
-			
-		} if(i==0){return true;}else return false;
+	
+	public String getJobState() {
+		return jobState;
 	}
 	
-	public void setWorkSchedule(WorkSchedule ws){
-		wsList.add(ws);	
+	public int getWeight() {
+		return weight;
 	}
 	
 	public String getinfo(){
 		return ("Registration Number:" + regNo + " Make:"+ make + " Model:" + model);
 	}
 
+	public void setJobState(String jobState) {
+		this.jobState = jobState;
+	}
+
+	public void setRegNo(String regNo) {
+		this.regNo = regNo;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public void setMake(String make) {
+		this.make = make;
+	}
+	
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+			
+	public void setWorkSchedule(WorkSchedule ws){
+		wsList.add(ws);	
+	}
+	
 	public boolean isAvailble(LocalDate newSD, LocalDate newED) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
 		for (WorkSchedule currentWS : wsList) {
@@ -104,4 +116,19 @@ public abstract class Vehicle {
 		return false;
 	}
 
+
+
+	public boolean moveable(){
+		int i=0;
+		for(WorkSchedule currentWS: wsList){
+			if(currentWS.getState().equals("Active")){
+				i++;
+			}
+			if(currentWS.getState().equals("Pending")){
+				i++;
+			}
+			
+			
+		} if(i==0){return true;}else return false;
+	}
 }

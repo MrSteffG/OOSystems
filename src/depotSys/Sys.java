@@ -294,7 +294,7 @@ public class Sys implements Runnable {
 	}
 
 	private void addVehicle() {
-		System.out.print("please eneter Vehcile registration");
+		System.out.print("please eneter Vehicle registration");
 		String regNo = sc.next();
 		System.out.print("Please enter vehicle Make");
 		String make = sc.next();
@@ -359,8 +359,6 @@ public class Sys implements Runnable {
 			}
 		}
 	}
-
-
 
 	public void viewWS() {
 		for (WorkSchedule currentSchedule : depot.getWS()) {

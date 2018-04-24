@@ -33,18 +33,26 @@ public class Driver {
 	public String getUserName() {
 		return userName;
 	}
-	public void setWorkSchedule(WorkSchedule ws){
-		wsList.add(ws);
+	
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
 	public String getPassword() {
 		return password;
 	}
 	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	public LinkedList<WorkSchedule> getWorkSchedule() {
 		return wsList;
 	}
 	
+	public void setWorkSchedule(WorkSchedule ws){
+		wsList.add(ws);
+	}
 
 	public boolean isAvailble(LocalDate newSD, LocalDate newED) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
