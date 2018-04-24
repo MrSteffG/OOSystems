@@ -132,6 +132,8 @@ public class Sys implements Runnable {
 
 		return workList;
 	}
+	
+
 
 	public void run() {
 		if (i == 0) {
@@ -310,10 +312,10 @@ do{
 				vehicle = depot.getVehicle(regNo);
 				System.out.print("please select a depot to move this vehicle to");
 				String oldDepot = depotChoice;
-				depot.getArrayVehicle().remove(vehicle);
+				depot.getListVehicle().remove(vehicle);
 				depotChoice = sc.next();
 				getDepot();
-				depot.getArrayVehicle().add(vehicle);
+				depot.getListVehicle().add(vehicle);
 				depotChoice = oldDepot;
 				getDepot();
 				System.out.print("Vehicle moved");
@@ -341,7 +343,7 @@ do{
 			LocalDate endDate = LocalDate.parse(end, formatter);
 			if (endDate.isAfter(startDate)) {
 				System.out.println("Available Vehicles:");
-				LinkedList<Vehicle> checkV = depot.getArrayVehicle();
+				LinkedList<Vehicle> checkV = depot.getListVehicle();
 
 				for (Vehicle currentVehicle : checkV) {
 					currentVehicle.isAvailble(startDate, endDate);
@@ -353,7 +355,7 @@ do{
 				System.out.print(vehicle.getRegNo());
 
 				System.out.println("Available Drivers:");
-				LinkedList<Driver> checkD = depot.getArrayDriver();
+				LinkedList<Driver> checkD = depot.getListDriver();
 				for (Driver currentDriver : checkD) {
 					currentDriver.isAvailble(startDate, endDate);
 					System.out.println(currentDriver.getUserName());
@@ -364,7 +366,7 @@ do{
 				System.out.print(driver.getUserName());
 				System.out.println("Please enter the clients Name");
 				String client=sc.next();
-				WorkSchedule createdWS=depot.setupWorkSchedule(depot.getDepotName(), client, start, end, vehicle.getRegNo(),driver.getUserName(), "pending");
+				WorkSchedule createdWS=depot.setWorkSchedule(depot.getDepotName(), client, start, end, vehicle.getRegNo(),driver.getUserName(), "pending");
 				driver.setWorkSchedule(createdWS);
 				vehicle.setWorkSchedule(createdWS);
 				System.out.printf("\n created");
