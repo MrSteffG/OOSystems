@@ -17,20 +17,23 @@ public class Archive implements Runnable {
 			LocalDate endD = LocalDate.parse(end, formatter);
 			if (endD.isBefore(LocalDate.now())) {
 				currentWS.setState("Archived");
+				System.out.println(currentWS + " Has been set to Archived.");
 				break;
 			}
 			if (startD.isAfter(LocalDate.now())) {
 				currentWS.setState("Pending");
+				System.out.println(currentWS + " Has been set to Pending.");
 				break;
 			}
 			if (startD.isBefore(LocalDate.now())) {
 				if (endD.isAfter(LocalDate.now())) {
 					currentWS.setState("Active");
+					System.out.println(currentWS + " Has been set to Active.");
 				}
 			}	
 		}
 		
-		System.out.print("\nArchiving complete");
+		System.out.println("Archiving Complete");
 		try {
 			Thread.sleep(3000);
 		} catch (Exception e) {

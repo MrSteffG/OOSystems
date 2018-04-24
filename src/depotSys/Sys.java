@@ -129,8 +129,8 @@ public class Sys implements Runnable {
 				"Pending"));
 		workList.add(new WorkSchedule("manchester", "RuairiCorp", "04-05-2018", "05-05-2018", "CS1459", "Stefarno.Gorn",
 				"Pending"));
-		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "06-05-2018", "08-05-2018", "CS1461", "Milo",
-				"Pending"));
+		workList.add(new WorkSchedule("birmingham", "DuncalfDougnuts", "06-05-2018", "08-05-2018", "CS1461",
+				"Milo.McAleny", "Pending"));
 
 		return workList;
 	}
@@ -141,12 +141,12 @@ public class Sys implements Runnable {
 			buildDepots();
 			Archive archive = new Archive(workList);
 			Thread t1 = new Thread(archive);
-		/*	Runnable r= new Archive(workList);
-			Thread t1= new Thread(r);
-			Runnable r2=new Sys();
-			Thread t2= new Thread(r2);
-			
-			t2.run();*/
+			/*
+			 * Runnable r= new Archive(workList); Thread t1= new Thread(r);
+			 * Runnable r2=new Sys(); Thread t2= new Thread(r2);
+			 * 
+			 * t2.run();
+			 */
 			t1.start();
 			i++;
 		}
@@ -207,11 +207,10 @@ public class Sys implements Runnable {
 				System.out.print("sorry no user matches those parameters");
 
 		} while (!menuNav.equals("Q"));
-	/*try {
-		Thread.sleep(3000);
-	} catch (Exception e) {
-	}*/
-}
+		/*
+		 * try { Thread.sleep(3000); } catch (Exception e) { }
+		 */
+	}
 
 	private Depot getDepot() {
 		for (Depot currentDepot : depotArray) {
@@ -288,9 +287,8 @@ public class Sys implements Runnable {
 			case "4": {
 				System.out.print(checkVehicle());
 			}
-			break;
-			case"5":
-			{
+				break;
+			case "5": {
 				addVehicle();
 			}
 				break;
@@ -312,57 +310,65 @@ public class Sys implements Runnable {
 
 	private void addVehicle() {
 		System.out.print("please eneter Vehcile registration");
-		String regNo=sc.next();
+		String regNo = sc.next();
 		System.out.print("Please enter vehicle Make");
-		String make=sc.next();
+		String make = sc.next();
 		System.out.print("Please enter vehicle Model");
-		String model=sc.next();
+		String model = sc.next();
 		System.out.print("Please enter vehicle Weight(Kg)");
-		int weight=Integer.parseInt(sc.next());
+		int weight = Integer.parseInt(sc.next());
 		System.out.print("Please enter if vehicle is a truck or a tanker");
-		String type=sc.next().toUpperCase();
-		
-		if (type.equals("TRUCK")){
+		String type = sc.next().toUpperCase();
+
+		if (type.equals("TRUCK")) {
 			System.out.print("Please enter vehicle Cargo Capacity(Kg");
-			
+
 		}
-		if (type.equals("TANKER")){
+		if (type.equals("TANKER")) {
 			System.out.print("Please enter vehicles Liquid Capacity");
-			Integer lC= Integer.parseInt(sc.next());
+			Integer lC = Integer.parseInt(sc.next());
 			System.out.print("Please enter the name of the type of liquid the vehicle carries");
-			String liquid =sc.next();
-			Tanker add= new Tanker(regNo, make, model, null, weight, lC, liquid);
+			String liquid = sc.next();
+			Tanker add = new Tanker(regNo, make, model, null, weight, lC, liquid);
 			depot.setListVehicle(add);
-			
+
 		}
-		
-		
+
 	}
 
 	public void moveVehicle() {
-		System.out.print("\nplease enter the registration of the vehicle you wish to move");
+		System.out.println("Available Vehicles:");
+		LinkedList<Vehicle> checkV = depot.getListVehicle();
+		for (Vehicle currentVehicle : checkV) {
+			currentVehicle.getinfo();
+			System.out.println(currentVehicle.getinfo());
+		}
+		System.out.println("\nplease enter the registration of the vehicle you wish to move:");
 		String regNo = sc.next();
 		for (WorkSchedule currentSchedule : workList) {
 			if (currentSchedule.getregNo().equals(regNo)) {
 				if (!currentSchedule.getState().equals("Archived")) {
+
 					System.out.print(
 							"\n sorry but that vehicle has Active or upcoming work and cannot be moved right now");
-					return;
+					managerMenu();
+				}
+
+			} else {
+				if (depot.getVehicle(regNo) != null) {
+					vehicle = depot.getVehicle(regNo);
+					System.out.print("please select a depot to move this vehicle to:");
+					String oldDepot = depotChoice;
+					depot.getListVehicle().remove(vehicle);
+					depotChoice = sc.next();
+					getDepot();
+					depot.getListVehicle().add(vehicle);
+					depotChoice = oldDepot;
+					getDepot();
+					System.out.print("Vehicle moved!");
 				}
 			}
 
-			if (depot.getVehicle(regNo) != null) {
-				vehicle = depot.getVehicle(regNo);
-				System.out.print("please select a depot to move this vehicle to");
-				String oldDepot = depotChoice;
-				depot.getListVehicle().remove(vehicle);
-				depotChoice = sc.next();
-				getDepot();
-				depot.getListVehicle().add(vehicle);
-				depotChoice = oldDepot;
-				getDepot();
-				System.out.print("Vehicle moved");
-			}
 		}
 	}
 
