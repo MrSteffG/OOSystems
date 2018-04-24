@@ -347,7 +347,6 @@ public class Sys implements Runnable {
 		for (WorkSchedule currentSchedule : vehicle.getWsList()) {
 			if (currentSchedule.getregNo().equals(regNo)) {
 				if (!currentSchedule.getState().equals("Archived")) {
-
 					System.out.print("\n sorry but that vehicle has Active or upcoming work and cannot be moved right now");
 					managerMenu();
 				}
