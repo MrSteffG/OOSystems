@@ -50,19 +50,49 @@ public class WorkSchedule {
 	public String getEndDate(){
 		return endDate;
 	}
-	public String getregNo(){
+	
+	public String getRegNo() {
 		return regNo;
 	}
+	
 	public String getDriver(){
 		return driver;
 	}
+	
 	public String getState(){
 		return state;
 	}
+	
 	public String toString(){
 		return client+" "+startDate+" "+endDate+" "+regNo;
 	}
+	
 	public void setState(String newState){
 		this.state=newState;
 	}
+
+	public void setRegNo(String regNo) {
+		this.regNo = regNo;
+	}
+
+	public void setDepot(String depot) {
+		this.depot = depot;
+	}
+
+	public void setClient(String client) {
+		this.client = client;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	public void setDriver(String driver) {
+		this.driver = driver;
+	}
 }
+

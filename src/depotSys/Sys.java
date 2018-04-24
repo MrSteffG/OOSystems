@@ -337,7 +337,7 @@ public class Sys implements Runnable {
 		System.out.println("\nplease enter the registration of the vehicle you wish to move:");
 		String regNo = sc.next();
 		for (WorkSchedule currentSchedule : vehicle.getWsList()) {
-			if (currentSchedule.getregNo().equals(regNo)) {
+			if (currentSchedule.getRegNo().equals(regNo)) {
 				if (!currentSchedule.getState().equals("Archived")) {
 					System.out.print(
 							"\n sorry but that vehicle has Active or upcoming work and cannot be moved right now");
@@ -497,7 +497,7 @@ public class Sys implements Runnable {
 															// vehicles WS
 		LinkedList<WorkSchedule> vList = new LinkedList<WorkSchedule>();
 		for (WorkSchedule currentSchedule : workList) {
-			if (currentSchedule.getregNo().equals(regNo)) {
+			if (currentSchedule.getRegNo().equals(regNo)) {
 				vList.add(currentSchedule);
 			}
 
