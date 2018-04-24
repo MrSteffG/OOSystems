@@ -306,8 +306,8 @@ do{
 					System.out.print("\n sorry but that vehicle has Active or upcoming work and cannot be moved right now");
 					return;
 				}
-
 			}
+			
 			if (depot.getVehicle(regNo) != null) {
 				vehicle = depot.getVehicle(regNo);
 				System.out.print("please select a depot to move this vehicle to");
@@ -354,39 +354,40 @@ do{
 				String selectedV = sc.next();
 				vehicle=depot.getVehicle(selectedV);
 				if (vehicle != null) {
+					//Prints list of available drivers
+					System.out.println("Available Drivers:");
+					LinkedList<Driver> checkD = depot.getListDriver();
+					for (Driver currentDriver : checkD) {
+						currentDriver.isAvailble(startDate, endDate);
+						System.out.println(currentDriver.getUserName());
+					}
 					
+					System.out.println("Please select a driver (Username)");
+					String selectedD = sc.next();
+					driver=depot.getDriver(selectedD);
+					if (driver != null) {
+						System.out.println("Please enter the clients Name");
+						String client=sc.next();
+						WorkSchedule createdWS=depot.setWorkSchedule(depot.getDepotName(), client, start, end, vehicle.getRegNo(),driver.getUserName(), "pending");
+						driver.setWorkSchedule(createdWS);
+						vehicle.setWorkSchedule(createdWS);
+						System.out.println("Work Schedule created:");
+						System.out.println(createdWS);	
+					}	else {
+						System.out.print("That driver doesn't exist! Please start over.");
+						managerMenu();
+					}			
 				}	else {
-					System.out.println("That vehicle doesn't exist, please enter another vehicle:");
-					selectedV = sc.next();
-					vehicle=depot.getVehicle(selectedV);
+					System.out.print("That Vehicle doesn't exist! Please start over.");
+					managerMenu();
 				}
-				//Prints list of available drivers
-				System.out.println("Available Drivers:");
-				LinkedList<Driver> checkD = depot.getListDriver();
-				for (Driver currentDriver : checkD) {
-					currentDriver.isAvailble(startDate, endDate);
-					System.out.println(currentDriver.getUserName());
-				}
-				
-				System.out.println("Please select a driver (Username)");
-				String selectedD = sc.next();
-				driver=depot.getDriver(selectedD);
-				if (driver != null) {
-					
-				}	else {
-					System.out.println("That driver doesn't exist, please enter another driver:");
-					selectedD = sc.next();
-					vehicle=depot.getVehicle(selectedD);
-				}
-
-				System.out.println("Please enter the clients Name");
-				String client=sc.next();
-				WorkSchedule createdWS=depot.setWorkSchedule(depot.getDepotName(), client, start, end, vehicle.getRegNo(),driver.getUserName(), "pending");
-				driver.setWorkSchedule(createdWS);
-				vehicle.setWorkSchedule(createdWS);
-				System.out.println("Work Schedule created:");
-				System.out.println(createdWS);
+			} 	else {
+				System.out.print("That end date is before your start date! Please start over.");
+				managerMenu();
 			}
+		}	else {
+			System.out.print("That start date is before today! Please start over.");
+			managerMenu();
 		}
 	}
 	
